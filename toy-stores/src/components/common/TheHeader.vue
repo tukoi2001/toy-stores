@@ -20,6 +20,6 @@ export default {
 }
 </script>
 
-<style scoped="@/assets/css/components/common/the-header.css">
+<style scoped src="@/assets/css/components/common/the-header.css">
 
 </style>
