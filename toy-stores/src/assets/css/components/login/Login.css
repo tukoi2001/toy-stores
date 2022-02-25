@@ -181,14 +181,23 @@ iframe {
 }
 /*//////////////////////////////////////////////////////////////////
   [ register ]*/
-label.custom-control-label {
-    position: relative;
-    line-height: 15px;
-    font-size: 14px;
-    font-weight: 400;
-    margin: 0;
+.custom-control.custom-checkbox.validate-input.pt-3 {
+    text-align: left;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
 }
 
+input#rememberMe-2 {
+    width: 15px;
+    height: 15px;
+    display: block;
+    margin-right: 10px;
+}
+
+.custom-control .custom-checkbox .validate-input .pt-3 span {
+    display: block;
+}
 /*//////////////////////////////////////////////////////////////////
   [ login ]*/
 
