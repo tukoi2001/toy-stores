@@ -47,6 +47,13 @@
               <button class="login100-form-btn">Login</button>
             </div>
 
+            <div class="container-google100-form-btn">
+              <button class="google100-form-btn">
+                <b-icon-google class="icon-google"></b-icon-google>
+                Google
+                </button>
+            </div>
+
             <div class="row-forgot text-center">
               <span class="txt1"> Forgot </span>
               <a class="txt2" href="#"> Username / Password? </a>

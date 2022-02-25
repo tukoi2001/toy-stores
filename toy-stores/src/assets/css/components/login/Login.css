@@ -404,6 +404,58 @@ label.custom-control-label {
     background: #333333;
 }
 
+.container-google100-form-btn {
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.google100-form-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    color: #dd4b39;
+    background-color: rgba(221, 75, 57, 0.1);
+    border-color: transparent;
+
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 25px;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+.icon-google {
+    width: 40px;
+    margin-bottom: 3px;
+}
+
+.google100-form-btn:hover {
+    color: #ffffff;
+    background-color: #dd4b39;
+    border-color: transparent;
+}
+
 /*------------------------------------------------------------------
   []*/
   .row-forgot {
