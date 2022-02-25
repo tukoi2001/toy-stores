@@ -1,21 +1,25 @@
 <template>
   <div class="home">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h1>aaa</h1>
-        </div>
-      </div>
-    </div>
+    <the-header />
+    <the-footer />
+    <the-last-footer />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import TheFooter from "../components/common/TheFooter.vue";
+import TheHeader from "../components/common/TheHeader.vue";
+import TheLastFooter from '../components/common/TheLastFooter.vue';
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-  }
-}
+    TheHeader,
+    TheFooter,
+    TheLastFooter,
+  },
+};
 </script>
+<style>
+
+</style>
