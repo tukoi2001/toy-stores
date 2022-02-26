@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="limiter">
-      <div class="container-login100">
+      <div class="container-login100"> 
         <div class="wrap-login100">
           <form class="login100-form validate-form" @submit.prevent="register">
             <span class="login100-form-title"> Register </span>
@@ -125,6 +125,7 @@
 <script>
 import { email, required, minLength, sameAs } from "vuelidate/lib/validators";
 import { AuthService, error, isPending } from "../../services/AuthService.js";
+import { mapActions } from 'vuex'
 export default {
   name: "Register",
   setup() {
@@ -163,10 +164,12 @@ export default {
     },
   },
   methods: {
+    ...mapActions('verifyEmail', ['actionSetDataEmail']),
     async register() {
       const response = await AuthService.register(this.userForm);
       if (response == true) {
-        alert('Sign Up Successfully!');
+        this.actionSetDataEmail(this.userForm.email);
+        this.$router.push('/verify-email');
       }
     },
   },

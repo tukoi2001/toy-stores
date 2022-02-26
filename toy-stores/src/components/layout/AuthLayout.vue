@@ -1,16 +1,16 @@
 <template>
   <div>
-      <the-header />
+      <the-au-header/>
       <slot></slot>
       <the-last-footer/>
   </div>
 </template>
 
 <script>
-import TheHeader from '../common/TheHeader.vue'
+import TheAuHeader from '../common/TheAuHeader.vue'
 import TheLastFooter from '../common/TheLastFooter.vue'
 export default {
-  components: { TheHeader, TheLastFooter },
+  components: { TheLastFooter, TheAuHeader },
     name:"AuthLayout"
 }
 </script>
