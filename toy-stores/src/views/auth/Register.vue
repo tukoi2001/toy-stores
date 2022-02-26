@@ -3,88 +3,106 @@
     <div class="limiter">
       <div class="container-login100">
         <div class="wrap-login100">
-          <form class="login100-form validate-form">
+          <form class="login100-form validate-form" @submit.prevent="register">
             <span class="login100-form-title"> Register </span>
 
-          <div
-              class="wrap-input100 validate-input"
-              data-validate="Fullname is required"
-            >
+            <div class="form__email mb-3">
               <input
-                class="input100"
+                v-model.trim="userForm.fullName"
                 type="text"
-                name="fullname"
-                placeholder="Full name"
+                placeholder="Last Name"
+                class="form__email-input"
+                :class="{ 'form-group--error': $v.userForm.fullName.$error }"
               />
-              <span class="focus-input100"></span>
-              <span class="symbol-input100">
-                <b-icon-person-fill></b-icon-person-fill>
+              <span class="form__email-symbol">
+                <b-icon icon="person"></b-icon>
               </span>
+              <div class="error" v-if="!$v.userForm.fullName.required">
+                Full Name is required
+              </div>
             </div>
 
-            <div
-              class="wrap-input100 validate-input"
-              data-validate="Valid email is required: ex@abc.xyz"
-            >
+            <div class="form__email mb-3">
               <input
-                class="input100"
-                type="text"
-                name="email"
+                v-model.trim="userForm.email"
+                type="email"
                 placeholder="Email"
+                class="form__email-input"
+                :class="{ 'form-group--error': $v.userForm.email.$error }"
               />
-              <span class="focus-input100"></span>
-              <span class="symbol-input100">
-                <b-icon-envelope-fill></b-icon-envelope-fill>
+              <span class="form__email-symbol">
+                <b-icon icon="envelope"></b-icon>
               </span>
+              <div class="text-left">
+                <div class="error" v-if="!$v.userForm.email.required">
+                  Email is required
+                </div>
+                <div class="error" v-if="!$v.userForm.email.email">
+                  Email must be valid
+                </div>
+              </div>
             </div>
 
-            <div
-              class="wrap-input100 validate-input"
-              data-validate="Password is required"
-            >
+            <div class="form__password mb-3">
               <input
-                class="input100"
+                v-model.trim="$v.userForm.password.$model"
                 type="password"
-                name="pass"
                 placeholder="Password"
+                class="form__password-input"
+                :class="{ 'form-group--error': $v.userForm.password.$error }"
               />
-              <span class="focus-input100"></span>
-              <span class="symbol-input100">
-                <b-icon-lock-fill></b-icon-lock-fill>
+              <span class="form__password-symbol">
+                <b-icon icon="lock"></b-icon>
               </span>
+              <div class="error" v-if="!$v.userForm.password.required">
+                Password is required.
+              </div>
+              <div class="error" v-if="!$v.userForm.password.minLength">
+                Password must have at least
+                {{ $v.userForm.password.$params.minLength.min }} letters.
+              </div>
             </div>
 
-            <div
-              class="wrap-input100 validate-input"
-              data-validate="Repeat password is required"
-            >
+            <div class="form__password mb-3">
               <input
-                class="input100"
+                v-model.trim="$v.userForm.passwordConfirm.$model"
                 type="password"
-                name="pass"
                 placeholder="Repeat your password"
+                class="form__password-input"
+                name="passwordConfirm"
+                :class="{
+                  'form-group--error': $v.userForm.passwordConfirm.$error,
+                }"
               />
-              <span class="focus-input100"></span>
-              <span class="symbol-input100">
-                <b-icon-arrow-repeat></b-icon-arrow-repeat>
+              <span class="form__password-symbol">
+                <b-icon icon="lock-fill"></b-icon>
               </span>
+              <div
+                class="error"
+                v-if="!$v.userForm.passwordConfirm.sameAsPassword"
+              >
+                Passwords must be identical.
+              </div>
             </div>
 
-            <div
-              class="custom-control custom-checkbox validate-input pt-3"
-              data-validate=""
-            >
-              <input
-                class=""
-                type="checkbox"
-                id="rememberMe-2"
+            <div class="custom-control custom-checkbox validate-input pt-3">
+              <input type="checkbox" id="rememberMe-2" 
+                v-model="accept"
+                @change="$v.accept.$touch()"
+                :class="{ 'is-invalid':  $v.accept.$error }"
               />
-              <span>I agree all statements in Terms of Conditions</span>
+              <span>I agree all statements in Terms of Conditions</span>    
+            </div>
+            <div class="error my-3" v-if="!$v.accept.required">Accept terms and conditions</div>
+
+            <div class="box_error">
+              <p v-if="error != null" class="error">{{ error }}</p>
             </div>
 
             <div class="container-login100-form-btn">
-              <button class="login100-form-btn">Register</button>
+              <button v-if="!isPending" class="login100-form-btn">Register</button>
             </div>
+            <div class="text-danger text-left fw-bold my-3"></div>
 
             <div class="text-center pt-5">
               <router-link class="txt2" to="/login">
@@ -104,11 +122,58 @@
 </template>
 
 <script>
+import { email, required, minLength, sameAs } from "vuelidate/lib/validators";
+import { AuthService, error, isPending } from "../../services/AuthService.js";
 export default {
-    name: 'Register'
-}
+  name: "Register",
+  setup() {
+    return { error, isPending };
+  },
+  mounted() {
+    console.log(error.value, isPending.value)
+  },
+  data() {
+    return {
+      userForm: {
+        fullName: "",
+        email: "",
+        password: "",
+        passwordConfirm: "",
+      },
+      accept: "",
+    };
+  },
+  validations: {
+    userForm: {
+      fullName: { required },
+      email: {
+        email,
+        required,
+      },
+      password: {
+        required,
+        minLength: minLength(8),
+      },
+      passwordConfirm: {
+        sameAsPassword: sameAs("password"),
+      },
+    },
+    accept: {
+      required(val) {
+        return val;
+      },
+    },
+  },
+  methods: {
+    async register() {
+      const response = await AuthService.register(this.userForm);
+      if (response == true) {
+        this.$router.push({ name: "Login" });
+      }
+      console.log(response);
+    },
+  },
+};
 </script>
 
-<style scoped src="@/assets/css/components/login/Login.css">
-
-</style>
+<style scoped src="@/assets/css/components/login/Login.css"></style>
