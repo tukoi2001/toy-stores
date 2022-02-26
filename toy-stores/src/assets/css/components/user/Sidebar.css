@@ -1,0 +1,31 @@
+.myaccount-tab-menu {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.myaccount-tab-menu ul li a {
+    border: 1px solid #efefef;
+    border-bottom: none;
+    color: #222222!important;
+    font-weight: 500;
+    display: block;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    text-align: left;
+    cursor: pointer;
+}
+
+.myaccount-tab-menu ul li a:hover, .myaccount-tab-menu ul li a.active {
+    background-color: #00c4cc;
+    border-color: #00c4cc;
+    color: #ffffff!important;
+    text-decoration : none;
+}
+
+.myaccount-tab-menu ul li a i {
+    text-align: center;
+    padding: 0 10px 0 5px;
+}
