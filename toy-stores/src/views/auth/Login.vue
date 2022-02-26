@@ -8,45 +8,61 @@
             <span>Today children, tomorrow the world.</span>
           </div>
 
-          <form class="login100-form validate-form">
+          <form class="login100-form validate-form" @submit.prevent="login">
             <span class="login100-form-title"> Login </span>
 
-            <div
-              class="wrap-input100 validate-input"
-              data-validate="Valid email is required: ex@abc.xyz"
-            >
+            <div class="form__email mb-3">
               <input
-                class="input100"
-                type="text"
-                name="email"
+                v-model.trim="$v.userForm.email.$model"
+                type="email"
                 placeholder="Email"
+                class="form__email-input"
+                :class="{ 'form-group--error': $v.userForm.email.$error }"
               />
-              <span class="focus-input100"></span>
-              <span class="symbol-input100">
-                <b-icon-envelope-fill></b-icon-envelope-fill>
+              <span class="form__email-symbol">
+                <b-icon icon="envelope"></b-icon>
               </span>
+              <div class="text-left">
+                <div class="error" v-if="!$v.userForm.email.required">
+                  Email is required
+                </div>
+                <div class="error" v-if="!$v.userForm.email.email">
+                  Email must be valid
+                </div>
+              </div>
             </div>
 
-            <div
-              class="wrap-input100 validate-input"
-              data-validate="Password is required"
-            >
+            <div class="form__password mb-3">
               <input
-                class="input100"
-                type="password"
-                name="pass"
+                v-model.trim="$v.userForm.password.$model"
+                :type="type"
                 placeholder="Password"
+                class="form__password-input"
+                :class="{ 'form-group--error': $v.userForm.password.$error }"
               />
-              <span class="focus-input100"></span>
-              <span class="symbol-input100">
-                <b-icon-lock-fill></b-icon-lock-fill>
+              <span class="form__password-symbol">
+                <b-icon icon="lock"></b-icon>
               </span>
+              <span class="form__password-right" @click.stop="showPassword()">
+                <b-icon v-if="type == 'text'" icon="eye"></b-icon>
+                <b-icon v-if="type == 'password'" icon="eye-slash"></b-icon>
+              </span>
+              <div class="error" v-if="!$v.userForm.password.required">
+                Password is required.
+              </div>
+              <div class="error" v-if="!$v.userForm.password.minLength">
+                Password must have at least
+                {{ $v.userForm.password.$params.minLength.min }} letters.
+              </div>
             </div>
-
+            <div class="box_error">
+              <p v-if="error != null" class="error">{{ error }}</p>
+            </div>
             <div class="container-login100-form-btn">
-              <button class="login100-form-btn">Login</button>
+              <button class="login100-form-btn" v-if="!isPending">Login</button>
+              <button class="login100-form-btn btn-dark" v-else >Loading...</button>
             </div>
-
+            
             <div class="container-google100-form-btn">
               <button class="google100-form-btn">
                 <b-icon-google class="icon-google"></b-icon-google>
@@ -73,8 +89,49 @@
 </template>
 
 <script>
+import { email, required, minLength } from "vuelidate/lib/validators";
+import { AuthService, error, isPending } from "../../services/AuthService.js";
+import { auth } from "../../configs/firebase";
 export default {
   name: "Login",
+  setup() { 
+    return { error, isPending}
+  },
+  data() {
+    return {
+      userForm: {
+        email: "",
+        password: "",
+      },
+      type: "password",
+    }
+  },
+  validations: {
+    userForm: {
+      email: {
+        email,
+        required,
+      },
+      password: {
+        required,
+        minLength: minLength(8),
+      },
+    }
+  },
+  methods: {
+    async login() {
+      const response = await AuthService.login(this.userForm);
+      if(response) {
+        // this.$router.push('/');
+        const data = await auth.currentUser;
+        console.log(data);
+      }
+    },
+    showPassword() {
+        if (this.type == "password") { this.type = "text";}
+        else {  this.type = 'password';}
+    },
+  }
 };
 </script>
 
