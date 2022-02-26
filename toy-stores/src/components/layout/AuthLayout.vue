@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 import TheAuHeader from '../common/TheAuHeader.vue'
 import TheLastFooter from '../common/TheLastFooter.vue'
 export default {

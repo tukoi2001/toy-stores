@@ -25,7 +25,7 @@
                     ></b-nav-item
                   >
                   <b-nav-item
-                    ><router-link to="" class="nav__link"
+                    ><router-link to="/pages" class="nav__link"
                       >Pages</router-link
                     ></b-nav-item
                   >
@@ -55,7 +55,7 @@
             <b-icon class="" icon="search"></b-icon>
           </a>
           <a href="" class="nav__icon user">
-            <b-icon class="" icon="person-circle"></b-icon>
+            <router-link to="/me"><b-icon class="" icon="person-circle"></b-icon></router-link>
             <transition name="slide-fade">
               <!-- <div class="nav__item">
                 <ul>
