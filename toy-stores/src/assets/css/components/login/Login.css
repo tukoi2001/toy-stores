@@ -78,7 +78,6 @@ textarea {
     outline: none;
     border: none;
 }
-
 textarea:focus,
 input:focus {
     border-color: transparent !important;
@@ -264,7 +263,7 @@ input#rememberMe-2 {
 /*------------------------------------------------------------------
   [  ]*/
 .login100-form {
-    width: 290px;
+    width: 340px;
 }
 
 .login100-form-title {
@@ -579,4 +578,68 @@ input#rememberMe-2 {
         visibility: visible;
         opacity: 1;
     }
+}
+
+
+.form__email,
+.form__password {
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    margin-bottom: 10px;
+}
+.form__email-input,
+.form__password-input {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666666;
+    display: block;
+    width: 100%;
+    background: #e6e6e6;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 30px 0 68px;
+    border: 2px solid transparent;
+    outline: none;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.form__email-symbol,
+.form__password-symbol {
+    font-size: 15px;
+    align-items: center;
+    position: absolute;
+    border-radius: 25px;
+    top: 13px;
+    left: 0;
+    width: 40px;
+    height: 25px;
+    padding-left: 35px;
+    pointer-events: none;
+    color: #666666;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+.form__email-input:focus,
+.form__password-input:focus {
+    border-color: #00c4cc!important;
+}
+.form__email-input:focus~.form__email-symbol,
+.form__password-input:focus~.form__password-symbol {
+    color: #00c4cc;
+    padding-left: 28px;
+}
+.error {
+    font-size: 14px;
+    margin: 5px 0 0 10px; 
+    color: rgb(240, 13, 13);
+    text-align: left;
+    font-weight: bold;
+}
+.form-group--error {
+    border-color: #c80000!important;
 }

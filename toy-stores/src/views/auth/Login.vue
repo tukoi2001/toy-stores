@@ -17,7 +17,7 @@
             >
               <input
                 class="input100"
-                type="text"
+                type="email"
                 name="email"
                 placeholder="Email"
               />
