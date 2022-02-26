@@ -89,3 +89,9 @@
     transform: translateX(10px);
     opacity: 0;
 }
+
+.nav__link:hover,
+.nav__icon:hover {
+    color: #00c4cc;
+    transition: all 0.2s ease;
+}
