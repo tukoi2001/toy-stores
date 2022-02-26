@@ -1,0 +1,91 @@
+.bg-info {
+    background-color: #fff!important;
+}
+
+.nav__img {
+    width: 100%;
+}
+
+.nav__li {
+    list-style: none;
+}
+
+.nav__link {
+    text-decoration: none;
+    padding: 10px 25px;
+    color: #000;
+    font-size: 15px;
+    line-height: 100px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    color: #222222;
+}
+
+.nav__icon {
+    color: #000;
+    font-size: 1.5rem;
+}
+
+.user {
+    position: relative;
+}
+
+.nav__item {
+    transition: all 0.3s ease-in-out;
+    position: absolute;
+    top: 40px;
+    left: -50px;
+    padding: 10px;
+    z-index: 99;
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.nav__item h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    line-height: 1.25;
+}
+
+.nav__item h3 strong {
+    color: #00c4cc;
+}
+
+.nav__item ul {
+    padding: 0;
+    margin: 0;
+    width: 100px;
+    text-align: left;
+}
+
+.nav__item a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #000;
+}
+
+.nav__ul {
+    margin: 0;
+}
+
+
+/* Transition */
+
+.slide-fade-enter-active {
+    transition: all .3s ease;
+}
+
+.slide-fade-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */
+
+{
+    transform: translateX(10px);
+    opacity: 0;
+}
