@@ -35,15 +35,23 @@ const routes = [
     component: () => import(/* webpackChunkName: "login" */ '../views/auth/Login.vue'),
     meta: {
       title: 'Login',
-    }
+    },
+    {
+        path: '/me',
+        name: 'Me',
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/user/Me.vue'),
+        meta: {
+            requireAuth: true,
+            title: 'My Account'
+        }
   },
- 
 ]
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
 })
 
 router.beforeEach((to, from, next) => {
