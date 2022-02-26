@@ -57,15 +57,12 @@
           <a href="" class="nav__icon user">
             <b-icon class="" icon="person-circle"></b-icon>
             <transition name="slide-fade">
-              <div class="nav__item" v-if="show">
+              <!-- <div class="nav__item">
                 <ul>
-                  <template v-if="userInfo && userInfo !== null">
+                  <template>
                     <li>
                       <h3>
                         Xin chào
-                        <strong>{{
-                          userInfo.firstname + " " + userInfo.lastname
-                        }}</strong>
                       </h3>
                     </li>
                     <li>
@@ -76,7 +73,7 @@
                     </li>
                   </template>
 
-                  <template v-else>
+                  <template>
                     <li>
                       <router-link to="/login">Đăng Nhập</router-link>
                     </li>
@@ -86,7 +83,7 @@
                   </template>
                   
                 </ul>
-              </div>
+              </div> -->
             </transition>
           </a>
           <a href="" class="nav__icon">
