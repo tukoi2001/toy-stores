@@ -1,6 +1,7 @@
 .wrapper {
     background-color: #00c4cc;
     padding: 80px 0;
+    text-align: left;
 }
 
 .footer__title {
@@ -33,6 +34,7 @@
 .footer__contact {
     margin-bottom: 0px;
     padding-left: 0;
+    list-style: none;
 }
 
 .footer__contact-item {
@@ -90,4 +92,9 @@
 .footer__social a:hover {
     background-color: #333;
     border-color: #333;
+}
+
+.footer__social a {
+    font-size: 18px;
+    padding: 5px;
 }
