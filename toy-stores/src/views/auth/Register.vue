@@ -101,6 +101,7 @@
 
             <div class="container-login100-form-btn">
               <button v-if="!isPending" class="login100-form-btn">Register</button>
+              <button class="login100-form-btn btn-dark" v-else >Loading...</button>
             </div>
             <div class="text-danger text-left fw-bold my-3"></div>
 
@@ -128,9 +129,6 @@ export default {
   name: "Register",
   setup() {
     return { error, isPending };
-  },
-  mounted() {
-    console.log(error.value, isPending.value)
   },
   data() {
     return {
@@ -168,9 +166,8 @@ export default {
     async register() {
       const response = await AuthService.register(this.userForm);
       if (response == true) {
-        this.$router.push({ name: "Login" });
+        alert('Sign Up Successfully!');
       }
-      console.log(response);
     },
   },
 };

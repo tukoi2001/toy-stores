@@ -8,23 +8,36 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      title: 'Home',
+    }
   },
   {
     path: '/about',
     name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    meta: {
+      title: 'About',
+    }
   },
   {
     path: '/register',
     name: 'Register',
-    component: () => import(/* webpackChunkName: "register" */ '../views/auth/Register.vue')
+    component: () => import(/* webpackChunkName: "register" */ '../views/auth/Register.vue'),
+    meta: {
+      title: 'Register',
+    }
   },
   {
     path: '/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "login" */ '../views/auth/Login.vue')
-  }
+    component: () => import(/* webpackChunkName: "login" */ '../views/auth/Login.vue'),
+    meta: {
+      title: 'Login',
+    }
+  },
+ 
 ]
 
 const router = new VueRouter({
@@ -32,5 +45,10 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  document.title = `Toyqo | ${to.meta.title}`;
+  next();
+});
 
 export default router

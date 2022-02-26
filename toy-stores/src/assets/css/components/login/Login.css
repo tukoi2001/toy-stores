@@ -643,3 +643,12 @@ input#rememberMe-2 {
 .form-group--error {
     border-color: #c80000!important;
 }
+span.form__password-right {
+    position: absolute;
+    top: 8px;
+    bottom: auto;
+    left: auto;
+    right: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+}

@@ -4,9 +4,9 @@
           <div class="row align-items-center position-relative">
               <div class="col-md-6 col-lg-3 col-xl-2 col-6">
                   <div class="header-logo">
-                      <a href="">
+                      <router-link to="/">
                           <img src="@/assets/images/logo/logo.png" alt="">
-                      </a>
+                      </router-link>
                   </div>
               </div>
           </div>
