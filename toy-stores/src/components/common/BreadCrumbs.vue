@@ -36,6 +36,7 @@ export default {
  .breadcrumb-box{
      padding: 5px 0;
     background-color: #00c4cc;
+    margin: 80px 0;
  }
 .breadcrumb-content ul li::before {
     position: absolute;
