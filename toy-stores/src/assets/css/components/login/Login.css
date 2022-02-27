@@ -207,7 +207,7 @@ input#rememberMe-2 {
 
 .container-login100 {
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -229,7 +229,7 @@ input#rememberMe-2 {
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-
+    height: 100%;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -237,7 +237,7 @@ input#rememberMe-2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 125px 90px 33px 85px;
+    padding: 85px 90px 33px 85px;
 }
 
 /*------------------------------------------------------------------
@@ -245,6 +245,9 @@ input#rememberMe-2 {
 .login100-pic {
     width: 316px;
     margin: 70px 0;
+}
+.login100-pic .pt--50 {
+    padding-top: 230px!important;
 }
 
 .login100-pic img {
@@ -273,10 +276,9 @@ input#rememberMe-2 {
     color: #333333;
     line-height: 1.2;
     text-align: center;
-
     width: 100%;
     display: block;
-    padding-bottom: 54px;
+    padding-bottom: 40px;
 }
 
 
@@ -469,7 +471,7 @@ input#rememberMe-2 {
     padding-top: 12px;
   }
   .row-create-account {
-    padding-top: 136px;
+    padding-top: 40px;
   }
 
 
@@ -480,7 +482,7 @@ input#rememberMe-2 {
 
 @media (max-width: 992px) {
     .wrap-login100 {
-        padding: 60px 50px;
+        padding: 40px 50px;
     }
 
     .login100-pic {
@@ -494,7 +496,7 @@ input#rememberMe-2 {
 
 @media (max-width: 768px) {
     .wrap-login100 {
-        padding: 100px 80px 33px 80px;
+        padding: 60px 80px 33px 60px;
     }
 
     .login100-pic {
