@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="limiter">
+      <div class="limiter">
       <div class="container-login100">
         <div class="wrap-login100">
           <div class="login100-pic js-tilt" data-tilt>
@@ -83,6 +83,7 @@
             </div>
           </form>
         </div>
+        <back-to-home/>
       </div>
     </div>
   </div>
@@ -92,8 +93,12 @@
 import { email, required, minLength } from "vuelidate/lib/validators";
 import { AuthService, error, isPending } from "../../services/AuthService.js";
 import { auth } from "../../configs/firebase";
+import BackToHome from '../../components/common/BackToHome.vue'
 export default {
   name: "Login",
+  components: {
+    BackToHome
+  },
   setup() { 
     return { error, isPending}
   },
@@ -122,9 +127,10 @@ export default {
     async login() {
       const response = await AuthService.login(this.userForm);
       if(response) {
-        // this.$router.push('/');
         const data = await auth.currentUser;
+        this.$store.dispatch('actionSetToken', data.multiFactor.user.accessToken);
         console.log(data);
+        this.$router.push('/');
       }
     },
     showPassword() {

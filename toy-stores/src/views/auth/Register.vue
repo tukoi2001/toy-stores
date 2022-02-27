@@ -105,18 +105,19 @@
             </div>
             <div class="text-danger text-left fw-bold my-3"></div>
 
-            <div class="text-center pt-5">
+          </form>
+          <div class="login100-pic js-tilt" data-tilt>
+            <img src="@/assets/images/logo/logo.png" alt="IMG" />
+            <span>Today children, tomorrow the world.</span>
+            <div class="text-center pt-5 pt--50">
               <router-link class="txt2" to="/login">
                 Already have an account?
                 <b-icon-arrow-right></b-icon-arrow-right>
               </router-link>
             </div>
-          </form>
-          <div class="login100-pic js-tilt" data-tilt>
-            <img src="@/assets/images/logo/logo.png" alt="IMG" />
-            <span>Today children, tomorrow the world.</span>
           </div>
         </div>
+        <back-to-home/>
       </div>
     </div>
   </div>
@@ -125,9 +126,14 @@
 <script>
 import { email, required, minLength, sameAs } from "vuelidate/lib/validators";
 import { AuthService, error, isPending } from "../../services/AuthService.js";
-import { mapActions } from 'vuex'
+import { mapActions } from 'vuex';
+import BackToHome from '../../components/common/BackToHome.vue'
+
 export default {
   name: "Register",
+  components: {
+    BackToHome
+  },
   setup() {
     return { error, isPending };
   },

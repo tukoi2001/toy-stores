@@ -1,20 +1,14 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/login">Login</router-link>
-      <router-link to="/register">Register</router-link>
-      <the-header />
       <router-view/>
-    </div>
   </div>
 </template>
 <script>
-import TheHeader from "../src/components/common/TheHeader.vue";
 
 export default {
   name: "Home",
   components: {
-    TheHeader,
+    
   },
 };
 </script>
