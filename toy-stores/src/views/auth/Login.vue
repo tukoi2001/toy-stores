@@ -137,7 +137,7 @@ export default {
         if (this.type == "password") { this.type = "text";}
         else {  this.type = 'password';}
     },
-  }
+  },
 };
 </script>
 

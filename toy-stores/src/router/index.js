@@ -41,10 +41,20 @@ const routes = [
     },
   },
   {
+    path: "/logout",
+    name: "Logout",
+    component: () =>
+      import(/* webpackChunkName: "logout" */ "../views/auth/Logout.vue"),
+    meta: {
+      requireAuth: true,
+      title: "Logout",
+    },
+  },
+  {
     path: "/verify-email",
     name: "VerifyEmail",
     component: () =>
-      import(/* webpackChunkName: "login" */ "../views/auth/VerifyEmail.vue"),
+      import(/* webpackChunkName: "verify-email" */ "../views/auth/VerifyEmail.vue"),
     meta: {
       title: "Verify Email",
     },
@@ -53,7 +63,7 @@ const routes = [
     path: "/me",
     name: "Me",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/user/Me.vue"),
+      import(/* webpackChunkName: "me" */ "../views/user/Me.vue"),
     meta: {
       requireAuth: true,
       title: "My Account",

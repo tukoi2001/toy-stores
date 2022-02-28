@@ -1,6 +1,6 @@
 <template>
   <div>
-    <bread-crumbs :title="'My Account Page'"/>
+    <the-header/>
     <slot> </slot>
     <the-footer />
     <the-last-footer />
@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import BreadCrumbs from '../common/BreadCrumbs.vue'
 import TheFooter from '../common/TheFooter.vue'
+import TheHeader from '../common/TheHeader.vue'
 import TheLastFooter from '../common/TheLastFooter.vue'
 export default {
-  components: { TheFooter, TheLastFooter, BreadCrumbs },
+  components: { TheFooter, TheLastFooter, TheHeader },
 name: 'UserLayout'
 }
 </script>

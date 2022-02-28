@@ -3,7 +3,7 @@ import { ref } from "@vue/composition-api";
 
 const error = ref(null);
 const isPending = ref(false);
-// let message = null;
+let message = null;
 
 const AuthService = {
   register: async (user) => {
@@ -58,6 +58,24 @@ const AuthService = {
       isPending.value = false;
     }
   },
+
+  reset_password: async (email) => {
+    isPending.value = true;
+    error.value = null;
+    message.value = null;
+    try {
+      await auth.sendPasswordResetEmail(email);
+
+      message.value = "Check your email ";
+
+      return true;
+    } catch (err) {
+      console.log("Error reset password:" + err);
+      error.value = "Error reset password. Please try again!!!";
+    } finally {
+      isPending.value = false;
+    }
+  },
 };
 
-export { AuthService, error, isPending };
+export { AuthService, error, isPending, message };
