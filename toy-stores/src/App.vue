@@ -4,12 +4,17 @@
   </div>
 </template>
 <script>
-
 export default {
   name: "Home",
   components: {
     
   },
+  created() {
+    const token = JSON.parse(localStorage.getItem("token"));
+    if(token && token !== '') {
+      this.$store.dispatch('actionSetToken', token);
+    }
+  }
 };
 </script>
 <style>

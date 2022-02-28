@@ -55,25 +55,23 @@
             <b-icon class="" icon="search"></b-icon>
           </a>
           <a href="" class="nav__icon user">
-            <router-link to="/me"><b-icon class="" icon="person-circle"></b-icon></router-link>
+            <a to="/me"><b-icon class="" icon="person-circle"></b-icon></a>
             <transition name="slide-fade">
-              <!-- <div class="nav__item">
+              <div class="nav__item">
                 <ul>
-                  <template>
+                  <template v-if="token && token !== null">
                     <li>
-                      <h3>
-                        Xin chào
-                      </h3>
+                      <h3>Xin chào</h3>
                     </li>
                     <li>
                       <router-link to="/me">Tài Khoản</router-link>
                     </li>
                     <li>
-                      <a href="">Đăng xuất</a>
+                      <router-link to="/logout">Đăng xuất</router-link>
                     </li>
                   </template>
 
-                  <template>
+                  <template v-else>
                     <li>
                       <router-link to="/login">Đăng Nhập</router-link>
                     </li>
@@ -81,9 +79,8 @@
                       <router-link to="/register">Đăng Ký</router-link>
                     </li>
                   </template>
-                  
                 </ul>
-              </div> -->
+              </div>
             </transition>
           </a>
           <a href="" class="nav__icon">
@@ -100,10 +97,16 @@
 
 <script>
 export default {
-
-}
+  name: "TheHeader",
+  computed: {
+    token() {
+      return this.$store.state.token;
+    },
+  },
+  methods: {
+    
+  },
+};
 </script>
 
-<style scoped src="@/assets/css/components/common/the-header.css">
-
-</style>
+<style scoped src="@/assets/css/components/common/the-header.css"></style>
