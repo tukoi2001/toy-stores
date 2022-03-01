@@ -59,6 +59,15 @@ const AuthService = {
     }
   },
 
+  signOut: async () => {
+    try {
+      await auth.signOut();
+      return true;
+    } catch (err) {
+      console.log("Error signOut" + err);
+    }
+  },
+
   reset_password: async (email) => {
     isPending.value = true;
     error.value = null;
@@ -76,6 +85,7 @@ const AuthService = {
       isPending.value = false;
     }
   },
+
 };
 
-export { AuthService, error, isPending, message };
+export { AuthService, error, isPending, message }
