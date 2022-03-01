@@ -60,6 +60,15 @@ const routes = [
     },
   },
   {
+    path: "/reset-password",
+    name: "ResetPassword",
+    component: () =>
+      import(/* webpackChunkName: "verify-email" */ "../views/auth/ResetPassword.vue"),
+    meta: {
+      title: "Reset Password",
+    },
+  },
+  {
     path: "/me",
     name: "Me",
     component: () =>

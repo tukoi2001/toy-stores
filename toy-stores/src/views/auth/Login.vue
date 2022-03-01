@@ -72,7 +72,7 @@
 
             <div class="row-forgot text-center">
               <span class="txt1"> Forgot </span>
-              <a class="txt2" href="#"> Username / Password? </a>
+              <router-link class="txt2" to="/reset-password"> Username / Password? </router-link>
             </div>
 
             <div class="row-create-account text-center">
