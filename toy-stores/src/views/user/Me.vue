@@ -1,6 +1,7 @@
 <template>
   <div>
     <user-layout>
+      <bread-crumbs :title="'My Account Page'" />
       <b-container>
         <b-row>
           <b-col lg="12">
@@ -48,13 +49,21 @@
 </template>
 
 <script>
+import BreadCrumbs from "../../components/common/BreadCrumbs.vue";
 import UserLayout from "../../components/layout/UserLayout.vue";
 import AccountDetails from "../user/Tabs/AccountDetails.vue";
 import ChangePassword from "../user/Tabs/ChangePassword.vue";
 import Dashboard from "../user/Tabs/Dashboard.vue";
 import Orders from "../user/Tabs/Orders.vue";
 export default {
-  components: { UserLayout, AccountDetails, ChangePassword, Dashboard, Orders },
+  components: {
+    UserLayout,
+    AccountDetails,
+    ChangePassword,
+    Dashboard,
+    Orders,
+    BreadCrumbs,
+  },
   name: "Me",
   data() {
     return {
