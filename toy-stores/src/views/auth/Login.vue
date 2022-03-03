@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div class="limiter">
+    <div class="limiter">
       <div class="container-login100">
         <div class="wrap-login100">
           <div class="login100-pic js-tilt" data-tilt>
@@ -60,19 +60,23 @@
             </div>
             <div class="container-login100-form-btn">
               <button class="login100-form-btn" v-if="!isPending">Login</button>
-              <button class="login100-form-btn btn-dark" v-else >Loading...</button>
+              <button class="login100-form-btn btn-dark" v-else>
+                Loading...
+              </button>
             </div>
-            
+
             <div class="container-google100-form-btn">
               <button class="google100-form-btn">
                 <b-icon-google class="icon-google"></b-icon-google>
                 Google
-                </button>
+              </button>
             </div>
 
             <div class="row-forgot text-center">
               <span class="txt1"> Forgot </span>
-              <router-link class="txt2" to="/reset-password"> Username / Password? </router-link>
+              <router-link class="txt2" to="/reset-password">
+                Username / Password?
+              </router-link>
             </div>
 
             <div class="row-create-account text-center">
@@ -83,7 +87,7 @@
             </div>
           </form>
         </div>
-        <back-to-home/>
+        <back-to-home />
       </div>
     </div>
   </div>
@@ -93,14 +97,14 @@
 import { email, required, minLength } from "vuelidate/lib/validators";
 import { AuthService, error, isPending } from "../../services/AuthService.js";
 import { auth } from "../../configs/firebase";
-import BackToHome from '../../components/common/BackToHome.vue'
+import BackToHome from "../../components/common/BackToHome.vue";
 export default {
   name: "Login",
   components: {
-    BackToHome
+    BackToHome,
   },
-  setup() { 
-    return { error, isPending}
+  setup() {
+    return { error, isPending };
   },
   data() {
     return {
@@ -109,7 +113,7 @@ export default {
         password: "",
       },
       type: "password",
-    }
+    };
   },
   validations: {
     userForm: {
@@ -121,25 +125,30 @@ export default {
         required,
         minLength: minLength(8),
       },
-    }
+    },
   },
   methods: {
     async login() {
       const response = await AuthService.login(this.userForm);
-      if(response) {
+      if (response) {
         const data = await auth.currentUser;
-        this.$store.dispatch('actionSetToken', data.multiFactor.user.accessToken);
+        this.$store.dispatch(
+          "actionSetToken",
+          data.multiFactor.user.accessToken
+        );
         console.log(data);
-        this.$router.push('/');
+        this.$router.push("/");
       }
     },
     showPassword() {
-        if (this.type == "password") { this.type = "text";}
-        else {  this.type = 'password';}
+      if (this.type == "password") {
+        this.type = "text";
+      } else {
+        this.type = "password";
+      }
     },
   },
 };
 </script>
 
-<style scoped src="@/assets/css/components/login/Login.css">
-</style>
+<style scoped src="@/assets/css/components/login/Login.css"></style>
