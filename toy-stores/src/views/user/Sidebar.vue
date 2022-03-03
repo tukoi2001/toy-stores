@@ -1,5 +1,5 @@
 <template>
-  <div class="myaccount-tab-menu nav" role="tablist">
+<div class="myaccount-tab-menu nav" role="tablist">
     <ul>
       <li v-for="(item, index) in tabs" :key="index">
         <a
