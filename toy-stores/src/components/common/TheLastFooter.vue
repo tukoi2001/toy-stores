@@ -22,4 +22,4 @@ export default {
 
 <style  scoped src="@/assets/css/components/common/the-last-footer.css" >
 
-</style> scoped src="@/assets/css/components/common/the-header.css
+</style>
