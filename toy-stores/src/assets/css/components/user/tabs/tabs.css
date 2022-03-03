@@ -9,6 +9,8 @@
     text-align: left;
 }
 
+/* Dashboard */
+
 .myaccount-content .welcome strong {
     font-weight: 600;
     color: #00c4cc;
@@ -31,6 +33,8 @@ p:last-child {
     color: #00c4cc;
     cursor: pointer;
 }
+
+/* Orders */
 
 .myaccount-table {
     white-space: nowrap;
@@ -112,4 +116,56 @@ th {
 table {
     caption-side: bottom;
     border-collapse: collapse;
+}
+
+/* Account Details, Change Password */
+
+.myaccount-content form {
+    margin-top: -20px;
+}
+
+.myaccount-content form .single-input-item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+}
+
+.myaccount-content form .single-input-item .required {
+    font-weight: 500;
+}
+
+.myaccount-content form .single-input-item input {
+    width: 100%;
+    padding: 12px 10px;
+    border: 1px solid #efefef;
+    font-size: 14px;
+}
+
+.myaccount-content form .single-input-item input:focus {
+    border: 1px solid #00c4cc;
+}
+
+.myaccount-content form .single-item-button {
+    width: 25%;
+}
+
+/* --Fieldset */
+
+.myaccount-content fieldset {
+    margin-top: 20px;
+}
+
+.myaccount-content fieldset legend {
+    color: #222222;
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: 500;
+    border-bottom: 1px dashed #efefef;
 }
