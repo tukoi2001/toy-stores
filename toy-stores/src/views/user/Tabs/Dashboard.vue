@@ -1,5 +1,4 @@
 <template>
-  <div class="col-lg-9 col-md-8">
     <div class="tab-content">
       <div class="myaccount-content">
         <h3 class="title">{{title}}</h3>
@@ -18,7 +17,6 @@
           </p>
         </div>
       </div>
-    </div>
   </div>
 </template>
 

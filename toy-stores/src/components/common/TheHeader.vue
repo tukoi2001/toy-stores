@@ -51,44 +51,33 @@
         </div>
 
         <div class="col-md-3 d-flex align-items-center justify-content-around">
-          <a href="" class="nav__icon">
-            <b-icon class="" icon="search"></b-icon>
+          <a href="" class="nav__icon" @click.prevent="showSearch = true">
+            <b-icon class="icon__header" icon="search"></b-icon>
           </a>
-          <a href="" class="nav__icon user">
-            <a to="/me"><b-icon class="" icon="person-circle"></b-icon></a>
-            <transition name="slide-fade">
-              <div class="nav__item">
-                <ul>
-                  <template v-if="token && token !== null">
-                    <li>
-                      <h3>Xin chào</h3>
-                    </li>
-                    <li>
-                      <router-link to="/me">Tài Khoản</router-link>
-                    </li>
-                    <li>
-                      <router-link to="/logout">Đăng xuất</router-link>
-                    </li>
-                  </template>
-
-                  <template v-else>
-                    <li>
-                      <router-link to="/login">Đăng Nhập</router-link>
-                    </li>
-                    <li>
-                      <router-link to="/register">Đăng Ký</router-link>
-                    </li>
-                  </template>
-                </ul>
-              </div>
+          <transition name="fade">
+            <search-box @mySearch="hideShowSearch" v-if="showSearch"/>
+          </transition>
+          <a
+            href=""
+            @click.prevent="accountTabs = !accountTabs"
+            class="nav__icon user"
+          >
+            <b-icon class="icon__header" icon="person-circle"></b-icon>
+          </a>
+          <transition name="fade">
+            <account-tab v-if="accountTabs" @myAccount="hideShowAccount" />
+          </transition>
+          <a href="" class="nav__icon">
+            <b-icon class="icon__header" icon="suit-heart"></b-icon>
+          </a>
+          <a href="" class="nav__icon" @click.prevent="showCart = true">
+            <b-icon class="icon__header" icon="cart-check"></b-icon>
+          </a>
+          <template>
+            <transition name="fade">
+              <the-cart v-if="showCart" @myEvent="hideShowCart" />
             </transition>
-          </a>
-          <a href="" class="nav__icon">
-            <b-icon class="" icon="suit-heart"></b-icon>
-          </a>
-          <a href="" class="nav__icon">
-            <b-icon class="" icon="cart-check"></b-icon>
-          </a>
+          </template>
         </div>
       </div>
     </div>
@@ -96,15 +85,30 @@
 </template>
 
 <script>
+import AccountTab from "./header-tabs/AccountTab.vue";
+import SearchBox from './header-tabs/SearchBox.vue';
+import TheCart from "./header-tabs/TheCart.vue";
 export default {
+  components: { AccountTab, TheCart, SearchBox },
   name: "TheHeader",
-  computed: {
-    token() {
-      return this.$store.state.token;
-    },
+  data() {
+    return {
+      accountTabs: false,
+      showCart: false,
+      showSearch: false
+    };
   },
+  computed: {},
   methods: {
-    
+    hideShowCart() {
+      this.showCart = false;
+    },
+    hideShowAccount() {
+      this.accountTabs = false;
+    },
+    hideShowSearch() {
+      this.showSearch = false;
+    }
   },
 };
 </script>
