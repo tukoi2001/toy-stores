@@ -10,7 +10,12 @@
                   <div class="myaccount-tab-menu nav" role="tablist">
                     <ul>
                       <li v-for="(item, index) in tabs" :key="index">
-                        <a @click="changeTab"
+                        <a
+                          @click="selected = item.tab"
+                          :class="[
+                            'tab-btn',
+                            { active: selected === item.tab },
+                          ]"
                           ><i><b-icon :icon="item.icon" /></i
                           >{{ item.title }}</a
                         >
@@ -25,9 +30,13 @@
                   </div>
                 </b-col>
                 <b-col lg="9" md="8">
-                  <keep-alive>
-                    <component :is="currentTab"> </component>
-                  </keep-alive>
+                  <div class="tab-content">
+                    <div class="myaccount-content">
+                      <keep-alive>
+                        <component :is="selected"> </component>
+                      </keep-alive>
+                    </div>
+                  </div>
                 </b-col>
               </b-row>
             </div>
@@ -40,47 +49,39 @@
 
 <script>
 import UserLayout from "../../components/layout/UserLayout.vue";
-import AccountDetails from "../user/Tabs/AccountDetails.vue"
-import ChangePassword from "../user/Tabs/ChangePassword.vue"
-import Dashboard from "../user/Tabs/Dashboard.vue"
-import Orders from "../user/Tabs/Orders.vue"
+import AccountDetails from "../user/Tabs/AccountDetails.vue";
+import ChangePassword from "../user/Tabs/ChangePassword.vue";
+import Dashboard from "../user/Tabs/Dashboard.vue";
+import Orders from "../user/Tabs/Orders.vue";
 export default {
   components: { UserLayout, AccountDetails, ChangePassword, Dashboard, Orders },
   name: "Me",
   data() {
     return {
+      selected: "Dashboard",
       tabs: [
         {
           icon: "building",
           title: "Dashboard",
-          tabs: "dash-board",
+          tab: "Dashboard",
         },
         {
           icon: "cart-plus-fill",
           title: "Orders",
-          tabs: "orders",
+          tab: "Orders",
         },
         {
           icon: "person-fill",
           title: "Account Details",
-          tabs: "",
+          tab: "AccountDetails",
         },
         {
           icon: "key-fill",
           title: "Change Password",
-          tabs: "",
+          tab: "ChangePassword",
         },
       ],
-    }
-  },
-  methods: {
-    changeTab() {
-      if (this.currentTab === Dashboard) {
-        this.currentTab = AccountDetails;
-      } else {
-        this.currentTab = Dashboard;
-      }
-    },
+    };
   },
 };
 </script>
