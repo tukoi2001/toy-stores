@@ -8,7 +8,7 @@
             <span>Today children, tomorrow the world.</span>
           </div>
 
-          <form class="login100-form validate-form" @submit.prevent="login">
+          <form class="login100-form validate-form" @submit.prevent="">
             <span class="login100-form-title"> Login </span>
 
             <div class="form__email mb-3">
@@ -59,14 +59,20 @@
               <p v-if="error != null" class="error">{{ error }}</p>
             </div>
             <div class="container-login100-form-btn">
-              <button class="login100-form-btn" v-if="!isPending">Login</button>
+              <button
+                @click="login"
+                class="login100-form-btn"
+                v-if="!isPending"
+              >
+                Login
+              </button>
               <button class="login100-form-btn btn-dark" v-else>
                 Loading...
               </button>
             </div>
 
             <div class="container-google100-form-btn">
-              <button class="google100-form-btn">
+              <button class="google100-form-btn" @click="googleSignIn">
                 <b-icon-google class="icon-google"></b-icon-google>
                 Google
               </button>
@@ -98,6 +104,7 @@ import { email, required, minLength } from "vuelidate/lib/validators";
 import { AuthService, error, isPending } from "../../services/AuthService.js";
 import { auth } from "../../configs/firebase";
 import BackToHome from "../../components/common/BackToHome.vue";
+import firebase from "firebase/compat/app";
 export default {
   name: "Login",
   components: {
@@ -131,14 +138,30 @@ export default {
     async login() {
       const response = await AuthService.login(this.userForm);
       if (response) {
-        const data = await auth.currentUser;
-        this.$store.dispatch(
-          "actionSetToken",
-          data.multiFactor.user.accessToken
-        );
-        console.log(data);
+        const user = await auth.currentUser;
+        const token = user.multiFactor.user.accessToken;
+        this.$store.dispatch("actionSetToken", token);
+        console.log(user);
+        console.log(token);
         this.$router.push("/");
       }
+    },
+    googleSignIn() {
+      let provider = new firebase.auth.GoogleAuthProvider();
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then((result) => {
+          let token = result.credential.accessToken;
+          this.$store.dispatch("actionSetToken", token);
+          let user = result.user;
+          console.log(token);
+          console.log(user);
+          this.$router.push("/");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     showPassword() {
       if (this.type == "password") {

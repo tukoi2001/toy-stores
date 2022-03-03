@@ -85,7 +85,21 @@ const AuthService = {
       isPending.value = false;
     }
   },
-
+  loginWithGoogle: async () => {
+    const provider = new auth.GoogleAuthProvider();
+    try {
+      const userCred = await auth.signInWithPopup(provider);
+      console.log(userCred);
+      return {
+        user: userCred
+      }
+    }
+    catch (err){ 
+      return {
+        error: err.messag
+      }
+    }
+  }
 };
 
 export { AuthService, error, isPending, message }
