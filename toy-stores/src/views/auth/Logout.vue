@@ -17,8 +17,8 @@ export default {
       const response = await AuthService.signOut();
       if (response === true) {
         localStorage.setItem("token", "");
+        this.$store.dispatch('actionSetToken', null);
         this.$router.push('/');
-        console.log('Đăng xuất thành công!');
       }
     },
   },
