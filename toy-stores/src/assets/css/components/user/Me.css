@@ -20,11 +20,12 @@
     display: block;
     padding: 10px 15px;
     text-transform: uppercase;
+    text-decoration: none;
     text-align: left;
     cursor: pointer;
 }
 
-.myaccount-tab-menu ul li a:hover, .myaccount-tab-menu ul li a.active {
+.myaccount-tab-menu ul li a:hover, .active {
     background-color: #00c4cc;
     border-color: #00c4cc;
     color: #ffffff!important;
@@ -34,4 +35,12 @@
 .myaccount-tab-menu ul li a i {
     text-align: center;
     padding: 0 10px 0 5px;
+}
+
+/* Tab Contents */
+
+.myaccount-content {
+    border: 1px solid #efefef;
+    padding: 30px;
+    text-align: left;
 }

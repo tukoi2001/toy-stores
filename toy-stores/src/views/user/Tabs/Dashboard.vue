@@ -1,22 +1,22 @@
 <template>
-    <div class="tab-content">
-      <div class="myaccount-content">
-        <h3 class="title">{{title}}</h3>
-        <div class="welcome">
-          <p>
-            "hello",
-            <strong>Alex Aya</strong>
-            "(if not "
-            <strong>Aya !</strong>
-            <a class="logout"> Logout</a>")"
-          </p>
-          <p>
-            From your account dashboard. you can easily check & view your recent
-            orders, manage your shipping and billing addresses and edit your
-            password and account details.
-          </p>
-        </div>
-      </div>
+  <div>
+    <h3 class="title">Dashboard</h3>
+    <div class="welcome">
+      <p>
+        Hello,
+        <strong>User</strong>
+        (if not
+        <strong>User !</strong>
+        Please
+        <a class="logout"> <b> Logout</b></a
+        >)
+      </p>
+      <p>
+        From your account dashboard. you can easily check & view your recent
+        orders, manage your shipping and billing addresses and edit your
+        password and account details.
+      </p>
+    </div>
   </div>
 </template>
 
@@ -32,6 +32,5 @@ export default {
 };
 </script>
 
-<style scoped src="@/assets/css/components/tabs/tabs.css">
-
+<style scoped src="@/assets/css/components/user/tabs/tabs.css">
 </style>

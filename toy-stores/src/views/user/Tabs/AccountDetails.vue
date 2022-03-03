@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <h3 class="title">Account Details</h3>
+  </div>
 </template>
 
 <script>
