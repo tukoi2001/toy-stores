@@ -1,0 +1,161 @@
+<template>
+  <div class="featured-collection">
+    <div class="featured-collection__wrapper mt-0 position-relative">
+      <b-container>
+        <b-row class="row mb-lg-5 mb-4">
+          <b-col lg="" cols="12">
+            <div class="section-title mb-0 text-center">
+              <h2 class="title mb-2">Featured Collection</h2>
+              <p>Add featured products to weekly lineup</p>
+            </div>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col>
+            <div class="product-carousel arrow-outside-container">
+              <swiper class="swiper" :options="swiperOption">
+                <swiper-slide v-for="(item, index) in Products" :key="index">
+                  <!-- Product Tab Start -->
+                  <product
+                    :link="item.link"
+                    :image="item.image"
+                    :status="item.status"
+                    :sale="item.sale"
+                    :title="item.title"
+                    :newPrice="item.newPrice"
+                    :oldPrice="item.oldPrice"
+                  />
+                  <!-- Product Tab End -->
+                </swiper-slide>
+                <div class="swiper-button-prev" slot="button-prev"></div>
+                <div class="swiper-button-next" slot="button-next"></div>
+              </swiper>
+            </div>
+          </b-col>
+        </b-row>
+      </b-container>
+    </div>
+  </div>
+</template>
+
+<script>
+import { Swiper, SwiperSlide } from "vue-awesome-swiper";
+import Product from "../../common/products/Product.vue";
+
+export default {
+  name: "FeaturedCollection",
+  components: { Swiper, SwiperSlide, Product },
+  data() {
+    return {
+      swiperOption: {
+        slidesPerView: 4,
+        slidesPerColumn: 2,
+        spaceBetween: 30,
+        // loop: true,
+        keyboard: {
+          enabled: true,
+        },
+        navigation: {
+          prevEl: ".swiper-button-prev",
+          nextEl: ".swiper-button-next",
+        },
+      },
+      Products: [
+        {
+          link: "/product",
+          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          status: "sale",
+          sale: "-18%",
+          title: "Dinosaur Toys for Baby",
+          newPrice: "12.50",
+          oldPrice: "$42.85",
+        },
+        {
+          link: "/product",
+          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          status: "sale",
+          sale: "-18%",
+          title: "Dinosaur Toys for Baby",
+          newPrice: "12.50",
+          oldPrice: "$42.85",
+        },
+        {
+          link: "/product",
+          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
+          status: "new",
+          sale: "-18%",
+          title: "Dinosaur Toys for Baby",
+          newPrice: "12.50",
+          oldPrice: "$42.85",
+        },
+        {
+          link: "/product",
+          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
+          status: "new",
+          sale: "-18%",
+          title: "Dinosaur Toys for Baby",
+          newPrice: "12.50",
+          oldPrice: "$42.85",
+        },
+        {
+          link: "/product",
+          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          status: "sale",
+          sale: "-18%",
+          title: "Dinosaur Toys for Baby",
+          newPrice: "12.50",
+          oldPrice: "$42.85",
+        },
+        {
+          link: "/product",
+          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          status: "sale",
+          sale: "-18%",
+          title: "Dinosaur Toys for Baby",
+          newPrice: "12.50",
+          oldPrice: "$42.85",
+        },
+        {
+          link: "/product",
+          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
+          status: "new",
+          sale: "-18%",
+          title: "Dinosaur Toys for Baby",
+          newPrice: "12.50",
+          oldPrice: "$42.85",
+        },
+        {
+          link: "/product",
+          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
+          status: "new",
+          sale: "-18%",
+          title: "Dinosaur Toys for Baby",
+          newPrice: "12.50",
+          oldPrice: "$42.85",
+        },
+        {
+          link: "/product",
+          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          status: "sale",
+          sale: "-18%",
+          title: "Dinosaur Toys for Baby",
+          newPrice: "12.50",
+          oldPrice: "$42.85",
+        },
+        {
+          link: "/product",
+          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          status: "sale",
+          sale: "-18%",
+          title: "Dinosaur Toys for Baby",
+          newPrice: "12.50",
+          oldPrice: "$42.85",
+        },
+      ],
+    };
+  },
+};
+</script>
+
+<style scoped src="@/assets/css/components/home/featured-collection.css">
+</style>
