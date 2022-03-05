@@ -5,7 +5,7 @@
       <ul>
         <template v-if="token && token !== null">
           <li>
-            <h3>Xin chào <strong>Tú Xưn</strong></h3>
+            <h3>Xin chào <strong>{{ userInformation.multiFactor.user.displayName }}</strong></h3>
           </li>
           <li>
             <router-link class="nav__link" to="/me"
@@ -41,12 +41,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
   name: "AccountTab",
   computed: {
     token() {
       return this.$store.state.token;
     },
+    ...mapState('users', ['userInformation'])
   },
   methods: {
     hideShowAccount() {
@@ -62,7 +64,7 @@ export default {
   position: absolute;
   top: 93px;
   left: auto;
-  right: 227px;
+  right: 207px;
   padding: 10px 20px;
   z-index: 99;
   background-color: #ffffff;
@@ -97,7 +99,7 @@ export default {
 .nav__item ul {
   padding: 0;
   margin: 0;
-  width: 120px;
+  width: 130px;
   text-align: left;
 }
 .nav__item a {

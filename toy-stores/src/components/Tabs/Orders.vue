@@ -24,6 +24,9 @@
               >
             </td>
           </tr>
+          <tr v-if="OrderInfo.length <= 0">
+            <td colspan="5" class="fw-bold text-danger">There is no item in there!</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -35,24 +38,7 @@ export default {
   data() {
     return {
       OrderInfo: [
-        {
-          order: 1,
-          date: "Aug 22, 2018",
-          status: "Pending",
-          total: 3000,
-        },
-        {
-          order: 2,
-          date: "June 12, 2019",
-          status: "Approved",
-          total: 3500,
-        },
-        {
-          order: 3,
-          date: "July 22, 2018",
-          status: "On Hold",
-          total: 3700,
-        },
+        
       ],
     };
   },
