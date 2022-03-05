@@ -4,17 +4,39 @@
   </div>
 </template>
 <script>
+import { auth } from "./configs/firebase";
+import { mapActions, mapMutations} from 'vuex';
 export default {
   name: "Home",
   components: {
     
+  },
+  data() {
+    return {
+      user: null
+    }
   },
   created() {
     const token = JSON.parse(localStorage.getItem("token"));
     if(token && token !== '') {
       this.$store.dispatch('actionSetToken', token);
     }
-  }
+  },
+  mounted() {
+    this.changeUser();
+  },
+  methods: {
+    ...mapActions('users', ['getCurrentUser']),
+    ...mapMutations('users', ['updateUser']),
+    changeUser() {
+      auth.onAuthStateChanged(async (user) => {
+        this.updateUser(user);
+        if (user) {
+          this.getCurrentUser(user.uid);
+        }
+      });
+    },
+  },
 };
 </script>
 <style>

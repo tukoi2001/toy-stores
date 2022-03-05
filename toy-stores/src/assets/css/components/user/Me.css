@@ -18,13 +18,15 @@
     color: #222222!important;
     font-weight: 500;
     display: block;
-    padding: 10px 15px;
+    padding: 15px;
     text-transform: uppercase;
     text-decoration: none;
     text-align: left;
     cursor: pointer;
 }
-
+.myaccount-tab-menu ul li a:last-child {
+    border-bottom: 1px solid #efefef;
+}
 .myaccount-tab-menu ul li a:hover, .active {
     background-color: #00c4cc;
     border-color: #00c4cc;

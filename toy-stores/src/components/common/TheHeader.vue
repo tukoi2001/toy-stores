@@ -98,7 +98,6 @@ export default {
       showSearch: false
     };
   },
-  computed: {},
   methods: {
     hideShowCart() {
       this.showCart = false;
