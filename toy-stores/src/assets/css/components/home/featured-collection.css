@@ -1,0 +1,35 @@
+.featured-collection__wrapper {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    margin-bottom: 40px;
+}
+.section-title .title {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 0;
+    color: #222222;
+    margin-top: -5px;
+}
+
+.arrow-outside-container {
+    margin-right: -50px;
+    margin-left: -50px;
+    padding: 0 50px;
+}
+
+.swiper {
+    height: 890px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper-slide {
+    height: 425px;
+}

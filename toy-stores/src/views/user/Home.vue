@@ -1,20 +1,24 @@
 <template>
   <div>
-   <user-layout>
-     
-   </user-layout>
+    <user-layout>
+      <slider />
+      <banners />
+      <featured-collection />
+    </user-layout>
   </div>
 </template>
 
 <script>
-import UserLayout from '../../components/layout/UserLayout.vue'
+import Slider from "../components/home/slider/Slider.vue";
+import Banners from "../components/home/banners/Banners.vue";
+import FeaturedCollection from "../components/home/featured-collection/FeaturedCollection.vue";
+import UserLayout from "../../components/layout/UserLayout.vue";
 export default {
-  name: 'Home',
-  components: { UserLayout },
-
-}
+  name: "Home",
+  components: { UserLayout, Slider, Banners, FeaturedCollection },
+};
 </script>
 
-<style scoped>
+<style scoped src="@/assets/css/components/home/home.css">
 
 </style>
