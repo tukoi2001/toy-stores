@@ -1,19 +1,21 @@
 import Vue from 'vue'
 import VueCompositionAPI from '@vue/composition-api'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 import App from './App.vue'
 import router from './router'
 import store from './store'
 import Vuelidate from 'vuelidate'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css' // import style
+import 'swiper/css/swiper.css'
 
-
+Vue.use(VueAwesomeSwiper, /* { default options with global component } */ )
 Vue.use(VueCompositionAPI);
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(Vuelidate)
-/* import the fontawesome core */
+    /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 /* import specific icons */
@@ -34,7 +36,7 @@ Vue.config.productionTip = false
 
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')
