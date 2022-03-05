@@ -20,4 +20,5 @@ export default {
 </script>
 
 <style scoped src="@/assets/css/components/home/home.css">
+
 </style>
