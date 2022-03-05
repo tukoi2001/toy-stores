@@ -7,10 +7,10 @@ import store from './store'
 import Vuelidate from 'vuelidate'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css' // import style
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'swiper/css/swiper.css'
 
-Vue.use(VueAwesomeSwiper, /* { default options with global component } */ )
+Vue.use(VueAwesomeSwiper, /* { default options with global component } */)
 Vue.use(VueCompositionAPI);
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
