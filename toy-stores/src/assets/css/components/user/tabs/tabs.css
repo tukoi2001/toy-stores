@@ -174,8 +174,11 @@ table {
 .img_user {
     width: 200px;
     height: 200px;
-    border-radius: 50%;
     margin: 0 auto;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    border-radius: 50%;
     overflow: hidden;
     border: 1px solid #f5f5f5;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -183,4 +186,42 @@ table {
 .img_user img {
     width: 100%;
     height: 100%;
+    border-radius: 50%;
+    border: 1px solid #f5f5f5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: block;
 }
+.change-avatar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    bottom: auto;
+    right: auto;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+.change-avatar input {
+    display: none;
+}
+.icon_upload {
+    width: 30px;
+    height: 30px;
+}
+.change-avatar label {
+    padding: 54px;
+    cursor: pointer;
+}
+.img_user:hover {
+    opacity: 0.6;
+}
+.img_user:hover .change-avatar {
+    visibility: visible;
+    opacity: 1;
+}
+.btn-primary {
+    margin: 0 auto;
+    display: block;
+}
+

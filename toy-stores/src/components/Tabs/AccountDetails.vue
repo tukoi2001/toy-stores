@@ -3,7 +3,13 @@
     <h3 class="title mb-5 text-left">Account Details</h3>
     <div class="col-md-6">
       <div class="img_user">
-        <img src="@/assets/images/user/empty.jpg" alt="" />
+        <img :src="dataCurrentUser.photoURL" v-if="dataCurrentUser.photoURL !== null"/>
+        <img src="@/assets/images/user/empty.jpg" alt="" v-else/>
+        <div class="change-avatar">
+          <label for="fileUpLoad"><b-icon class="icon_upload" icon="image"></b-icon></label>
+          <input type="file" id="fileUpLoad" @change="fileUpLoad" />
+          <button type="submit" class="btn btn-primary" @click="uploadImg">Save</button>
+        </div>
       </div>
       <h3 class="text-center fw-bold mt-4">
         {{ dataCurrentUser.displayName }}
@@ -119,14 +125,18 @@
 
 <script>
 import { mapState } from "vuex";
-import { auth } from "../../configs/firebase";
+import { auth, storage } from "../../configs/firebase";
+
 export default {
   data() {
     return {
       dataModified: {
         displayName: "",
-        phoneNumber: ""
+        phoneNumber: "",
       },
+      imgUpLoad: null,
+      imgUser: null,
+      uploadValue: 0
     };
   },
   computed: {
@@ -149,23 +159,61 @@ export default {
           console.log(error);
         })
         .finally(() => {
-          this.$bvModal.hide('bv-modal-example')
+          this.$bvModal.hide("bv-modal-example");
         });
     },
 
-    async updatePhoneNumber() {
+    async updateImg(img) {
       const user = await auth.currentUser;
       user
-        .updatePhoneNumber({
-          phoneCredential: this.dataModified.phoneNumber
+        .updateProfile({
+          photoURL: img,
         })
         .then(() => {
-          // alert('Update Information Successfully!')
-          console.log(auth.currentUser)
+          alert("Update Avatar Successfully!");
         })
         .catch((error) => {
           console.log(error);
-        });
+        })
+    },
+    fileUpLoad(event) {
+      this.imgUpLoad = event.target.files[0];
+      console.log(this.imgUpLoad);
+    },
+    // async uploadImg() {
+    //   storage.ref('users/' + auth.currentUser.uid + '/profile.jpg').put(this.imgUpLoad).then(() => {
+    //     this.getImg();
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   })
+    // },
+    // getImg() {
+    //   auth.onAuthStateChanged(async (user) => {
+    //     if (user) {
+    //       storage.ref('users/' + user.uid + '/profile.jpg').getDownloadURL().then(photoUrl => {
+    //         this.imgUser = photoUrl;
+    //       })
+    //       .catch((error) => {
+    //         console.log(error);
+    //       })
+    //     }
+    //   });
+    // },
+    uploadImg() {
+      const storageRef = storage.ref(`/imageUser/${this.imgUpLoad.name}`);
+      const task = storageRef.put(this.imgUpLoad);
+      task.on('state_changed', snapshot => {
+        let percentage = (snapshot.bytesTransferred/snapshot.totalBytes) * 100;
+        this.uploadValue = percentage;
+      }, error => {
+        console.log(error);
+      }, () => {
+        task.snapshot.ref.getDownloadURL().then((url) => {
+          this.imgUser = url;
+          this.updateImg(url);
+        })
+      })
     }
   },
   mounted() {
