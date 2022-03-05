@@ -15,7 +15,7 @@ Vue.use(VueCompositionAPI);
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(Vuelidate)
-/* import the fontawesome core */
+    /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 /* import specific icons */
@@ -36,7 +36,7 @@ Vue.config.productionTip = false
 
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')
