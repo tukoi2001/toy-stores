@@ -22,7 +22,7 @@
                         >
                       </li>
                       <li>
-                        <router-link to="/"
+                        <router-link to="/logout"
                           ><i><b-icon icon="box-arrow-right"></b-icon></i
                           >Logout</router-link
                         >
@@ -51,10 +51,10 @@
 <script>
 import BreadCrumbs from "../../components/common/BreadCrumbs.vue";
 import UserLayout from "../../components/layout/UserLayout.vue";
-import AccountDetails from "../user/Tabs/AccountDetails.vue";
-import ChangePassword from "../user/Tabs/ChangePassword.vue";
-import Dashboard from "../user/Tabs/Dashboard.vue";
-import Orders from "../user/Tabs/Orders.vue";
+import AccountDetails from "../../components/Tabs/AccountDetails.vue";
+import ChangePassword from "../../components/Tabs/ChangePassword.vue";
+import Dashboard from "../../components/Tabs/Dashboard.vue";
+import Orders from "../../components/Tabs/Orders.vue";
 export default {
   components: {
     UserLayout,
