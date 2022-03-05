@@ -178,6 +178,10 @@ table {
     position: relative;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid #f5f5f5;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .img_user img {
     width: 100%;
@@ -220,3 +224,4 @@ table {
     margin: 0 auto;
     display: block;
 }
+

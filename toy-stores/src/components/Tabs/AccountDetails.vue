@@ -126,6 +126,7 @@
 <script>
 import { mapState } from "vuex";
 import { auth, storage } from "../../configs/firebase";
+
 export default {
   data() {
     return {
@@ -152,7 +153,7 @@ export default {
           displayName: this.dataModified.displayName,
         })
         .then(() => {
-          alert("Update Information Successfully!");
+          alert('Update Information Successfully!')
         })
         .catch((error) => {
           console.log(error);
@@ -214,7 +215,6 @@ export default {
         })
       })
     }
-
   },
   mounted() {
 
