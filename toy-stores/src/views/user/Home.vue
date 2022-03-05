@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import UserLayout from '../components/layout/UserLayout.vue'
+import UserLayout from '../../components/layout/UserLayout.vue'
 export default {
   name: 'Home',
   components: { UserLayout },
