@@ -92,6 +92,7 @@ p:last-child {
     border-radius: 3px;
     border: 1px solid transparent;
     line-height: 1;
+    box-shadow: none;
 }
 
 .btn-hover-primary:hover {
@@ -225,3 +226,13 @@ table {
     display: block;
 }
 
+.error {
+    font-size: 14px;
+    margin: 5px 0 0 10px; 
+    color: rgb(240, 13, 13);
+    text-align: left;
+    font-weight: bold;
+}
+.form-group--error {
+    border-color: #c80000!important;
+}
