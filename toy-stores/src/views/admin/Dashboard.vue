@@ -1,7 +1,8 @@
 <template>
   <div>
-      <admin-layout/>
-
+      <admin-layout>
+          
+      </admin-layout>
   </div>
 </template>
 
