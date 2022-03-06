@@ -211,7 +211,7 @@ export default {
       }, () => {
         task.snapshot.ref.getDownloadURL().then((url) => {
           this.imgUser = url;
-          this.updateImg(url);
+          this.updateImg(url)
         })
       })
     }
