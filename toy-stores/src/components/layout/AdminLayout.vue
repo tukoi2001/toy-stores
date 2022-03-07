@@ -2,20 +2,25 @@
   <div>
     <header-admin />
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" style="margin-top: 74px;">
             <div class="col-sm-2 sidebar">
                 <side-bar-admin/>
             </div>
+            <div class="col-sm-10">
+              <slot></slot>
+            </div>
         </div>
     </div>
+    <footer-admin/>
   </div>
 </template>
 
 <script>
+import FooterAdmin from '../admin/FooterAdmin.vue';
 import HeaderAdmin from "../admin/HeaderAdmin.vue";
 import SideBarAdmin from '../admin/SideBarAdmin.vue';
 export default {
-  components: { HeaderAdmin, SideBarAdmin },
+  components: { HeaderAdmin, SideBarAdmin, FooterAdmin },
   name: "AdminLayout",
 };
 </script>
