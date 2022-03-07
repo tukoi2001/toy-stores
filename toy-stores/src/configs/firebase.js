@@ -1,7 +1,8 @@
 import firebase from "firebase/compat/app";
 import "firebase/compat/firestore";
 import "firebase/compat/auth";
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import "firebase/compat/storage";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAH14DQPDcEPF5AEVhxGhvzRvLqMHLSUZ0",
   authDomain: "toy-store-2f8bc.firebaseapp.com",
@@ -13,8 +14,9 @@ const firebaseConfig = {
   measurementId: "G-67W3982EPW",
 };
 firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
+const db = firebase.firestore(); 
 const auth = firebase.auth();
+const storage = firebase.storage();
 const timestamp = firebase.firestore.FieldValue.serverTimestamp();
 
-export { db, auth, timestamp };
+export { db, auth, timestamp, storage };

@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "../views/user/Home.vue";
 
 Vue.use(VueRouter);
 
@@ -17,7 +17,7 @@ const routes = [
     path: "/about",
     name: "About",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+      import(/* webpackChunkName: "about" */ "../views/user/About.vue"),
     meta: {
       title: "About",
     },
@@ -76,6 +76,16 @@ const routes = [
     meta: {
       requireAuth: true,
       title: "My Account",
+    },
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: () =>
+      import(/* webpackChunkName: "dashboard" */ "../views/admin/Dashboard.vue"),
+    meta: {
+      requireAuth: true,
+      title: "Dashboard",
     },
   },
 ];
