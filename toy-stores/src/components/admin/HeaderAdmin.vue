@@ -8,20 +8,25 @@
           >
           <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
-              <a class="dropdown-toggle count-info" href="">
+              <a class="dropdown-toggle count-info" href="" @click.prevent="isShowNotifies = true">
                 <b-icon icon="bell-fill"></b-icon
-                ><span class="label label-info">5</span>
-                <transition name="fade"> </transition>
+                ><span class="label label-info">5</span>              
               </a>
+              <transition name="fade">
+                  <notify-admin @myNotifies="hideShowNotifies"  v-if="isShowNotifies"/>
+                </transition>
             </li>
             <li class="dropdown">
-              <a class="admin-img">
+              <a class="admin-img" @click.prevent="isShowSettings = true">
                 <img
                   class="img-admin"
                   src="@/assets/images/user/empty.jpg"
                   alt=""
                 />
               </a>
+              <transition name="fade">
+                <setting-admin @mySetting="hideShowSettings" v-if="isShowSettings"/>
+              </transition>
             </li>
           </ul>
         </div>
@@ -31,12 +36,27 @@
 </template>
 
 <script>
+import NotifyAdmin from './NotifyAdmin.vue';
+import SettingAdmin from './SettingAdmin.vue';
 export default {
+  components: { SettingAdmin, NotifyAdmin },
   name: "HeaderAdmin",
+  data() {
+    return {
+      isShowSettings: false,
+      isShowNotifies: false,
+    }
+  },
   methods: {
     backToHome() {
       this.$router.push("/dashboard");
     },
+    hideShowSettings() {
+      this.isShowSettings = false;
+    },
+    hideShowNotifies() {
+      this.isShowNotifies = false;
+    }
   },
 };
 </script>
