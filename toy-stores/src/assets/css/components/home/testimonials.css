@@ -1,0 +1,90 @@
+.testimonial-bg {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    background-image: url(https://template.hasthemes.com/toyqo/toyqo/assets/images/bg/bg-1.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+}
+
+.testimonial-carousel img {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+
+.section-title {
+    margin-bottom: 40px;
+}
+
+.section-title .title {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 0;
+    color: #222222;
+    margin-top: -5px;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+.text-white {
+    color: #ffffff !important;
+}
+
+.testimonial-carousel {
+    width: 290px;
+    margin: 0 auto;
+}
+
+.testimonial-carousel img {
+    width: 100%;
+    -webkit-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transform: scale(0.7);
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.testimonial-carousel img:hover,
+.testimonial-carousel img:active {
+    transform: scale(1)
+}
+
+.testimonial-carousel .testimonial-gallery-thumbs .swiper-slide-active img {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    width: 90px;
+    margin-right: 10px;
+}
+
+.testimonial-author {
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.testimonials__ratings-icon {
+    overflow: hidden;
+    color: #FF9806;
+}
+
+.testimonial-content {
+    width: 910px;
+    margin: 40px auto 0;
+}
+
+.testimonial-content p {
+    color: #ffffff;
+}
