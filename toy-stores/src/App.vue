@@ -46,19 +46,15 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
 /* Default Font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
 #nav {
   padding: 30px;
 }
-
 #nav a {
   /* font-weight: bold; */
   color: #2c3e50;
 }
-
 #nav a.router-link-exact-active {
   color: #42b983;
 }
@@ -68,7 +64,6 @@ export default {
    v2.0 | 20110126
    License: none (public domain)
 */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -112,7 +107,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
 /* Defaul Hover */
 a, a:hover, a:focus, a:active, button, button:focus, .btn, .btn:focus, input, input:focus, select, textarea {
     -webkit-transition: all 0.5s ease 0s;
