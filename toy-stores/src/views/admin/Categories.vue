@@ -2,8 +2,7 @@
   <div>
       <admin-layout>
           <bread-crumbs-admin :title="'Categories Management'"/>
-          <main-categories/>
-          
+          <main-categories/>       
       </admin-layout>
   </div>
 </template>

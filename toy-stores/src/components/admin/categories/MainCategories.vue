@@ -135,12 +135,9 @@
 </template>
 
 <script>
-import {
-  error,
-  isPending,
-  CategoryService,
-} from "../../../services/CategoryService";
+import { error, isPending, CategoryService } from "../../../services/CategoryService";
 import { DateHourFilter } from "../../../utils/DateFilter";
+import { mapActions } from "vuex";
 export default {
   name: "MainCategories",
   setup() {
@@ -182,6 +179,7 @@ export default {
     this.innitData();
   },
   methods: {
+    ...mapActions('categories', ['actionSetCategory']),
     onChangeUploadImage(event) {
       const file = event.target.files[0];
       if (file) {
@@ -255,7 +253,9 @@ export default {
       this.close();
     },
     detailCategory(data) {
-      console.log(data);
+      const slug = data.slug;
+      this.$router.push(`/dashboard/categories/${slug}`);
+      this.actionSetCategory(data);
     }
   },
   computed: {

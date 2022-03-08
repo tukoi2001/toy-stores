@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import verifyEmail from './modules/verifyEmail';
 import GetSetData from '../utils/GetSetData';
 import users from "./modules/users";
+import categories from "./modules/categories";
 
 Vue.use(Vuex)
 
@@ -23,6 +24,7 @@ export default new Vuex.Store({
   },
   modules: {
     verifyEmail,
-    users
+    users,
+    categories
   }
 })
