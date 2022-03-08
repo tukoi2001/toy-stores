@@ -88,6 +88,16 @@ const routes = [
       title: "Dashboard",
     },
   },
+  {
+    path: "/dashboard/categories",
+    name: "Categories",
+    component: () =>
+      import(/* webpackChunkName: "categories" */ "../views/admin/Categories.vue"),
+    meta: {
+      requireAuth: true,
+      title: "Categories",
+    },
+  },
 ];
 
 const router = new VueRouter({

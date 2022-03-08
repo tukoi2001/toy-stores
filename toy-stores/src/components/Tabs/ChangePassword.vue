@@ -15,10 +15,10 @@
               placeholder="Current Password"
               :class="{ 'form-group--error': $v.currentPassword.$error }"
             />
-            <div class="error" v-if="!$v.currentPassword.required">
+            <div class="errors" v-if="!$v.currentPassword.required">
               Password is required.
             </div>
-            <div class="error" v-if="!$v.currentPassword.minLength">
+            <div class="errors" v-if="!$v.currentPassword.minLength">
               Password must have at least
               {{ $v.currentPassword.$params.minLength.min }} letters.
             </div>
@@ -34,10 +34,10 @@
                   placeholder="New Password"
                   :class="{ 'form-group--error': $v.newPassword.$error }"
                 />
-                <div class="error" v-if="!$v.newPassword.required">
+                <div class="errors" v-if="!$v.newPassword.required">
                   New Password is required.
                 </div>
-                <div class="error" v-if="!$v.newPassword.minLength">
+                <div class="errors" v-if="!$v.newPassword.minLength">
                   Password must have at least
                   {{ $v.newPassword.$params.minLength.min }} letters.
                 </div>
@@ -55,7 +55,7 @@
                   placeholder="Confirm New Password"
                   :class="{ 'form-group--error': $v.confirmNewPassword.$error }"
                 />
-                <div class="error" v-if="!$v.confirmNewPassword.sameAsPassword">
+                <div class="errors" v-if="!$v.confirmNewPassword.sameAsPassword">
                   Passwords must be identical.
                 </div>
               </div>

@@ -1,0 +1,79 @@
+.content_categories {
+  margin: 40px;
+  box-shadow: 0px 0px 20px rgb(0 0 0 / 40%);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.content_categories .v-toolbar__title {
+  font-size: 1.9rem;
+  font-weight: bold;
+}
+.v-btn:not(.v-btn--round).v-size--default {
+  height: 40px;
+  min-width: 70px;
+  padding: 0px 20px;
+}
+.icon__add {
+  width: 25px;
+  height: 25px;
+}
+#image-file {
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+}
+.upload_des {
+  display: inline-block;
+  margin-bottom: 0 !important;
+  background-color: #62ab00;
+  padding: 5px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #fff;
+  font-weight: 600;
+}
+.upload_des:hover {
+  background-color: #333;
+}
+p.text_name_image {
+  margin-bottom: 0 !important;
+  color: #62ab00;
+  font-weight: 600;
+  font-size: 16px;
+  margin-right: 40px;
+}
+.v-application .primary--text {
+  color: #62ab00 !important;
+  caret-color: #62ab00 !important;
+}
+.icon__upload {
+  font-size: 30px !important;
+  color: #62ab00 !important;
+}
+.cancel__btn {
+  padding: 15px !important;
+  background-color: #f5f5f5;
+}
+.save__btn {
+  padding: 15px 30px !important;
+  background-color: #62ab00;
+  color: #fff !important;
+}
+
+.save__btn:hover,
+.btn__add:hover {
+  background-color: #333 !important;
+  transition: all 0.3s ease-in-out;
+}
+.btn__add {
+  background-color: #62ab00 !important;
+  transition: all 0.3s ease;
+  padding: 0px 25px !important;
+}
+.icon__info {
+  font-size: 14px;
+  margin-left: 9px;
+  color: #353535;
+  cursor: pointer;
+}

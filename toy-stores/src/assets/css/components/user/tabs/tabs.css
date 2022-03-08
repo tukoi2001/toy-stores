@@ -226,7 +226,7 @@ table {
     display: block;
 }
 
-.error {
+.errors {
     font-size: 14px;
     margin: 5px 0 0 10px; 
     color: rgb(240, 13, 13);

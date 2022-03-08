@@ -23,10 +23,10 @@
                 <b-icon icon="envelope"></b-icon>
               </span>
               <div class="text-left">
-                <div class="error" v-if="!$v.userForm.email.required">
+                <div class="errors" v-if="!$v.userForm.email.required">
                   Email is required
                 </div>
-                <div class="error" v-if="!$v.userForm.email.email">
+                <div class="errors" v-if="!$v.userForm.email.email">
                   Email must be valid
                 </div>
               </div>
@@ -47,16 +47,16 @@
                 <b-icon v-if="type == 'text'" icon="eye"></b-icon>
                 <b-icon v-if="type == 'password'" icon="eye-slash"></b-icon>
               </span>
-              <div class="error" v-if="!$v.userForm.password.required">
+              <div class="errors" v-if="!$v.userForm.password.required">
                 Password is required.
               </div>
-              <div class="error" v-if="!$v.userForm.password.minLength">
+              <div class="errors" v-if="!$v.userForm.password.minLength">
                 Password must have at least
                 {{ $v.userForm.password.$params.minLength.min }} letters.
               </div>
             </div>
             <div class="box_error">
-              <p v-if="error != null" class="error">{{ error }}</p>
+              <p v-if="error != null" class="errors">{{ error }}</p>
             </div>
             <div class="container-login100-form-btn">
               <button
