@@ -30,7 +30,7 @@ export default {
     -ms-flex-pack: start;
     justify-content: start;
     border-radius: 0;
-    padding: 15px 20px;
+    padding: 15px 20px!important;
     background: #e9ecf2;
     margin: 0;
 }

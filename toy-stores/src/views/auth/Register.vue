@@ -17,7 +17,7 @@
               <span class="form__email-symbol">
                 <b-icon icon="person"></b-icon>
               </span>
-              <div class="error" v-if="!$v.userForm.fullName.required">
+              <div class="error_register" v-if="!$v.userForm.fullName.required">
                 Full Name is required
               </div>
             </div>
@@ -34,10 +34,10 @@
                 <b-icon icon="envelope"></b-icon>
               </span>
               <div class="text-left">
-                <div class="error" v-if="!$v.userForm.email.required">
+                <div class="error_register" v-if="!$v.userForm.email.required">
                   Email is required
                 </div>
-                <div class="error" v-if="!$v.userForm.email.email">
+                <div class="error_register" v-if="!$v.userForm.email.email">
                   Email must be valid
                 </div>
               </div>
@@ -54,10 +54,10 @@
               <span class="form__password-symbol">
                 <b-icon icon="lock"></b-icon>
               </span>
-              <div class="error" v-if="!$v.userForm.password.required">
+              <div class="error_register" v-if="!$v.userForm.password.required">
                 Password is required.
               </div>
-              <div class="error" v-if="!$v.userForm.password.minLength">
+              <div class="error_register" v-if="!$v.userForm.password.minLength">
                 Password must have at least
                 {{ $v.userForm.password.$params.minLength.min }} letters.
               </div>
@@ -78,7 +78,7 @@
                 <b-icon icon="lock-fill"></b-icon>
               </span>
               <div
-                class="error"
+                class="error_register"
                 v-if="!$v.userForm.passwordConfirm.sameAsPassword"
               >
                 Passwords must be identical.
@@ -93,10 +93,10 @@
               />
               <span>I agree all statements in Terms of Conditions</span>    
             </div>
-            <div class="error my-3" v-if="!$v.accept.required">Accept terms and conditions</div>
+            <div class="error_register my-3" v-if="!$v.accept.required">Accept terms and conditions</div>
 
             <div class="box_error">
-              <p v-if="error != null" class="error">{{ error }}</p>
+              <p v-if="error != null" class="error_register">{{ error }}</p>
             </div>
 
             <div class="container-login100-form-btn">

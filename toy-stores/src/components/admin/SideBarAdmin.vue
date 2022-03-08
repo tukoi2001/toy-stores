@@ -39,7 +39,7 @@
         >
       </li>
       <li>
-        <router-link to="/admin/categories"
+        <router-link to="/dashboard/categories"
           ><b-icon class="icon-icon" icon="tags-fill"></b-icon> Categories</router-link
         >
       </li>

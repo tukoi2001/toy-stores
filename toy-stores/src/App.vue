@@ -1,7 +1,11 @@
 <template>
-  <div id="app">
-      <router-view/>
-  </div>
+  <v-app>
+    <v-main>
+      <transition name="fade">
+        <router-view />
+      </transition>
+    </v-main>
+  </v-app>
 </template>
 <script>
 import { auth } from "./configs/firebase";
@@ -57,6 +61,17 @@ export default {
 }
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.v-application ul, .v-application ol {
+    padding-left: 0!important;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 /* ------------------------------------------------- */
 /* Reset CSS */

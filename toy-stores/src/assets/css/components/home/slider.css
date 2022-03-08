@@ -34,14 +34,12 @@
     z-index: 9;
 }
 
-.hero-slide-content .title {
+.hero-slide-content .titles {
     font-size: 60px;
     font-weight: 400;
     margin-bottom: 10px;
     line-height: 1.1;
 }
-
-element.style {}
 
 .swiper-slide-active .hero-slide-content>*:nth-child(2) {
     -webkit-animation-delay: 1.2s;
