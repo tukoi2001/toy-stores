@@ -214,7 +214,6 @@ export default {
       this.dialogDelete = true;
     },
     async deleteItemConfirm() {
-      // this.categories.splice(this.editedIndex, 1);
       const id = this.dataEditItem.id;
       const res = await CategoryService.delete(id);
       if (res) {

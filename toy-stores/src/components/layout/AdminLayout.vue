@@ -6,12 +6,12 @@
             <div class="col-sm-2 sidebar">
                 <side-bar-admin/>
             </div>
-            <div class="col-sm-10">
+            <div class="col-sm-10 p-0">
               <slot></slot>
+             <footer-admin/>              
             </div>
         </div>
     </div>
-    <footer-admin/>
   </div>
 </template>
 
