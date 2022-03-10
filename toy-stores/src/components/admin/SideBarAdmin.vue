@@ -34,7 +34,7 @@
         >
       </li>
       <li>
-        <router-link to="/admin/products"
+        <router-link to="/dashboard/products"
           ><b-icon class="icon-icon" icon="card-list"></b-icon> Products</router-link
         >
       </li>

@@ -28,8 +28,10 @@ export default {
   },
   mounted() {
     this.changeUser();
+    this.actionSetDataCategory();
   },
   methods: {
+    ...mapActions('categories', ['actionSetDataCategory']),
     ...mapActions('users', ['getCurrentUser']),
     ...mapMutations('users', ['updateUser']),
     changeUser() {
