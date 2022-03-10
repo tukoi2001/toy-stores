@@ -108,6 +108,26 @@ const routes = [
       title: "Category Detail",
     },
   },
+  {
+    path: "/dashboard/products",
+    name: "Products",
+    component: () =>
+      import(/* webpackChunkName: "products" */ "../views/admin/Products.vue"),
+    meta: {
+      requireAuth: true,
+      title: "Products",
+    },
+  },
+  {
+    path: "/dashboard/products/:slug",
+    name: "ProductDetail",
+    component: () =>
+      import(/* webpackChunkName: "product-detail" */ "../views/admin/ProductsDetail.vue"),
+    meta: {
+      requireAuth: true,
+      title: "Product Detail",
+    },
+  },
 ];
 
 const router = new VueRouter({

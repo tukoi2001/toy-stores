@@ -1,3 +1,4 @@
+import "../configs/installCompositionApi";
 import { ref } from "@vue/composition-api";
 import { db, storage, timestamp } from "../configs/firebase";
 import { SlugFromTitle } from "../utils/SlugFromTitle";
