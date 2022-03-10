@@ -49,7 +49,7 @@ export default {
     return {
       swiperOption: {
         slidesPerView: 4,
-        slidesPerColumn: 2,
+        slidesPerColumn: 1,
         spaceBetween: 30,
         loop: true,
         keyboard: {
