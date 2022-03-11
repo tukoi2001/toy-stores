@@ -18,7 +18,7 @@
         <li>Deleted: <strong>{{ productDetail.deleted === false ? 'False' : 'True' }}</strong></li>
         <li>Created At: <strong>{{ productDetail.createdAt }}</strong></li>
         <li>Updated At: <strong>{{ productDetail.updatedAt }}</strong></li>
-        <li>Deleted At: <strong>{{ productDetail.deletedAt ===null ? 'False' : productDetail.deletedAt }}</strong></li>
+        <li>Deleted At: <strong>{{ productDetail.deletedAt === null ? 'False' : productDetail.deletedAt }}</strong></li>
       </ul>
       <button type="button" class="btn btn-primary" @click="backTo">Back</button>
     </div>

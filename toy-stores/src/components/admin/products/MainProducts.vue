@@ -282,7 +282,7 @@ export default {
     // console.log(this.listCategories);
   },
   methods: {
-    ...mapActions("products", ["actionSetProductDetail"]),
+    ...mapActions("products", ["actionSetProductDetail", "actionSetDataProduct"]),
     onChangeUploadImage(event) {
       this.dataEditItem.file = [];
       const tmpFile = event.target.files;
@@ -325,6 +325,7 @@ export default {
       const res = await ProductService.delete(id);
       if (res) {
         this.innitData();
+        this.actionSetDataProduct();
       }
       this.closeDelete();
     },
@@ -356,10 +357,11 @@ export default {
           this.innitData();
         }
       }
+      this.actionSetDataProduct();
       this.close();
     },
     setProduct(data) {
-      const slug = data.slug;
+      const slug = data.id;
       this.$router.push(`/dashboard/products/${slug}`);
       this.actionSetProductDetail(data);
     },

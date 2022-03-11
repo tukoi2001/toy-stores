@@ -24,7 +24,6 @@ const state = () => ({
           ...item.data(),
         };
       });
-      // console.log(newRes);
       commit("setDataCategory", newRes);
     },
   };

@@ -29,8 +29,10 @@ export default {
   mounted() {
     this.changeUser();
     this.actionSetDataCategory();
+    this.actionSetDataProduct();
   },
   methods: {
+    ...mapActions('products', ['actionSetDataProduct']),
     ...mapActions('categories', ['actionSetDataCategory']),
     ...mapActions('users', ['getCurrentUser']),
     ...mapMutations('users', ['updateUser']),
