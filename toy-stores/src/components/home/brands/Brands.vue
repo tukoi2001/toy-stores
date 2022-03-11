@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       swiperOption: {
-        slidesPerView: 5,
+        slidesPerView: 6,
         slidesPerColumn: 1,
         spaceBetween: 30,
         loop: true,
@@ -48,6 +48,8 @@ export default {
         require("@/assets/images/home/brands/demo/4.png"),
         require("@/assets/images/home/brands/demo/5.png"),
         require("@/assets/images/home/brands/demo/6.png"),
+        require("@/assets/images/home/brands/demo/7.png"),
+        require("@/assets/images/home/brands/demo/8.png"),
       ]
     };
   },

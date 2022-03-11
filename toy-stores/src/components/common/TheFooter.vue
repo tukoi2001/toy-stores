@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <h3 class="footer__title">Về chúng tôi</h3>
+                    <h3 class="footer__title">About us</h3>
                     <p class="footer__des">
                         We are a team of designers and developers that create high quality wordpress, shopify, Opencart
                     </p>
@@ -18,11 +18,11 @@
                 </div>
 
                 <div class="col-md-3">
-                    <h3 class="footer__title">Liên hệ</h3>
+                    <h3 class="footer__title">Contact</h3>
                     <ul class="footer__contact">
                         <li class="footer__contact-item">
                             <b-icon class="footer__contact-icon" icon="house-door"></b-icon>
-                            <span>Hải Châu, Đà Nẵng</span>
+                            <span>Hai Chau, Da Nang</span>
                         </li>
                         <li class="footer__contact-item">
                             <b-icon class="footer__contact-icon" icon="envelope"></b-icon>
@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <h3 class="footer__title">Chính sách</h3>
+                    <h3 class="footer__title">Policy</h3>
                     <ul class="footer__contact">
                         <li class="footer__contact-item">
                             <a href="">Terms & Conditions</a>
@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <h3 class="footer__title">Đăng ký để nhận thông tin</h3>
+                    <h3 class="footer__title">Sign up to receive information</h3>
                     <div class="footer__newletter mb-4">
                         <form submit.prevent="" class="footer__form">
                             <input type="email" class="form-control footer__input" mb-4 placeholder="demo@gmail.com" name="email">
