@@ -4,8 +4,8 @@
       <div class="row">
         <div class="col-12">
           <div class="section-title text-center aos-init aos-animate">
-            <h2 class="title text-white">Testimonials</h2>
-            <p class="sub-title text-white">What they say</p>
+            <h2 class="title text-white">Đánh giá</h2>
+            <p class="sub-title text-white">Những khách hàng đã sử dụng sản phẩm của chúng tôi nói gì?</p>
           </div>
           <div class="aos-init aos-animate">
             <swiper

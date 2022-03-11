@@ -21,7 +21,7 @@
                   {{ item.titleOne }}<br />{{ item.titleTwo }}
                 </h2>
                 <p>{{ item.content }}</p>
-                <a href="" class="btn btn-primary btn-hover-light">Show Now</a>
+                <a href="" class="btn btn-primary btn-hover-light">Mua Ngay</a>
               </div>
             </div>
           </swiper-slide>
