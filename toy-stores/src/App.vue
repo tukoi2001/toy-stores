@@ -1,20 +1,50 @@
 <template>
-  <div id="app">
-      <router-view/>
-  </div>
+  <v-app>
+    <v-main>
+      <transition name="fade">
+        <router-view />
+      </transition>
+    </v-main>
+  </v-app>
 </template>
 <script>
+import { auth } from "./configs/firebase";
+import { mapActions, mapMutations} from 'vuex';
 export default {
   name: "Home",
   components: {
     
+  },
+  data() {
+    return {
+      user: null
+    }
   },
   created() {
     const token = JSON.parse(localStorage.getItem("token"));
     if(token && token !== '') {
       this.$store.dispatch('actionSetToken', token);
     }
-  }
+  },
+  mounted() {
+    this.changeUser();
+    this.actionSetDataCategory();
+    this.actionSetDataProduct();
+  },
+  methods: {
+    ...mapActions('products', ['actionSetDataProduct']),
+    ...mapActions('categories', ['actionSetDataCategory']),
+    ...mapActions('users', ['getCurrentUser']),
+    ...mapMutations('users', ['updateUser']),
+    changeUser() {
+      auth.onAuthStateChanged(async (user) => {
+        this.updateUser(user);
+        if (user) {
+          this.getCurrentUser(user.uid);
+        }
+      });
+    },
+  },
 };
 </script>
 <style>
@@ -24,21 +54,28 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
 /* Default Font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
 #nav {
   padding: 30px;
 }
-
 #nav a {
   /* font-weight: bold; */
   color: #2c3e50;
 }
-
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.v-application ul, .v-application ol {
+    padding-left: 0!important;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 /* ------------------------------------------------- */
 /* Reset CSS */
@@ -46,7 +83,6 @@ export default {
    v2.0 | 20110126
    License: none (public domain)
 */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -90,7 +126,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
 /* Defaul Hover */
 a, a:hover, a:focus, a:active, button, button:focus, .btn, .btn:focus, input, input:focus, select, textarea {
     -webkit-transition: all 0.5s ease 0s;

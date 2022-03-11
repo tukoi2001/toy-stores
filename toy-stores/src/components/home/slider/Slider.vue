@@ -17,7 +17,7 @@
             </div>
             <div class="container">
               <div class="hero-slide-content">
-                <h2 class="title m-0">
+                <h2 class="titles m-0">
                   {{ item.titleOne }}<br />{{ item.titleTwo }}
                 </h2>
                 <p>{{ item.content }}</p>

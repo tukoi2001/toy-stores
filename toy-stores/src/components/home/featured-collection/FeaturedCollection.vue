@@ -49,15 +49,19 @@ export default {
     return {
       swiperOption: {
         slidesPerView: 4,
-        slidesPerColumn: 2,
+        slidesPerColumn: 1,
         spaceBetween: 30,
-        // loop: true,
+        loop: true,
         keyboard: {
           enabled: true,
         },
         navigation: {
-          prevEl: ".swiper-button-prev",
           nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
         },
       },
       Products: [

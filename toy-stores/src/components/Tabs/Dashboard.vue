@@ -4,11 +4,11 @@
     <div class="welcome">
       <p>
         Hello,
-        <strong>User</strong>
+        <strong>{{ userInformation.multiFactor.user.displayName }}</strong>
         (if not
-        <strong>User !</strong>
+        <strong>{{ userInformation.multiFactor.user.displayName  }} !</strong>
         Please
-        <a class="logout"> <b> Logout</b></a
+        <router-link class="logout" to="/logout"> <b> Logout</b></router-link
         >)
       </p>
       <p>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
   name: "Dashboard",
   props: {
@@ -29,8 +30,10 @@ export default {
       default: "",
     },
   },
+  computed: {
+    ...mapState('users', ['userInformation'])
+  }
 };
 </script>
 
-<style scoped src="@/assets/css/components/user/tabs/tabs.css">
-</style>
+<style scoped src="@/assets/css/components/user/tabs/tabs.css"></style>

@@ -645,7 +645,14 @@ input#rememberMe-2 {
     color: #00c4cc;
     padding-left: 28px;
 }
-.error {
+.errors {
+    font-size: 14px;
+    margin: 5px 0 0 10px; 
+    color: rgb(240, 13, 13);
+    text-align: left;
+    font-weight: bold;
+}
+.error_register {
     font-size: 14px;
     margin: 5px 0 0 10px; 
     color: rgb(240, 13, 13);
