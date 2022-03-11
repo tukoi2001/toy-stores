@@ -179,7 +179,7 @@ export default {
     this.innitData();
   },
   methods: {
-    ...mapActions('categories', ['actionSetCategory']),
+    ...mapActions('categories', ['actionSetCategory', 'actionSetDataCategory']),
     onChangeUploadImage(event) {
       const file = event.target.files[0];
       if (file) {
@@ -218,6 +218,7 @@ export default {
       const res = await CategoryService.delete(id);
       if (res) {
         this.innitData();
+        this.actionSetDataCategory();
       }
       this.closeDelete();
     },
@@ -249,10 +250,11 @@ export default {
           this.innitData();
         }
       }
+      this.actionSetDataCategory();
       this.close();
     },
     detailCategory(data) {
-      const slug = data.slug;
+      const slug = data.id;
       this.$router.push(`/dashboard/categories/${slug}`);
       this.actionSetCategory(data);
     }
