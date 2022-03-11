@@ -21,6 +21,7 @@ const state = () => ({
       const response = await CategoryService.show();
       const newRes = response.docs.map((item) => {
         return {
+          id: item.id,
           ...item.data(),
         };
       });

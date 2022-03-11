@@ -1,7 +1,7 @@
 import { ProductService } from '../../services/ProductService';
 const state = () => ({
     productDetail: null,
-    listProDucts: null,
+    listProducts: null,
   });
   
   const mutations = {
@@ -9,7 +9,7 @@ const state = () => ({
       state.productDetail = data;
     },
     setDataProduct(state, prod) {
-      state.listProDucts = prod;
+      state.listProducts = prod;
     },
   };
   
@@ -21,6 +21,7 @@ const state = () => ({
       const response = await ProductService.show();
       const newRes = response.docs.map((item) => {
         return {
+          id: item.id,
           ...item.data(),
         };
       });
