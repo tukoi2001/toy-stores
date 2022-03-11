@@ -30,8 +30,8 @@
         <router-link :to="link">{{ title }}</router-link>
       </h5>
       <span class="price">
-        <span class="new"> ${{ newPrice }} </span>
-        <span class="old">${{ oldPrice }}</span>
+        <span class="new"> {{ newPrice }} VNĐ </span>
+        <span class="old">{{ oldPrice }} VNĐ</span>
       </span>
     </div>
   </div>
