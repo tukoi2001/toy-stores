@@ -42,12 +42,12 @@ export default {
         },
       },
       imageOfProducts: [
-        require("@/assets/images/home/brands/demo/1.jpg"),
-        require("@/assets/images/home/brands/demo/2.jpg"),
-        require("@/assets/images/home/brands/demo/3.jpg"),
-        require("@/assets/images/home/brands/demo/4.jpg"),
-        require("@/assets/images/home/brands/demo/5.jpg"),
-        require("@/assets/images/home/brands/demo/6.jpg"),
+        require("@/assets/images/home/brands/demo/1.png"),
+        require("@/assets/images/home/brands/demo/2.png"),
+        require("@/assets/images/home/brands/demo/3.png"),
+        require("@/assets/images/home/brands/demo/4.png"),
+        require("@/assets/images/home/brands/demo/5.png"),
+        require("@/assets/images/home/brands/demo/6.png"),
       ]
     };
   },
