@@ -55,16 +55,16 @@ export default {
       },
       listSlides: [
         {
-          img: require("@/assets/images/home/slider/slider1-1.jpg"),
-          titleOne: " New Arrivals ",
-          titleTwo: "Get flat 50% off ",
-          content: "Latest baby product & toy collections",
+          img: require("@/assets/images/home/slider/1.jpg"),
+          titleOne: " Điểm Đến Mới ",
+          titleTwo: "Được giảm giá cố định 50% ",
+          content: "Bộ sưu tập sản phẩm & đồ chơi trẻ em mới nhất",
         },
         {
-          img: require("@/assets/images/home/slider/slider1-2.jpg"),
-          titleOne: "New Arrivals ",
-          titleTwo: "Get -30% off ",
-          content: "Latest baby product & toy collections.",
+          img: require("@/assets/images/home/slider/3.jpg"),
+          titleOne: "Điểm Đến Mới ",
+          titleTwo: "Được giảm giá cố định 30% ",
+          content: "Bộ sưu tập sản phẩm & đồ chơi trẻ em mới nhất",
         },
       ],
     };

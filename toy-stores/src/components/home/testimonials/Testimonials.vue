@@ -14,7 +14,7 @@
               ref="swiperTop"
             >
               <swiper-slide
-                class="swiper-slide-active"
+                class="swiper-slide-active swiper-slide-thumb-active"
                 v-for="(item, index) in listAvatar"
                 :key="index"
               >
@@ -112,25 +112,25 @@ export default {
           rating: 5,
           author: "James",
           content:
-            "Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque",
+            "Sống từ chính viên thuốc, hoặc nước sốt tuyệt vời. Ngay cả kẻ tra tấn đáng ghê tởm đó. Bây giờ sô cô la, nếu không phải từ độ mịn của các thanh, bây giờ là các mạng lưới độc hại thuần túy Với bạn bè của bạn",
         },
         {
           rating: 5,
           author: "Jonny",
           content:
-            "Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque",
+            "Giúp các bé xa CẢM ỨNG – Thích ứng đồ chơi – Vui chơi thỏa thích – Tích thật nhiều điểm",
         },
         {
           rating: 5,
           author: "Foden",
           content:
-            "Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque",
+            "Con vui khỏe – mẹ trẻ lâu – chồng yêu sâu – vui có thưởng",
         },
         {
           rating: 5,
           author: "Mappbe",
           content:
-            "Vivamus a lobortis ipsum, vel condimentum magna. Etiam id turpis tortor. Nunc scelerisque, nisi a blandit varius, nunc purus venenatis ligula, sed venenatis orci augue nec sapien. Cum sociis natoque",
+            "Vì tương lai con em chúng ta, hãy cho bé vui chơi hồn nhiên",
         },
       ],
     };
