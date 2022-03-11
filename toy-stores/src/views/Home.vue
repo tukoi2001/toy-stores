@@ -5,6 +5,7 @@
       <banners />
       <featured-collection />
       <testimonials />
+      <home-blogs />
     </user-layout>
   </div>
 </template>
@@ -14,10 +15,11 @@ import Slider from "../components/home/slider/Slider.vue";
 import Banners from "../components/home/banners/Banners.vue";
 import FeaturedCollection from "../components/home/featured-collection/FeaturedCollection.vue";
 import UserLayout from "../components/layout/UserLayout.vue";
-import Testimonials from "../components/home/testimonials/Testimonials.vue";
+import Testimonials from '../components/home/testimonials/Testimonials.vue';
+import HomeBlogs from '../components/home/blogs/HomeBlogs.vue';
 export default {
   name: "Home",
-  components: { UserLayout, Slider, Banners, FeaturedCollection, Testimonials },
+  components: { UserLayout, Slider, Banners, FeaturedCollection, Testimonials, HomeBlogs },
 };
 </script>
 
