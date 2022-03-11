@@ -32,6 +32,7 @@ import BestSellerProduct from "./BestSellerProduct.vue"
 import OnSaleProduct from "./OnSaleProduct.vue"
 export default {
   name: "ProductList",
+  components: { BestSellerProduct, OnSaleProduct },
   data() {
     return {
       selected: "BestSellerProduct",
