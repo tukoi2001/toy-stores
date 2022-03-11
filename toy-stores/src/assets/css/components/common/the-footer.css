@@ -98,3 +98,12 @@
     font-size: 14px;
     padding: 9.5px;
 }
+
+.testimonial-carousel .testimonial-gallery-thumbs .swiper-slide-active img {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
