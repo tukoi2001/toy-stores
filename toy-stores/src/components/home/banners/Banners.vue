@@ -26,11 +26,11 @@ export default {
       banners: [
         {
           link: "/product",
-          image: require("@/assets/images/home/banners/demo.jpg"),
+          image: require("@/assets/images/home/banners/2.jpg"),
         },
         {
           link: "/product",
-          image: require("@/assets/images/home/banners/demo-2.jpg"),
+          image: require("@/assets/images/home/banners/1.jpg"),
         },
       ],
     };
