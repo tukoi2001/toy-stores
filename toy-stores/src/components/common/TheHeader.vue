@@ -20,7 +20,7 @@
                     ></b-nav-item
                   >
                   <b-nav-item
-                    ><router-link to="/product" class="nav__link"
+                    ><router-link to="/categories/tat-ca-san-pham" class="nav__link"
                       >Shop</router-link
                     ></b-nav-item
                   >

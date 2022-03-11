@@ -199,8 +199,8 @@
               <img :src="item.urlImage" alt="" class="rounded" width="50px" />
             </td>
             <td class="test1">{{ item.name }}</td>
-            <td>{{ item.description }}</td>
             <td>{{ item.price }}</td>
+            <td>{{ item.category }}</td>
             <td>{{ item.quantity }}</td>
             <td>{{ item.sale_off }}</td>
             <td>{{ item.createdAt }}</td>

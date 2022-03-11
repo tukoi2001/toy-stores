@@ -79,6 +79,24 @@ const routes = [
     },
   },
   {
+    path: "/categories/:all",
+    name: "Shop",
+    component: () =>
+      import(/* webpackChunkName: "me" */ "../views/user/Products.vue"),
+    meta: {
+      title: "Shop",
+    },
+  },
+  {
+    path: "/categories/:id",
+    name: "Shop By ID",
+    component: () =>
+      import(/* webpackChunkName: "me" */ "../views/user/ProductsById.vue"),
+    meta: {
+      title: "Shop",
+    },
+  },
+  {
     path: "/dashboard",
     name: "Dashboard",
     component: () =>

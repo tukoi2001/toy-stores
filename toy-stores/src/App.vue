@@ -25,11 +25,12 @@ export default {
     if(token && token !== '') {
       this.$store.dispatch('actionSetToken', token);
     }
-  },
-  mounted() {
     this.changeUser();
     this.actionSetDataCategory();
     this.actionSetDataProduct();
+  },
+  mounted() {
+
   },
   methods: {
     ...mapActions('products', ['actionSetDataProduct']),
