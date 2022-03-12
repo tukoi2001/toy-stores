@@ -1,6 +1,6 @@
 <template>
   <div class="featured-collection">
-    <div class="featured-collection__wrapper mt-0 position-relative">
+    <div class="collection__wrapper mt-0 position-relative">
       <b-container>
         <b-row class="row mb-lg-5 mb-4">
           <b-col lg="" cols="12">
