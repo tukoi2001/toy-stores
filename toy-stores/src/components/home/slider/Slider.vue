@@ -61,7 +61,7 @@ export default {
           content: "Bộ sưu tập sản phẩm & đồ chơi trẻ em mới nhất",
         },
         {
-          img: require("@/assets/images/home/slider/3.jpg"),
+          img: require("@/assets/images/home/slider/6.jpg"),
           titleOne: "Điểm Đến Mới ",
           titleTwo: "Được giảm giá cố định 30% ",
           content: "Bộ sưu tập sản phẩm & đồ chơi trẻ em mới nhất",
