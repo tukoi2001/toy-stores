@@ -4,9 +4,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <h3 class="footer__title">About us</h3>
+                    <h3 class="footer__title">Về chúng tôi</h3>
                     <p class="footer__des">
-                        We are a team of designers and developers that create high quality wordpress, shopify, Opencart
+                        Chúng tôi là một nhóm các nhà thiết kế và nhà phát triển tạo ra wordpress, shopify, Opencart chất lượng cao
                     </p>
                     <div class="footer__social">
                         <a href="https://www.facebook.com/tucute200" target="_blank"><b-icon icon="facebook"></b-icon></a>
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="col-md-3">
-                    <h3 class="footer__title">Contact</h3>
+                    <h3 class="footer__title">Liên lạc</h3>
                     <ul class="footer__contact">
                         <li class="footer__contact-item">
                             <b-icon class="footer__contact-icon" icon="house-door"></b-icon>
@@ -36,36 +36,36 @@
                 </div>
 
                 <div class="col-md-3">
-                    <h3 class="footer__title">Policy</h3>
+                    <h3 class="footer__title">Chính sách</h3>
                     <ul class="footer__contact">
                         <li class="footer__contact-item">
-                            <a href="">Terms & Conditions</a>
+                            <a href="">Điều khoản và điều kiện</a>
                         </li>
                         <li class="footer__contact-item">
-                            <a href="">Payment Methode</a>
+                            <a href="">Phương thức thanh toán</a>
                         </li>
                         <li class="footer__contact-item">
-                            <a href="">Product Warranty</a>
+                            <a href="">Bảo hành sản phẩm</a>
                         </li>
                         <li class="footer__contact-item">
-                            <a href="">Return Process</a>
+                            <a href="">Quy trình trả hàng</a>
                         </li>
                         <li class="footer__contact-item">
-                            <a href="">Payment Security</a>
+                            <a href="">Bảo mật thanh toán</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="col-md-3">
-                    <h3 class="footer__title">Sign up to receive information</h3>
+                    <h3 class="footer__title">Đăng ký để nhận thông tin</h3>
                     <div class="footer__newletter mb-4">
                         <form submit.prevent="" class="footer__form">
                             <input type="email" class="form-control footer__input" mb-4 placeholder="demo@gmail.com" name="email">
-                            <button type="submit" class="footer__btn">Subscribe</button> 
+                            <button type="submit" class="footer__btn">Đăng ký</button> 
                         </form>
                     </div>
                      <p class="footer__des">
-                        Join over 1,000 people who get free and fresh content delivered automatically each time we publish
+                        Tham gia cùng hơn 1.000 người, những người nhận được nội dung mới và miễn phí được phân phối tự động mỗi khi chúng tôi xuất bản
                     </p>
                 </div>
             </div>
