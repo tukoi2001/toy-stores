@@ -5,7 +5,11 @@
         <b-row class="row mb-lg-5 mb-4">
           <b-col lg="" cols="12">
             <div class="section-title mb-0 text-center">
-              <h2 class="title mb-2">Sản phẩm đang giảm giá</h2>
+              <div class="title-container">
+                <hr />
+                <h2 class="title">Bộ sưu tập nổi bật</h2>
+                <hr />
+              </div>
               <p>Các sản phẩm đang giảm giá trong danh sách hàng tuần</p>
             </div>
           </b-col>
