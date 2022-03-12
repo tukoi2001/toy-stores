@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/user/Home.vue";
-import Blogs from "../views/user/Blogs.vue"
 
 Vue.use(VueRouter);
 
@@ -14,14 +13,7 @@ const routes = [
       title: "Home",
     },
   },
-  {
-    path: "/blogs",
-    name: "Blogs",
-    component: Blogs,
-    meta: {
-      title: "Blogs",
-    },
-  },
+
   {
     path: "/about",
     name: "About",
