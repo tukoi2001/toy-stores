@@ -10,6 +10,7 @@ p:last-child {
 .section-title {
     margin-bottom: 40px;
 }
+
 .section-title .title {
     font-size: 30px;
     font-weight: 400;
@@ -32,4 +33,18 @@ p:last-child {
 
 .swiper-slide {
     height: 200px;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.title-container hr {
+    width: 100%;
+}
+
+.title {
+    flex-shrink: 0;
 }

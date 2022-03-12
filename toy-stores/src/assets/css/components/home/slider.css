@@ -64,10 +64,10 @@
 }
 
 .btn-primary {
-    border-color: #FF6633;
-    background-color: #FF6633;
+    border-color: #00c4cc;
+    background-color: #00c4cc;
     color: #ffffff;
-    background-color: #FF6633;
+    background-color: #00c4cc;
     border: 1px solid transparent;
 }
 
@@ -104,10 +104,15 @@
 
 .btn-primary:hover {
     color: #000;
-    background-color: #FF6633;
-    border-color: #FF6633;
+    background-color: #00c4cc;
+    border-color: #00c4cc;
 }
 
 .hero-slide-content {
     padding: 160px 0;
+}
+
+.hero-slide-content {
+    color: #000;
+    font-weight: bold;
 }
