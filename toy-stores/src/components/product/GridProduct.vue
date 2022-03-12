@@ -31,7 +31,7 @@
                 </a>
               </div>
             </div>
-            <div class="product_new" v-if="item.isNew">
+            <div class="product_new" v-if="item.isNew === 'True'">
               <span>New</span>
             </div>
           </div>
@@ -43,11 +43,12 @@
           <div
             class="price-block d-flex align-items-center justify-content-center"
           >
-            <span class="price me-2">{{ formatPrice(item.price - (item.price / 100 * item.sale_off)) }}</span>
-            <span
-              class="price-old me-2"
-              v-if="item.sale_off"
-              >{{ formatPrice(item.price) }}</span>
+            <span class="price me-2">{{
+              formatPrice(item.price - (item.price / 100) * item.sale_off)
+            }}</span>
+            <span class="price-old me-2" v-if="item.sale_off">{{
+              formatPrice(item.price)
+            }}</span>
             <span class="price-discount" v-if="item.sale_off > 0"
               >{{ item.sale_off }}%</span
             >
@@ -55,16 +56,40 @@
         </div>
       </div>
     </div>
+    <!-- <div
+      class="d-flex justify-content-center mt-3"
+      v-if="listProductsShow.length >= 6"
+    >
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item" v-for="item in total" :key="item">
+            <a class="page-link" href="" @click.prevent="getDataByNumber(item * 6 - 6, item * 6  -1)">{{ item }}</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div> -->
   </div>
 </template>
 
 <script>
-// import {mapActions} from 'vuex'
+// import { mapState } from 'vuex'
 export default {
   name: "GridProduct",
   data() {
     return {
       listProductsShow: [],
+      total: null,
+      // listProductsFiltered: [],
     };
   },
   props: {
@@ -72,6 +97,12 @@ export default {
       type: Array,
       default: () => [],
     },
+  },
+  computed: {
+
+  },
+  created() {
+    this.listProductsShow = this.listProducts;
   },
   methods: {
     formatPrice(value) {
@@ -82,12 +113,31 @@ export default {
       });
       return formatter.format(value);
     },
+    // getDataByNumber(prev, next) {
+    //   if (this.listProductsShow.length > 6) {
+    //     const data = [];
+    //     this.listProducts.forEach((product) => {
+    //       if (product.index >= prev && product.index <= next) {
+    //         data.push(product);
+    //       }
+    //     });
+    //     this.listProductsFiltered = data;
+    //     console.log(data);
+    //   }
+    //   else {
+    //     this.listProductsFiltered = this.listProductsShow;
+    //   }
+    // },
     //   ...mapActions('cart', [
     //     'actionAddItem'
     //   ])
   },
   mounted() {
-    this.listProductsShow = this.listProducts;
+    // setTimeout(() => {{ 
+    //   const num = this.listProductsShow.length;
+    //   this.total = Math.ceil(num / 6);
+    //   this.getDataByNumber(0, 5);
+    // }}, 2000 )
   },
   watch: {
     listProducts() {
