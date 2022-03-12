@@ -1,12 +1,12 @@
 <template>
-  <div class="featured-collection">
+  <div class="best-seller-product">
     <div class="collection__wrapper mt-0 position-relative">
       <b-container>
         <b-row class="row mb-lg-5 mb-4">
           <b-col lg="" cols="12">
             <div class="section-title mb-0 text-center">
-              <h2 class="title mb-2">Featured Collection</h2>
-              <p>Add featured products to weekly lineup</p>
+              <h2 class="title mb-2">Sản phẩm bán chạy</h2>
+              <p>Thêm các sản phẩm bán chạy nhất vào danh sách hàng tuần</p>
             </div>
           </b-col>
         </b-row>
@@ -41,9 +41,8 @@
 <script>
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import Product from "../../common/products/Product.vue";
-
 export default {
-  name: "FeaturedCollection",
+  name: "BestSellerProduct",
   components: { Swiper, SwiperSlide, Product },
   data() {
     return {
@@ -67,93 +66,93 @@ export default {
       Products: [
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/1.jpg"),
           status: "sale",
-          sale: "-18%",
-          title: "Dinosaur Toys for Baby",
-          newPrice: "12.50",
-          oldPrice: "$42.85",
+          sale: "-30%",
+          title: "Trận chiến pháo đài băng Eldrador",
+          newPrice: "2999000",
+          oldPrice: "2099000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/1.jpg"),
           status: "sale",
-          sale: "-18%",
-          title: "Dinosaur Toys for Baby",
-          newPrice: "12.50",
-          oldPrice: "$42.85",
+          sale: "-30%",
+          title: "Trận chiến pháo đài băng Eldrador",
+          newPrice: "2999000",
+          oldPrice: "2099000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/2.jpg"),
           status: "new",
-          sale: "-18%",
-          title: "Dinosaur Toys for Baby",
-          newPrice: "12.50",
-          oldPrice: "$42.85",
+          sale: "0%",
+          title: "Cờ tỷ phú Monopoly Peppa Pig Bé Heo Hồng",
+          newPrice: "679000",
+          oldPrice: "679000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/2.jpg"),
           status: "new",
-          sale: "-18%",
-          title: "Dinosaur Toys for Baby",
-          newPrice: "12.50",
-          oldPrice: "$42.85",
+          sale: "0%",
+          title: "Cờ tỷ phú Monopoly Peppa Pig Bé Heo Hồng",
+          newPrice: "679000",
+          oldPrice: "679000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/1.jpg"),
           status: "sale",
-          sale: "-18%",
-          title: "Dinosaur Toys for Baby",
-          newPrice: "12.50",
-          oldPrice: "$42.85",
+          sale: "-30%",
+          title: "Trận chiến pháo đài băng Eldrador",
+          newPrice: "2999000",
+          oldPrice: "2099000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/1.jpg"),
           status: "sale",
-          sale: "-18%",
-          title: "Dinosaur Toys for Baby",
-          newPrice: "12.50",
-          oldPrice: "$42.85",
+          sale: "-30%",
+          title: "Trận chiến pháo đài băng Eldrador",
+          newPrice: "2999000",
+          oldPrice: "2099000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/2.jpg"),
           status: "new",
-          sale: "-18%",
-          title: "Dinosaur Toys for Baby",
-          newPrice: "12.50",
-          oldPrice: "$42.85",
+          sale: "0%",
+          title: "Cờ tỷ phú Monopoly Peppa Pig Bé Heo Hồng",
+          newPrice: "679000",
+          oldPrice: "679000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/2.jpg"),
           status: "new",
-          sale: "-18%",
-          title: "Dinosaur Toys for Baby",
-          newPrice: "12.50",
-          oldPrice: "$42.85",
+          sale: "0%",
+          title: "Cờ tỷ phú Monopoly Peppa Pig Bé Heo Hồng",
+          newPrice: "679000",
+          oldPrice: "679000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/1.jpg"),
           status: "sale",
-          sale: "-18%",
-          title: "Dinosaur Toys for Baby",
-          newPrice: "12.50",
-          oldPrice: "$42.85",
+          sale: "-30%",
+          title: "Trận chiến pháo đài băng Eldrador",
+          newPrice: "2999000",
+          oldPrice: "2099000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/1.jpg"),
           status: "sale",
-          sale: "-18%",
-          title: "Dinosaur Toys for Baby",
-          newPrice: "12.50",
-          oldPrice: "$42.85",
+          sale: "-30%",
+          title: "Trận chiến pháo đài băng Eldrador",
+          newPrice: "2999000",
+          oldPrice: "2099000",
         },
       ],
     };
