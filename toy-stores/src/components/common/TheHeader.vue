@@ -30,8 +30,8 @@
                     ></b-nav-item
                   >
                   <b-nav-item
-                    ><router-link to="/blog" class="nav__link"
-                      >Blog</router-link
+                    ><router-link to="/blogs" class="nav__link"
+                      >Blogs</router-link
                     ></b-nav-item
                   >
                   <b-nav-item
