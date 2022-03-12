@@ -1,7 +1,8 @@
 import { ProductService } from '../../services/ProductService';
 const state = () => ({
     productDetail: null,
-    listProducts: null,
+    listProducts: [],
+    num: null
   });
   
   const mutations = {
@@ -11,6 +12,9 @@ const state = () => ({
     setDataProduct(state, prod) {
       state.listProducts = prod;
     },
+    setNum(state, num) {
+      state.num = num;
+    }
   };
   
   const actions = {

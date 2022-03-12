@@ -124,9 +124,10 @@ export default {
     },
     async getDataProduct() {
       const res = await ProductService.show();
-      const newRes = res.docs.map((item) => {
+      const newRes = res.docs.map((item, index) => {
         return {
           id: item.id,
+          index: index,
           ...item.data(),
         };
       });
@@ -134,9 +135,10 @@ export default {
     },
     async getDataProductByCategory(category) {
       const res = await ProductService.show();
-      const newRes = res.docs.map((item) => {
+      const newRes = res.docs.map((item, index) => {
         return {
           id: item.id,
+          index: index,
           ...item.data(),
         };
       });

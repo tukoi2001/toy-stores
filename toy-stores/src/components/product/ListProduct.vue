@@ -11,7 +11,7 @@
             :src="item.urlImage[0]"
             alt=""
           />
-            <div class="product_new" v-if="item.isNew">
+            <div class="product_new" v-if="item.isNew === 'True'">
               <span>New</span>
             </div>
         </div>
@@ -29,7 +29,7 @@
             </div>
             <div class="price-block">
               <span class="price">{{ formatPrice(item.price - (item.price / 100 * item.sale_off)) }}</span>
-              <span class="price-old" v-if="item.sale_off">{{ item.price }}</span>
+              <span class="price-old" v-if="item.sale_off">{{ formatPrice(item.price) }}</span>
               <span class="price-discount">{{ item.sale_off }}%</span>
             </div>
             <div class="rating-block">
