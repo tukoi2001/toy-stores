@@ -64,14 +64,12 @@
 }
 
 .btn-primary {
-    border-color: #00c4cc;
-    background-color: #00c4cc;
+    border-color: #FF6633;
+    background-color: #FF6633;
     color: #ffffff;
-    background-color: #00c4cc;
+    background-color: #FF6633;
     border: 1px solid transparent;
 }
-
-element.style {}
 
 .swiper-slide-active .hero-slide-content>*:nth-child(3) {
     -webkit-animation-delay: 1.5s;
@@ -96,14 +94,6 @@ element.style {}
     animation-name: fadeOutUp;
 }
 
-.btn-primary {
-    border-color: #00c4cc;
-    background-color: #00c4cc;
-    color: #ffffff;
-    background-color: #00c4cc;
-    border: 1px solid transparent;
-}
-
 .btn {
     font-size: 15px;
     padding: 14px 30px;
@@ -114,8 +104,8 @@ element.style {}
 
 .btn-primary:hover {
     color: #000;
-    background-color: #26cdd4;
-    border-color: #1acad1;
+    background-color: #FF6633;
+    border-color: #FF6633;
 }
 
 .hero-slide-content {

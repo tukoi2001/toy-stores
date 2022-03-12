@@ -5,7 +5,9 @@
         <div class="col-12">
           <div class="section-title text-center aos-init aos-animate">
             <h2 class="title text-white">Đánh giá</h2>
-            <p class="sub-title text-white">Những khách hàng đã sử dụng sản phẩm của chúng tôi nói gì?</p>
+            <p class="sub-title text-white">
+              Những khách hàng đã sử dụng sản phẩm của chúng tôi nói gì?
+            </p>
           </div>
           <div class="aos-init aos-animate">
             <swiper
@@ -14,11 +16,16 @@
               ref="swiperTop"
             >
               <swiper-slide
-                class="swiper-slide-active swiper-slide-thumb-active"
+                class="swiper-slide-active"
                 v-for="(item, index) in listAvatar"
                 :key="index"
               >
-                <img :src="item.img" alt="" />
+                <img
+                  @click="showContent(index)"
+                  :class="{ active: currentContent == index }"
+                  :src="item.img"
+                  :alt="item.alt"
+                />
               </swiper-slide>
             </swiper>
             <swiper
@@ -93,46 +100,61 @@ export default {
           disableOnInteraction: false,
         },
       },
+      currentContent: 0,
       listAvatar: [
         {
-          img: require("@/assets/images/home/testimonials/thumb-1.jpg"),
+          img: require("@/assets/images/home/testimonials/1.jpg"),
+          alt: "baby-1",
         },
         {
-          img: require("@/assets/images/home/testimonials/thumb-2.jpg"),
+          img: require("@/assets/images/home/testimonials/2.jpg"),
+          alt: "baby-2",
         },
         {
-          img: require("@/assets/images/home/testimonials/thumb-3.jpg"),
+          img: require("@/assets/images/home/testimonials/3.jpg"),
+          alt: "baby-3",
         },
         {
-          img: require("@/assets/images/home/testimonials/thumb-4.jpg"),
+          img: require("@/assets/images/home/testimonials/4.jpg"),
+          alt: "baby-4",
         },
       ],
       listInfo: [
         {
           rating: 5,
-          author: "James",
+          author: "Hằng",
           content:
             "Sống từ chính viên thuốc, hoặc nước sốt tuyệt vời. Ngay cả kẻ tra tấn đáng ghê tởm đó. Bây giờ sô cô la, nếu không phải từ độ mịn của các thanh, bây giờ là các mạng lưới độc hại thuần túy Với bạn bè của bạn",
         },
         {
           rating: 5,
-          author: "Jonny",
+          author: "Ngọc",
           content:
             "Giúp các bé xa CẢM ỨNG – Thích ứng đồ chơi – Vui chơi thỏa thích – Tích thật nhiều điểm",
         },
         {
           rating: 5,
-          author: "Foden",
-          content:
-            "Con vui khỏe – mẹ trẻ lâu – chồng yêu sâu – vui có thưởng",
+          author: "Phúc",
+          content: "Con vui khỏe – mẹ trẻ lâu – chồng yêu sâu – vui có thưởng",
         },
         {
           rating: 5,
-          author: "Mappbe",
+          author: "Văn Anh",
           content:
             "Vì tương lai con em chúng ta, hãy cho bé vui chơi hồn nhiên",
         },
       ],
+      methods: {
+        showContent(index) {
+          this.currentContent = index;
+        },
+      },
+      computed: {
+        showCurrentContent() {
+          let index = this.currentContent;
+          return this.listInfo[index];
+        },
+      },
     };
   },
   props: {
