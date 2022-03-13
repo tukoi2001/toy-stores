@@ -8,7 +8,7 @@
       <div class="product-grid-content product-card--body">
         <div class="product-card--body">
           <div class="card-image">
-            <img :src="item.urlImage[0]" alt="" />
+            <a href="" @click.prevent="getProductDetail(item)"><img :src="item.urlImage[0]" alt="" /></a>
             <div class="hover-contents">
               <div class="hover-btns">
                 <a
@@ -37,7 +37,7 @@
           </div>
           <div class="product-header mt-3">
             <h3>
-              <a href="">{{ item.name }}</a>
+              <a href="" @click.prevent="getProductDetail(item)">{{ item.name }}</a>
             </h3>
           </div>
           <div
@@ -82,7 +82,7 @@
 </template>
 
 <script>
-// import { mapState } from 'vuex'
+import { mapActions } from 'vuex'
 export default {
   name: "GridProduct",
   data() {
@@ -113,6 +113,11 @@ export default {
       });
       return formatter.format(value);
     },
+    getProductDetail(product) {
+      this.actionSetProductDetail(product);
+      const id = product.slug + product.id;
+      this.$router.push(`/products/${id}`);
+    },
     // getDataByNumber(prev, next) {
     //   if (this.listProductsShow.length > 6) {
     //     const data = [];
@@ -128,9 +133,9 @@ export default {
     //     this.listProductsFiltered = this.listProductsShow;
     //   }
     // },
-    //   ...mapActions('cart', [
-    //     'actionAddItem'
-    //   ])
+      ...mapActions('products', [
+        'actionSetProductDetail'
+      ])
   },
   mounted() {
     // setTimeout(() => {{ 

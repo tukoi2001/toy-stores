@@ -7,13 +7,12 @@
     >
       <div class="col-md-3 p-0">
         <div class="card-image">
-          <img
-            :src="item.urlImage[0]"
-            alt=""
-          />
-            <div class="product_new" v-if="item.isNew === 'True'">
-              <span>New</span>
-            </div>
+          <a href="" @click.prevent="getProductDetail(item)"
+            ><img :src="item.urlImage[0]" alt=""
+          /></a>
+          <div class="product_new" v-if="item.isNew === 'True'">
+            <span>New</span>
+          </div>
         </div>
       </div>
       <div class="col-md-9 text-start">
@@ -21,15 +20,21 @@
           <div class="product-card--body">
             <div class="product-header">
               <h3>
-                <a href="">{{ item.name }}</a>
+                <a href="" @click.prevent="getProductDetail(item)">{{
+                  item.name
+                }}</a>
               </h3>
               <p>
                 {{ item.description }}
               </p>
             </div>
             <div class="price-block">
-              <span class="price">{{ formatPrice(item.price - (item.price / 100 * item.sale_off)) }}</span>
-              <span class="price-old" v-if="item.sale_off">{{ formatPrice(item.price) }}</span>
+              <span class="price">{{
+                formatPrice(item.price - (item.price / 100) * item.sale_off)
+              }}</span>
+              <span class="price-old" v-if="item.sale_off">{{
+                formatPrice(item.price)
+              }}</span>
               <span class="price-discount">{{ item.sale_off }}%</span>
             </div>
             <div class="rating-block">
@@ -58,7 +63,7 @@
 </template>
 
 <script>
-// import { mapActions } from "vuex";
+import { mapActions } from 'vuex'
 export default {
   name: "ListProduct",
   data() {
@@ -81,7 +86,12 @@ export default {
       });
       return formatter.format(value);
     },
-    // ...mapActions("cart", ["actionAddItem"]),
+    getProductDetail(product) {
+      this.actionSetProductDetail(product);
+      const id = product.slug + product.id;
+      this.$router.push(`/products/${id}`);
+    },
+    ...mapActions("products", ["actionSetProductDetail"]),
   },
   mounted() {
     this.listProductsShow = this.listProducts;
