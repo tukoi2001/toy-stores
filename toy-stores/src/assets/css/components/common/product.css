@@ -11,6 +11,8 @@
     position: relative;
     display: block;
     overflow: hidden;
+    width: 100%;
+    height: 265px;
 }
 
 .product .thumb .image img {
@@ -18,6 +20,8 @@
     -webkit-transition: all 0.5s ease 0s;
     -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s;
+    width: 100%;
+    height: 100%;
 }
 
 .product:hover .thumb .image img {
@@ -126,6 +130,7 @@
     -ms-transform: translateY(0);
     transform: translateY(0);
     opacity: 1;
+    border: 1px solid rgb(194, 191, 191);
 }
 
 .actions .action:hover:not(.active) {
@@ -233,11 +238,12 @@
 
 .product .thumb .add-cart-btn .btn {
     -webkit-box-shadow: 0 2px 1px 0.5px rgb(0 0 0 / 10%);
-    box-shadow: 0 2px 1px 0.5px rgb(0 0 0 / 10%);
+    box-shadow: 0px 3px 2px 0px rgb(0 0 0 / 10%);
     font-size: 14px;
     font-weight: 400;
     line-height: 1;
     padding: 12px 25px;
+
 }
 
 /* Content */
@@ -254,58 +260,58 @@
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    padding: 20px 15px 0;
+    padding: 20px 15px 20px;
     -webkit-transition: all 0.5s ease 0s;
     -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s;
     text-align: center;
-    background-color: #ffffff;
+    background-color: #d5d5d5;
 }
 
-.product .content .title {
-    font-size: 17px;
+.price-block {
+    text-align: left;
+  }
+  .price {
+    color: #929292;
+    font-size: 18px;
+    color: #00c4cc;
+    font-weight: 600;
+  }
+  .price-old {
+    color: #999999;
+    text-decoration: line-through;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 1.2;
-    margin-bottom: 12px;
-    color: #222222;
-}
-
+    margin-left: 5px;
+  }
+  .price-discount {
+    color: #fff;
+    font-weight: 700;
+    text-align: center;
+    line-height: 24px;
+    padding: 0 7px;
+    min-width: 46px;
+    background: #bd0018;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-left: 5px;
+    z-index: 3;
+    border-radius: 3px;
+  }
 .product .content .title a {
+    padding: 0;
+    display: block;
+    text-transform: capitalize;
+    overflow: hidden;
+    font-size: 16px;
+    font-weight: 600;
     text-decoration: none;
-    color: #222222;
+    color: #333;
+    transition: all 0.3s ease-in-out;
 }
 
 .product .content .title a:hover {
     color: #00c4cc;
-}
-
-.product .content .price {
-    font-size: 16px;
-    line-height: 1;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    color: #222222;
-}
-
-.product .content .price span.new {
-    color: #00c4cc;
-}
-.product .content .price span.old {
-    font-size: 16px;
-    margin-left: 10px;
-    text-decoration: line-through;
-    color: #DC3545;
-    opacity: .5;
 }
 
 /* Button */

@@ -9,10 +9,8 @@
         <span :class="status" v-else>{{ status }}</span>
       </span>
       <div class="actions">
-        <a href="wishlist.html" class="action wishlist"
-          ><b-icon icon="heart"></b-icon>
-        </a>
-        <a href="compare.html" class="action compare"
+        <a href="" class="action wishlist"><b-icon icon="heart"></b-icon> </a>
+        <a href="" class="action compare"
           ><b-icon icon="arrow-repeat"></b-icon>
         </a>
         <a href="#" class="action quickview"><b-icon icon="search"></b-icon></a>
@@ -29,10 +27,17 @@
       <h5 class="title">
         <router-link :to="link">{{ title }}</router-link>
       </h5>
-      <span class="price">
-        <span class="new"> {{ newPrice }} VNĐ </span>
-        <span class="old">{{ oldPrice }} VNĐ</span>
-      </span>
+      <div class="price-block d-flex align-items-center justify-content-center">
+        <span class="price me-2">{{
+          formatPrice(200000)
+        }}</span>
+        <span class="price-old me-2">{{
+          formatPrice(200000)
+        }}</span>
+        <span class="price-discount"
+          >{{ 10 }}%</span
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -70,8 +75,17 @@ export default {
       default: "",
     },
   },
+  methods: {
+    formatPrice(value) {
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "VND",
+        minimumFractionDigits: 0,
+      });
+      return formatter.format(value);
+    },
+  }
 };
 </script>
 
-<style scoped src="@/assets/css/components/common/product.css">
-</style>
+<style scoped src="@/assets/css/components/common/product.css"></style>

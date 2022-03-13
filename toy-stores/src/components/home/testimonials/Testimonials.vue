@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-12">
           <div class="section-title text-center aos-init aos-animate">
-            <h2 class="title text-white">Đánh giá</h2>
+            <h2 class="text-white mb-3">Lời Đánh Giá</h2>
             <p class="sub-title text-white">
               Những khách hàng đã sử dụng sản phẩm của chúng tôi nói gì?
             </p>
@@ -40,27 +40,27 @@
                 <span class="ratings">
                   <b-icon
                     class="testimonials__ratings-icon"
-                    icon="star"
+                    icon="star-fill"
                   ></b-icon>
                   <b-icon
                     class="testimonials__ratings-icon"
-                    icon="star"
+                    icon="star-fill"
                   ></b-icon>
                   <b-icon
                     class="testimonials__ratings-icon"
-                    icon="star"
+                    icon="star-fill"
                   ></b-icon>
                   <b-icon
                     class="testimonials__ratings-icon"
-                    icon="star"
+                    icon="star-fill"
                   ></b-icon>
                   <b-icon
                     class="testimonials__ratings-icon"
-                    icon="star"
+                    icon="star-fill"
                   ></b-icon>
                 </span>
                 <span class="rating-num text-light">
-                  {{ item.rating }}
+                  ({{ item.rating }})
                 </span>
                 <h4 class="testimonial-author mb-0">{{ item.author }}</h4>
               </swiper-slide>
@@ -122,26 +122,26 @@ export default {
       listInfo: [
         {
           rating: 5,
-          author: "Hằng",
+          author: "Bé Hằng Nga",
           content:
-            "Sống từ chính viên thuốc, hoặc nước sốt tuyệt vời. Ngay cả kẻ tra tấn đáng ghê tởm đó. Bây giờ sô cô la, nếu không phải từ độ mịn của các thanh, bây giờ là các mạng lưới độc hại thuần túy Với bạn bè của bạn",
+            "Bé chơi khỏe, sẽ lớn nhanh – chìa khoá thành công, niềm vui và hạnh phúc. Các sản phẩm chính hãng giúp con thoải mái khi chơi và chúng rất bổ ích!",
         },
         {
           rating: 5,
-          author: "Ngọc",
+          author: "Bé Bích Ngọc",
           content:
-            "Giúp các bé xa CẢM ỨNG – Thích ứng đồ chơi – Vui chơi thỏa thích – Tích thật nhiều điểm",
+            "Giúp các bé CẢM ỨNG – Thích ứng đồ chơi – Vui chơi thỏa thích – Tích thật nhiều điểm. Các sản phẩm chính hãng giúp con thoải mái khi chơi và chúng rất bổ ích!",
         },
         {
           rating: 5,
-          author: "Phúc",
-          content: "Con vui khỏe – mẹ trẻ lâu – chồng yêu sâu – vui có thưởng",
+          author: "Bé Hồng Phúc",
+          content: "Sức khoẻ của bé, niềm vui của mẹ. Các sản phẩm chính hãng giúp con thoải mái khi chơi và chúng rất bổ ích!",
         },
         {
           rating: 5,
-          author: "Văn Anh",
+          author: "Bé Văn Anh",
           content:
-            "Vì tương lai con em chúng ta, hãy cho bé vui chơi hồn nhiên",
+            "Vì tương lai con em chúng ta, hãy cho bé vui chơi hồn nhiên. Các sản phẩm chính hãng giúp con thoải mái khi chơi và chúng rất bổ ích!",
         },
       ],
       methods: {
