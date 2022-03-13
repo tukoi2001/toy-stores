@@ -5,8 +5,8 @@
         <div class="row">
           <div class="col-12">
             <div class="section-title text-center aos-init aos-animate">
-              <h2 class="title">Testimonials</h2>
-              <p class="sub-title">What they say</p>
+              <h2 class="title">Đánh giá</h2>
+              <p class="sub-title">Những khách hàng đã sử dụng sản phẩm của chúng tôi nói gì?</p>
             </div>
             <div class="latest-blog-carousel">
               <swiper class="swiper" :options="swiperOption">
@@ -55,31 +55,31 @@ export default {
         {
           image: require("@/assets/images/home/blog/1.jpg"),
           dateBlogs: "03/11/2021 | ",
-          blogTitle: "It is a long established fact that a reader will be distracted",
+          blogTitle: "Một thực tế đã được thiết lập từ lâu rằng người đọc sẽ bị phân tâm",
           author: "Admin",
         },
         {
           image: require("@/assets/images/home/blog/2.jpg"),
           dateBlogs: "03/11/2021 | ",
-          blogTitle: "It is a long established fact that a reader will be distracted",
+          blogTitle: "Một thực tế đã được thiết lập từ lâu rằng người đọc sẽ bị phân tâm",
           author: "Admin",
         },
         {
           image: require("@/assets/images/home/blog/3.jpg"),
           dateBlogs: "03/11/2021 | ",
-          blogTitle: "It is a long established fact that a reader will be distracted",
+          blogTitle: "Một thực tế đã được thiết lập từ lâu rằng người đọc sẽ bị phân tâm",
           author: "Admin",
         },
         {
           image: require("@/assets/images/home/blog/1.jpg"),
           dateBlogs: "03/11/2021 | ",
-          blogTitle: "It is a long established fact that a reader will be distracted",
+          blogTitle: "Một thực tế đã được thiết lập từ lâu rằng người đọc sẽ bị phân tâm",
           author: "Admin",
         },
         {
           image: require("@/assets/images/home/blog/2.jpg"),
           dateBlogs: "03/11/2021 | ",
-          blogTitle: "It is a long established fact that a reader will be distracted",
+          blogTitle: "Một thực tế đã được thiết lập từ lâu rằng người đọc sẽ bị phân tâm",
           author: "Admin",
         },
         

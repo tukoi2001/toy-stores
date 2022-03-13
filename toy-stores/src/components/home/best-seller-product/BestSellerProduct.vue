@@ -1,16 +1,16 @@
 <template>
-  <div class="featured-collection">
+  <div class="best-seller-product">
     <div class="collection__wrapper mt-0 position-relative">
       <b-container>
         <b-row class="row mb-lg-5 mb-4">
           <b-col lg="" cols="12">
             <div class="section-title mb-0 text-center">
               <div class="title-container">
-                <hr/>
+                <hr />
                 <h2 class="title">Bộ sưu tập nổi bật</h2>
-                <hr/>
+                <hr />
               </div>
-              <p>Các sản phẩm nổi bật trong danh mục hàng tuần</p>
+              <p>Thêm các sản phẩm bán chạy nhất vào danh sách hàng tuần</p>
             </div>
           </b-col>
         </b-row>
@@ -45,9 +45,8 @@
 <script>
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import Product from "../../common/products/Product.vue";
-
 export default {
-  name: "FeaturedCollection",
+  name: "BestSellerProduct",
   components: { Swiper, SwiperSlide, Product },
   data() {
     return {
@@ -71,93 +70,93 @@ export default {
       Products: [
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
-          status: "new",
-          sale: "0%",
-          title: "Siêu Xe Lamborghini Countach",
-          newPrice: "649000",
-          oldPrice: "649000",
-        },
-        {
-          link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
-          status: "new",
-          sale: "0%",
-          title: "Siêu Xe Lamborghini Countach",
-          newPrice: "649000",
-          oldPrice: "649000",
-        },
-        {
-          link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/1.jpg"),
           status: "sale",
-          sale: "-40%",
-          title: "Bé Lisa tập làm bữa sáng",
-          newPrice: "779000",
-          oldPrice: "1299000",
+          sale: "-30%",
+          title: "Trận chiến pháo đài băng Eldrador",
+          newPrice: "2999000",
+          oldPrice: "2099000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/1.jpg"),
           status: "sale",
-          sale: "-40%",
-          title: "Bé Lisa tập làm bữa sáng",
-          newPrice: "779000",
-          oldPrice: "1299000",
+          sale: "-30%",
+          title: "Trận chiến pháo đài băng Eldrador",
+          newPrice: "2999000",
+          oldPrice: "2099000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/2.jpg"),
           status: "new",
           sale: "0%",
-          title: "Siêu Xe Lamborghini Countach",
-          newPrice: "649000",
-          oldPrice: "649000",
+          title: "Cờ tỷ phú Monopoly Peppa Pig Bé Heo Hồng",
+          newPrice: "679000",
+          oldPrice: "679000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/2.jpg"),
           status: "new",
           sale: "0%",
-          title: "Siêu Xe Lamborghini Countach",
-          newPrice: "649000",
-          oldPrice: "649000",
+          title: "Cờ tỷ phú Monopoly Peppa Pig Bé Heo Hồng",
+          newPrice: "679000",
+          oldPrice: "679000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/1.jpg"),
           status: "sale",
-          sale: "-40%",
-          title: "Bé Lisa tập làm bữa sáng",
-          newPrice: "779000",
-          oldPrice: "1299000",
+          sale: "-30%",
+          title: "Trận chiến pháo đài băng Eldrador",
+          newPrice: "2999000",
+          oldPrice: "2099000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/1.jpg"),
           status: "sale",
-          sale: "-40%",
-          title: "Bé Lisa tập làm bữa sáng",
-          newPrice: "779000",
-          oldPrice: "1299000",
+          sale: "-30%",
+          title: "Trận chiến pháo đài băng Eldrador",
+          newPrice: "2999000",
+          oldPrice: "2099000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/2.jpg"),
           status: "new",
           sale: "0%",
-          title: "Siêu Xe Lamborghini Countach",
-          newPrice: "649000",
-          oldPrice: "649000",
+          title: "Cờ tỷ phú Monopoly Peppa Pig Bé Heo Hồng",
+          newPrice: "679000",
+          oldPrice: "679000",
         },
         {
           link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
+          image: require("@/assets/images/common/products/demo-best-seller-products/2.jpg"),
           status: "new",
           sale: "0%",
-          title: "Siêu Xe Lamborghini Countach",
-          newPrice: "649000",
-          oldPrice: "649000",
+          title: "Cờ tỷ phú Monopoly Peppa Pig Bé Heo Hồng",
+          newPrice: "679000",
+          oldPrice: "679000",
+        },
+        {
+          link: "/product",
+          image: require("@/assets/images/common/products/demo-best-seller-products/1.jpg"),
+          status: "sale",
+          sale: "-30%",
+          title: "Trận chiến pháo đài băng Eldrador",
+          newPrice: "2999000",
+          oldPrice: "2099000",
+        },
+        {
+          link: "/product",
+          image: require("@/assets/images/common/products/demo-best-seller-products/1.jpg"),
+          status: "sale",
+          sale: "-30%",
+          title: "Trận chiến pháo đài băng Eldrador",
+          newPrice: "2999000",
+          oldPrice: "2099000",
         },
       ],
     };
