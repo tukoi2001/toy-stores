@@ -50,3 +50,6 @@
   transition: all 0.2s ease;
 }
 
+.router-link-exact-active {
+  color: #00c4cc;
+}

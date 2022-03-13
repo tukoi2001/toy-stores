@@ -2,18 +2,24 @@ import { ProductService } from '../../services/ProductService';
 const state = () => ({
     productDetail: null,
     listProducts: [],
-    num: null
+    listImg: [],
+    currentImg: null
   });
   
   const mutations = {
     setProductDetail(state, data) {
       state.productDetail = data;
+      state.listImg = data.urlImage;
+      state.currentImg = data.urlImage[0];
     },
     setDataProduct(state, prod) {
       state.listProducts = prod;
     },
     setNum(state, num) {
       state.num = num;
+    },
+    setImageCurrent(state, img) {
+      state.currentImg = img;
     }
   };
   

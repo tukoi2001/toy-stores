@@ -54,7 +54,9 @@ const routes = [
     path: "/verify-email",
     name: "VerifyEmail",
     component: () =>
-      import(/* webpackChunkName: "verify-email" */ "../views/auth/VerifyEmail.vue"),
+      import(
+        /* webpackChunkName: "verify-email" */ "../views/auth/VerifyEmail.vue"
+      ),
     meta: {
       title: "Verify Email",
     },
@@ -63,7 +65,9 @@ const routes = [
     path: "/reset-password",
     name: "ResetPassword",
     component: () =>
-      import(/* webpackChunkName: "verify-email" */ "../views/auth/ResetPassword.vue"),
+      import(
+        /* webpackChunkName: "verify-email" */ "../views/auth/ResetPassword.vue"
+      ),
     meta: {
       title: "Reset Password",
     },
@@ -82,7 +86,9 @@ const routes = [
     path: "/categories/:all",
     name: "Shop",
     component: () =>
-      import(/* webpackChunkName: "me" */ "../views/user/Products.vue"),
+      import(
+        /* webpackChunkName: "categories-all" */ "../views/user/Products.vue"
+      ),
     meta: {
       title: "Shop",
     },
@@ -91,16 +97,31 @@ const routes = [
     path: "/categories/:id",
     name: "Shop By ID",
     component: () =>
-      import(/* webpackChunkName: "me" */ "../views/user/ProductsById.vue"),
+      import(
+        /* webpackChunkName: "categories-by-id" */ "../views/user/ProductsById.vue"
+      ),
     meta: {
       title: "Shop",
+    },
+  },
+  {
+    path: "/products/:id",
+    name: "Product By Category",
+    component: () =>
+      import(
+        /* webpackChunkName: "product-detail" */ "../views/user/ProductDetail.vue"
+      ),
+    meta: {
+      title: "Product Details",
     },
   },
   {
     path: "/dashboard",
     name: "Dashboard",
     component: () =>
-      import(/* webpackChunkName: "dashboard" */ "../views/admin/Dashboard.vue"),
+      import(
+        /* webpackChunkName: "dashboard" */ "../views/admin/Dashboard.vue"
+      ),
     meta: {
       requireAuth: true,
       title: "Dashboard",
@@ -110,7 +131,9 @@ const routes = [
     path: "/dashboard/categories",
     name: "Categories",
     component: () =>
-      import(/* webpackChunkName: "categories" */ "../views/admin/Categories.vue"),
+      import(
+        /* webpackChunkName: "categories" */ "../views/admin/Categories.vue"
+      ),
     meta: {
       requireAuth: true,
       title: "Categories",
@@ -120,7 +143,9 @@ const routes = [
     path: "/dashboard/categories/:slug",
     name: "CategoriesDetail",
     component: () =>
-      import(/* webpackChunkName: "category-detail" */ "../views/admin/CategoriesDetail.vue"),
+      import(
+        /* webpackChunkName: "category-detail" */ "../views/admin/CategoriesDetail.vue"
+      ),
     meta: {
       requireAuth: true,
       title: "Category Detail",
@@ -140,7 +165,9 @@ const routes = [
     path: "/dashboard/products/:slug",
     name: "ProductDetail",
     component: () =>
-      import(/* webpackChunkName: "product-detail" */ "../views/admin/ProductsDetail.vue"),
+      import(
+        /* webpackChunkName: "product-detail" */ "../views/admin/ProductsDetail.vue"
+      ),
     meta: {
       requireAuth: true,
       title: "Product Detail",
@@ -152,6 +179,13 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+  scrollBehavior() {
+    return {
+      x: 0,
+      y: 0,
+      behavior: "smooth",
+    };
+  },
 });
 
 router.beforeEach((to, from, next) => {

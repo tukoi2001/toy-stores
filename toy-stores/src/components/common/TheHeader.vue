@@ -7,7 +7,7 @@
             <img class="nav__img" src="@/assets/images/logo/logo.png" alt="" />
           </router-link>
         </div>
-        <div class="col-md-7 d-flex align-items-center">
+        <div class="col-md-7 d-flex align-items-center justify-content-center">
           <div>
             <b-navbar toggleable="lg" type="dark" variant="info">
               <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -22,11 +22,6 @@
                   <b-nav-item
                     ><router-link to="/categories/tat-ca-san-pham" class="nav__link"
                       >Shop</router-link
-                    ></b-nav-item
-                  >
-                  <b-nav-item
-                    ><router-link to="/pages" class="nav__link"
-                      >Pages</router-link
                     ></b-nav-item
                   >
                   <b-nav-item
@@ -64,9 +59,7 @@
           >
             <b-icon class="icon__header" icon="person-circle"></b-icon>
           </a>
-          <transition name="fade">
             <account-tab v-if="accountTabs" @myAccount="hideShowAccount" />
-          </transition>
           <a href="" class="nav__icon">
             <b-icon class="icon__header" icon="suit-heart"></b-icon>
           </a>
@@ -74,9 +67,7 @@
             <b-icon class="icon__header" icon="cart-check"></b-icon>
           </a>
           <template>
-            <transition name="fade">
               <the-cart v-if="showCart" @myEvent="hideShowCart" />
-            </transition>
           </template>
         </div>
       </div>
