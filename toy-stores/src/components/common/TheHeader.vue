@@ -25,7 +25,7 @@
                     ></b-nav-item
                   >
                   <b-nav-item
-                    ><router-link to="/blog" class="nav__link"
+                    ><router-link to="/blogs" class="nav__link"
                       >Blog</router-link
                     ></b-nav-item
                   >

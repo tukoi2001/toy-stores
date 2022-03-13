@@ -23,6 +23,7 @@
           </b-row>
         </div>
       </b-container>
+      <brands/>
     </user-layout>
   </div>
 </template>
@@ -30,10 +31,11 @@
 <script>
 import SingleBlog from "../../components/blogs/SingleBlog.vue";
 import BreadCrumbs from "../../components/common/BreadCrumbs.vue";
+import Brands from '../../components/home/brands/Brands.vue';
 import UserLayout from "../../components/layout/UserLayout.vue";
 export default {
   name: "Blogs",
-  components: { SingleBlog, UserLayout, BreadCrumbs },
+  components: { SingleBlog, UserLayout, BreadCrumbs, Brands },
   data() {
     return {
       ListOfBlogs: [

@@ -1,50 +1,51 @@
 .collection__wrapper {
-    margin-top: 80px;
-    margin-bottom: 80px;
+  padding: 40px 0 80px;
+  background-color: #f5f5f5;
 }
 
 p:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .section-title {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
-
-.section-title .title {
-    font-size: 30px;
-    font-weight: 400;
-    margin-bottom: 0;
-    color: #222222;
-    margin-top: -5px;
+.section-title p {
+  font-size: 1.1rem;
 }
-
+.section-title h2 {
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 0;
+  color: #222222;
+  margin-top: -5px;
+}
 .arrow-outside-container {
-    margin-right: -50px;
-    margin-left: -50px;
-    padding: 0 50px;
+  margin-right: -50px;
+  margin-left: -50px;
+  padding: 0 50px;
 }
 
 .swiper {
-    height: 375px;
-    margin-left: auto;
-    margin-right: auto;
+  height: 375px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .swiper-slide {
-    height: 200px;
+  height: 200px;
 }
 
 .title-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .title-container hr {
-    width: 100%;
+  width: 100%;
 }
 
 .title {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }

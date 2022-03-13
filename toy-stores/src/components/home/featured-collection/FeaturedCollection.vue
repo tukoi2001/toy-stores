@@ -1,16 +1,14 @@
 <template>
-  <div class="featured-collection">
+  <div class="best-seller-product">
     <div class="collection__wrapper mt-0 position-relative">
       <b-container>
         <b-row class="row mb-lg-5 mb-4">
           <b-col lg="" cols="12">
             <div class="section-title mb-0 text-center">
               <div class="title-container">
-                <hr/>
-                <h2 class="title">Bộ sưu tập nổi bật</h2>
-                <hr/>
+                <h2 class="fw-bold">Sản phẩm mới nhất <b-icon icon="emoji-heart-eyes"></b-icon></h2>
               </div>
-              <p>Các sản phẩm nổi bật trong danh mục hàng tuần</p>
+              <p class="text-start my-5">Các sản phẩm mới nhất được cập nhật hàng ngày!</p>
             </div>
           </b-col>
         </b-row>
@@ -45,7 +43,6 @@
 <script>
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import Product from "../../common/products/Product.vue";
-
 export default {
   name: "FeaturedCollection",
   components: { Swiper, SwiperSlide, Product },
@@ -63,103 +60,14 @@ export default {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
-        },
+        // autoplay: {
+          
+        //   delay: 2500,
+        //   disableOnInteraction: false,
+        // },
+        autoplay: false,
       },
-      Products: [
-        {
-          link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
-          status: "new",
-          sale: "0%",
-          title: "Siêu Xe Lamborghini Countach",
-          newPrice: "649000",
-          oldPrice: "649000",
-        },
-        {
-          link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
-          status: "new",
-          sale: "0%",
-          title: "Siêu Xe Lamborghini Countach",
-          newPrice: "649000",
-          oldPrice: "649000",
-        },
-        {
-          link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
-          status: "sale",
-          sale: "-40%",
-          title: "Bé Lisa tập làm bữa sáng",
-          newPrice: "779000",
-          oldPrice: "1299000",
-        },
-        {
-          link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
-          status: "sale",
-          sale: "-40%",
-          title: "Bé Lisa tập làm bữa sáng",
-          newPrice: "779000",
-          oldPrice: "1299000",
-        },
-        {
-          link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
-          status: "new",
-          sale: "0%",
-          title: "Siêu Xe Lamborghini Countach",
-          newPrice: "649000",
-          oldPrice: "649000",
-        },
-        {
-          link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
-          status: "new",
-          sale: "0%",
-          title: "Siêu Xe Lamborghini Countach",
-          newPrice: "649000",
-          oldPrice: "649000",
-        },
-        {
-          link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
-          status: "sale",
-          sale: "-40%",
-          title: "Bé Lisa tập làm bữa sáng",
-          newPrice: "779000",
-          oldPrice: "1299000",
-        },
-        {
-          link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/2.jpg"),
-          status: "sale",
-          sale: "-40%",
-          title: "Bé Lisa tập làm bữa sáng",
-          newPrice: "779000",
-          oldPrice: "1299000",
-        },
-        {
-          link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
-          status: "new",
-          sale: "0%",
-          title: "Siêu Xe Lamborghini Countach",
-          newPrice: "649000",
-          oldPrice: "649000",
-        },
-        {
-          link: "/product",
-          image: require("@/assets/images/common/products/demo-featured-products/1.jpg"),
-          status: "new",
-          sale: "0%",
-          title: "Siêu Xe Lamborghini Countach",
-          newPrice: "649000",
-          oldPrice: "649000",
-        },
-      ],
+      Products: [],
     };
   },
 };
