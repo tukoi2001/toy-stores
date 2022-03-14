@@ -1,14 +1,15 @@
-.section-title .title {
+.section-title h2 {
     font-size: 30px;
     font-weight: 400;
     margin-bottom: 0;
     color: #222222;
-    margin-top: -5px;
+    margin-bottom: 10px;
 }
-
+.sub-title {
+    font-size: 1.1rem;
+}
 .section-padding {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 30px;
 }
 
 .section-title {

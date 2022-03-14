@@ -9,7 +9,7 @@
           v-for="(item, index) in banners"
           :key="index"
         >
-          <router-link :to="item.link" class="banner">
+          <router-link to="/categories/tat-ca-san-pham" class="banner">
             <img :src="item.image" alt="Banner Image" />
           </router-link>
         </b-col>
@@ -25,11 +25,9 @@ export default {
     return {
       banners: [
         {
-          link: "/product",
           image: require("@/assets/images/home/banners/2.jpg"),
         },
         {
-          link: "/product",
           image: require("@/assets/images/home/banners/1.jpg"),
         },
       ],

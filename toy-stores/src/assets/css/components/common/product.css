@@ -41,8 +41,8 @@
 .product .thumb .badges {
     position: absolute;
     z-index: 8;
-    top: 20px;
-    left: 20px;
+    top: 15px;
+    left: 15px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -64,6 +64,7 @@
     text-transform: capitalize;
     color: #ffffff;
     border-radius: 3px;
+    background-color: #1dd02f;
 }
 
 .product .thumb .badges span.sale {
@@ -265,7 +266,7 @@
     -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s;
     text-align: center;
-    background-color: #d5d5d5;
+    background-color: #dbdbdb;
 }
 
 .price-block {
@@ -298,19 +299,18 @@
     z-index: 3;
     border-radius: 3px;
   }
-.product .content .title a {
+.product .content .title p {
     padding: 0;
     display: block;
     text-transform: capitalize;
     overflow: hidden;
     font-size: 16px;
     font-weight: 600;
-    text-decoration: none;
     color: #333;
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
-
-.product .content .title a:hover {
+.product .content .title p:hover {
     color: #00c4cc;
 }
 

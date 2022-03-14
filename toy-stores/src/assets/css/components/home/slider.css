@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
 .slider-box {
     text-align: left;
     width: 100%;
@@ -39,6 +40,7 @@
     font-weight: 400;
     margin-bottom: 10px;
     line-height: 1.1;
+    font-family: 'Dancing Script', cursive;
 }
 
 .swiper-slide-active .hero-slide-content>*:nth-child(2) {
@@ -95,16 +97,17 @@
 }
 
 .btn {
-    font-size: 15px;
-    padding: 14px 30px;
+    font-size: 1.1rem;
+    padding: 17px 38px;
     border-radius: 3px;
+    font-weight: 600;
     border: 1px solid transparent;
     line-height: 1;
 }
 
 .btn-primary:hover {
     color: #000;
-    background-color: #00c4cc;
+    background-color: #FFF;
     border-color: #00c4cc;
 }
 
