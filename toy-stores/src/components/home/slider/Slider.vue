@@ -17,11 +17,11 @@
             </div>
             <div class="container">
               <div class="hero-slide-content">
-                <h2 class="titles m-0">
+                <h2 class="titles m-0 fw-bold">
                   {{ item.titleOne }}<br />{{ item.titleTwo }}
                 </h2>
                 <p>{{ item.content }}</p>
-                <a href="" class="btn btn-primary btn-hover-light">Mua Ngay</a>
+                <router-link to="/categories/tat-ca-san-pham" class="btn btn-primary btn-hover-light">Mua Ngay</router-link>
               </div>
             </div>
           </swiper-slide>
@@ -56,15 +56,15 @@ export default {
       listSlides: [
         {
           img: require("@/assets/images/home/slider/1.jpg"),
-          titleOne: " Điểm Đến Mới ",
-          titleTwo: "Được giảm giá cố định 50% ",
-          content: "Bộ sưu tập sản phẩm & đồ chơi trẻ em mới nhất",
+          titleOne: "Sản Phẩm Mới",
+          titleTwo: "Cập nhật nhiều sản phẩm mới nhất",
+          content: "Bộ sưu tập sản phẩm & đồ chơi trẻ em mới nhất, các sản phẩm luôn luôn cập nhật!",
         },
         {
           img: require("@/assets/images/home/slider/6.jpg"),
-          titleOne: "Điểm Đến Mới ",
-          titleTwo: "Được giảm giá cố định 30% ",
-          content: "Bộ sưu tập sản phẩm & đồ chơi trẻ em mới nhất",
+          titleOne: "Săn Sales Sốc!",
+          titleTwo: "Các sản phẩm giảm giá đến 30%",
+          content: "Bộ sưu tập sản phẩm & đồ chơi trẻ em mới nhất, các sản phẩm luôn luôn cập nhật!",
         },
       ],
     };

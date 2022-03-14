@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-12">
             <div class="section-title text-center aos-init aos-animate">
-              <h2 class="title">Đánh giá</h2>
+              <h2 class="fw-bold">Blogs</h2>
               <p class="sub-title">Những khách hàng đã sử dụng sản phẩm của chúng tôi nói gì?</p>
             </div>
             <div class="latest-blog-carousel">

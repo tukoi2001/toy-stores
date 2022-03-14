@@ -49,3 +49,33 @@ p:last-child {
 .title {
   flex-shrink: 0;
 }
+
+.product .thumb .image {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 265px;
+  cursor: pointer;
+}
+
+.product .thumb .image img {
+  z-index: 1;
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  width: 100%;
+  height: 100%;
+}
+
+.product:hover .thumb .image img {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.fit-image {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}

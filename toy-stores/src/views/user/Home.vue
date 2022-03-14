@@ -5,6 +5,7 @@
       <banners />
       <featured-collection />
       <testimonials/>
+      <recommend-product/>
       <home-blogs/>
       <brands/>
     </user-layout>
@@ -19,9 +20,10 @@ import UserLayout from "../../components/layout/UserLayout.vue";
 import Brands from '../../components/home/brands/Brands.vue';
 import Testimonials from '../../components/home/testimonials/Testimonials.vue';
 import HomeBlogs from '../../components/home/blogs/HomeBlogs.vue';
+import RecommendProduct from '../../components/home/recommend-product/RecommendProduct.vue';
 export default {
   name: "Home",
-  components: { UserLayout, Slider, Banners, FeaturedCollection, Brands, Testimonials, HomeBlogs },
+  components: { UserLayout, Slider, Banners, FeaturedCollection, Brands, Testimonials, HomeBlogs, RecommendProduct },
 };
 </script>
 

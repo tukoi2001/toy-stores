@@ -6,9 +6,13 @@
           <b-col lg="" cols="12">
             <div class="section-title mb-0 text-center">
               <div class="title-container">
-                <h2 class="fw-bold">Sản phẩm mới nhất <b-icon icon="emoji-heart-eyes"></b-icon></h2>
+                <h2 class="fw-bold">
+                  Sản phẩm mới nhất
+                </h2>
               </div>
-              <p class="text-start my-5">Các sản phẩm mới nhất được cập nhật hàng ngày!</p>
+              <p class="text-start my-5">
+                Các sản phẩm mới nhất được cập nhật hàng ngày!
+              </p>
             </div>
           </b-col>
         </b-row>
@@ -16,17 +20,38 @@
           <b-col>
             <div class="product-carousel arrow-outside-container">
               <swiper class="swiper" :options="swiperOption">
-                <swiper-slide v-for="(item, index) in Products" :key="index">
+                <swiper-slide
+                  v-for="(item, index) in listNewProducts"
+                  :key="index"
+                >
                   <!-- Product Tab Start -->
-                  <product
-                    :link="item.link"
-                    :image="item.image"
-                    :status="item.status"
-                    :sale="item.sale"
-                    :title="item.title"
-                    :newPrice="item.newPrice"
-                    :oldPrice="item.oldPrice"
-                  />
+                  <product>
+                    <template v-slot:image>
+                      <p class="image m-0" @click="getProductDetail(item)">
+                        <img
+                          class="fit-image"
+                          :src="item.urlImage[1]"
+                          alt="Product"
+                        />
+                      </p>
+                    </template>
+                    <template v-slot:content>
+                      <h5 class="title">
+                        <p @click="getProductDetail(item)">{{ item.name }}</p>
+                      </h5>
+                      <div
+                        class="price-block d-flex align-items-center justify-content-center"
+                      >
+                        <span class="price me-2">{{
+                          formatPrice(item.price - (item.price / 100) * item.sale_off)
+                        }}</span>
+                        <span class="price-old me-2">{{
+                          formatPrice(item.price)
+                        }}</span>
+                        <span class="price-discount">{{ item.sale_off }}%</span>
+                      </div>
+                    </template>
+                  </product>
                   <!-- Product Tab End -->
                 </swiper-slide>
                 <div class="swiper-button-prev" slot="button-prev"></div>
@@ -41,6 +66,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+import { ProductService } from "../../../services/ProductService";
 import { Swiper, SwiperSlide } from "vue-awesome-swiper";
 import Product from "../../common/products/Product.vue";
 export default {
@@ -60,18 +87,49 @@ export default {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
-        // autoplay: {
-          
-        //   delay: 2500,
-        //   disableOnInteraction: false,
-        // },
-        autoplay: false,
+        autoplay: {
+          delay: 1500,
+          disableOnInteraction: false,
+        },
       },
-      Products: [],
+      listNewProducts: [],
     };
+  },
+  methods: {
+    async getDataProduct() {
+      const res = await ProductService.show();
+      const newRes = res.docs.map((item, index) => {
+        return {
+          id: item.id,
+          index: index,
+          ...item.data(),
+        };
+      });
+      const list = newRes.filter((product) => product.isNew === "True");
+      this.listNewProducts = list;
+    },
+    getProductDetail(product) {
+      this.actionSetProductDetail(product);
+      const id = product.slug + product.id;
+      this.$router.push(`/products/${id}`);
+    },
+    formatPrice(value) {
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "VND",
+        minimumFractionDigits: 0,
+      });
+      return formatter.format(value);
+    },
+    ...mapActions("products", ["actionSetProductDetail"]),
+  },
+  async mounted() {
+    this.getDataProduct();
   },
 };
 </script>
 
-<style scoped src="@/assets/css/components/home/featured-collection.css">
-</style>
+<style
+  scoped
+  src="@/assets/css/components/home/featured-collection.css"
+></style>

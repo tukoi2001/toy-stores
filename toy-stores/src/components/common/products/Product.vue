@@ -1,12 +1,9 @@
 <template>
   <div class="product mb-4">
     <div class="thumb">
-      <router-link :to="link" class="image">
-        <img class="fit-image" :src="image" alt="Product" />
-      </router-link>
+      <slot name="image"></slot>
       <span class="badges">
-        <span :class="status" v-if="status == 'sale'">{{ sale }}</span>
-        <span :class="status" v-else>{{ status }}</span>
+        <span class="status">New</span>
       </span>
       <div class="actions">
         <a href="" class="action wishlist"><b-icon icon="heart"></b-icon> </a>
@@ -24,20 +21,7 @@
       </div>
     </div>
     <div class="content">
-      <h5 class="title">
-        <router-link :to="link">{{ title }}</router-link>
-      </h5>
-      <div class="price-block d-flex align-items-center justify-content-center">
-        <span class="price me-2">{{
-          formatPrice(200000)
-        }}</span>
-        <span class="price-old me-2">{{
-          formatPrice(200000)
-        }}</span>
-        <span class="price-discount"
-          >{{ 10 }}%</span
-        >
-      </div>
+      <slot name="content"></slot>
     </div>
   </div>
 </template>
@@ -45,45 +29,16 @@
 <script>
 export default {
   name: "Product",
+  data() {
+    return {
+      id: ''
+    }
+  },
   props: {
-    link: {
-      type: String,
-      default: "",
-    },
-    image: {
-      type: String,
-      default: "",
-    },
-    status: {
-      type: String,
-      default: "",
-    },
-    sale: {
-      type: String,
-      default: "",
-    },
-    title: {
-      type: String,
-      default: "",
-    },
-    newPrice: {
-      type: String,
-      default: "",
-    },
-    oldPrice: {
-      type: String,
-      default: "",
-    },
+  
   },
   methods: {
-    formatPrice(value) {
-      const formatter = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "VND",
-        minimumFractionDigits: 0,
-      });
-      return formatter.format(value);
-    },
+    
   }
 };
 </script>
