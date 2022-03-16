@@ -29,6 +29,7 @@
   color: #000;
   padding: 10px 20px;
   z-index: 1;
+  position: relative;
 }
 
 .user {
@@ -52,4 +53,19 @@
 
 .router-link-exact-active {
   color: #00c4cc;
+}
+.nav__icon span {
+  position: absolute;
+  background-color: #ff0202;
+  padding: 0px 6px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: bold;
+  top: 3px;
+  bottom: auto;
+  left: auto;
+  right: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

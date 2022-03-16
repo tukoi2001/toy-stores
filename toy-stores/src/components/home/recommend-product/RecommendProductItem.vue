@@ -8,7 +8,9 @@
       <div class="product-grid-content product-card--body">
         <div class="product-card--body">
           <div class="card-image">
-            <a href="" @click.prevent="getProductDetail(item)"><img :src="item.urlImage[0]" alt="" /></a>
+            <a href="" @click.prevent="getProductDetail(item)"
+              ><img :src="item.urlImage[0]" alt=""
+            /></a>
             <div class="hover-contents">
               <div class="hover-btns">
                 <a
@@ -37,7 +39,9 @@
           </div>
           <div class="product-header mt-3">
             <h3>
-              <a href="" @click.prevent="getProductDetail(item)">{{ item.name }}</a>
+              <a href="" @click.prevent="getProductDetail(item)">{{
+                item.name
+              }}</a>
             </h3>
           </div>
           <div
@@ -56,40 +60,16 @@
         </div>
       </div>
     </div>
-    <!-- <div
-      class="d-flex justify-content-center mt-3"
-      v-if="listProductsShow.length >= 6"
-    >
-      <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li class="page-item" v-for="item in total" :key="item">
-            <a class="page-link" href="" @click.prevent="getDataByNumber(item * 6 - 6, item * 6  -1)">{{ item }}</a>
-          </li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div> -->
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from "vuex";
 export default {
   name: "GridProduct",
   data() {
     return {
       listProductsShow: [],
-      total: null,
-      // listProductsFiltered: [],
     };
   },
   props: {
@@ -98,9 +78,7 @@ export default {
       default: () => [],
     },
   },
-  computed: {
-
-  },
+  computed: {},
   created() {
     this.listProductsShow = this.listProducts;
   },
@@ -118,31 +96,8 @@ export default {
       const id = product.slug + product.id;
       this.$router.push(`/products/${id}`);
     },
-    // getDataByNumber(prev, next) {
-    //   if (this.listProductsShow.length > 6) {
-    //     const data = [];
-    //     this.listProducts.forEach((product) => {
-    //       if (product.index >= prev && product.index <= next) {
-    //         data.push(product);
-    //       }
-    //     });
-    //     this.listProductsFiltered = data;
-    //     console.log(data);
-    //   }
-    //   else {
-    //     this.listProductsFiltered = this.listProductsShow;
-    //   }
-    // },
-      ...mapActions('products', [
-        'actionSetProductDetail'
-      ])
-  },
-  mounted() {
-    // setTimeout(() => {{ 
-    //   const num = this.listProductsShow.length;
-    //   this.total = Math.ceil(num / 6);
-    //   this.getDataByNumber(0, 5);
-    // }}, 2000 )
+    ...mapActions("products", ["actionSetProductDetail"]),
+    ...mapActions("cart", ["actionAddItem"]),
   },
   watch: {
     listProducts() {

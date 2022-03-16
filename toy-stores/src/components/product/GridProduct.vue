@@ -135,7 +135,8 @@ export default {
     // },
       ...mapActions('products', [
         'actionSetProductDetail'
-      ])
+      ]),
+      ...mapActions('cart', ['actionAddItem'])
   },
   mounted() {
     // setTimeout(() => {{ 

@@ -124,6 +124,36 @@ const routes = [
     },
   },
   {
+    path: "/cart",
+    name: "Cart",
+    component: () =>
+      import(/* webpackChunkName: "cart" */ "../views/user/Cart.vue"),
+    meta: {
+      requireAuth: true,
+      title: "Cart",
+    },
+  },
+  {
+    path: "/checkout",
+    name: "Checkout",
+    component: () =>
+      import(/* webpackChunkName: "checkout" */ "../views/user/Checkout.vue"),
+    meta: {
+      requireAuth: true,
+      title: "Checkout",
+    },
+  },
+  {
+    path: "/order-complete",
+    name: "OrderComplete",
+    component: () =>
+      import(/* webpackChunkName: "order-complete" */ "../views/user/OrderComplete.vue"),
+    meta: {
+      requireAuth: true,
+      title: "Order Complete",
+    },
+  },
+  {
     path: "/dashboard",
     name: "Dashboard",
     component: () =>

@@ -1,0 +1,366 @@
+
+.table>tbody {
+    vertical-align: inherit;
+}
+.cart-table .table {
+    margin: 0;
+    white-space: nowrap;
+}
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #555555;
+    vertical-align: top;
+    border-color: #efefef;
+}
+.cart-table .table tr {
+    border-color: #efefef;
+}
+.table-bordered>:not(caption)>* {
+    border-width: 1px 0;
+}
+.cart-table .table tr .pro-thumbnail, .cart-table .table tr .pro-price {
+    width: 130px;
+}
+.cart-table .table tr .pro-thumbnail, .cart-table .table tr .pro-price, .cart-table .table tr .pro-quantity, .cart-table .table tr .pro-subtotal, .cart-table .table tr .pro-remove {
+    text-align: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.cart-table .table tr .pro-title {
+    width: 270px;
+}
+.table>thead {
+    vertical-align: bottom;
+}
+
+.table>:not(:last-child)>:last-child>* {
+    border-bottom-color: transparent;
+}
+.cart-table .table tr .pro-remove {
+    width: 150px;
+}
+.cart-table .table tr .pro-subtotal {
+    width: 120px;
+}
+.cart-table .table tr .pro-quantity {
+    width: 180px;
+}
+.cart-table .table thead tr th {
+    border-color: #efefef;
+    border-bottom: 0 solid transparent;
+    color: #ffffff;
+    background: #00c4cc;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 15px 20px;
+    text-align: center;
+}
+.section-margin {
+    margin-bottom: 80px;
+}
+.no-item {
+    margin: 0;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    line-height: 1.25;
+    font-weight: bold;
+    color: rgb(236, 14, 25);
+}
+.cart-table .table tbody td a {
+    color: #222222;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+.fit-image {
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    height: 155px;
+}
+.cart-table .table tbody td {
+    border-color: #efefef;
+    text-align: center;
+    vertical-align: middle;
+    color: #222222;
+}
+tbody tr td span {
+    font-size: 1.1rem;
+    color: #00c4cc;
+    font-weight: bold;
+}
+.cart-table .table tr .pro-quantity .quantity {
+    margin-right: 0px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.quantity .cart-plus-minus {
+    position: relative;
+    width: 150px;
+    text-align: left;
+    height: 45px;
+    overflow: hidden;
+}
+.quantity .cart-plus-minus>.cart-plus-minus-box {
+    border: 1px solid #efefef;
+    height: 45px;
+    text-align: center;
+    width: 150px;
+    background: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+}
+.cart-table .table tr .pro-quantity .quantity .cart-plus-minus .qtybutton {
+    border: 0px;
+}
+.quantity .cart-plus-minus>.qtybutton.dec {
+    top: 50%;
+    left: 0%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+    border-right: 1px solid #efefef;
+}
+.quantity .cart-plus-minus>.qtybutton {
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 400;
+    width: 35px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    vertical-align: middle;
+    color: #222222;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+.cart-table .table tr .pro-quantity .quantity .cart-plus-minus .qtybutton {
+    border: 0px;
+}
+.quantity .cart-plus-minus>.qtybutton.inc {
+    top: 50%;
+    right: 0%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+    border-left: 1px solid #efefef;
+}
+.quantity .cart-plus-minus>.qtybutton {
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 400;
+    width: 35px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    vertical-align: middle;
+    color: #222222;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+.cart-button-section {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.cart-button-section .btn {
+    margin-right: 20px;
+}
+.btn-primary {
+    border-color: #00c4cc;
+    background-color: #00c4cc;
+    color: #ffffff;
+    background-color: #00c4cc;
+    border: 1px solid transparent;
+    font-size: 1.1rem;
+    padding: 10px 30px;
+    font-weight: 600;
+}
+.cart-button-section .btn:last-child {
+    margin-right: 0px;
+}
+.cart-calculator-wrapper {
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+.cart-calculator-wrapper .cart-calculate-items {
+    font-weight: 500;
+}
+.cart-calculator-wrapper a {
+    text-align: center;
+}
+.cart-calculator-wrapper .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    text-align: start;
+}
+.cart-calculator-wrapper .cart-calculate-items .table {
+    margin-bottom: 0;
+}
+.cart-calculator-wrapper .cart-calculate-items .table tr td {
+    color: #222222;
+    padding: 15px 20px;
+    border: 1px solid #e5e5e5;
+    text-align: start;
+    font-size: 17px;
+}
+.cart-calculator-wrapper .cart-calculate-items .table tr td:nth-child(2) {
+    color: #222222;
+    text-align: right;
+    font-size: 17px;
+}
+.cart-calculator-wrapper .cart-calculate-items .table tr td {
+    color: #222222;
+    padding: 15px 20px;
+    border: 1px solid #e5e5e5!important;
+}
+.cart-calculator-wrapper .cart-calculate-items .table tr td.total-amount {
+    color: #00c4cc;
+    font-weight: bold;
+}
+.input-textarea {
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+.input-textarea .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: start;
+}
+.input-textarea .input-cupon-textarea {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    padding: 10px;
+    font-size: 1rem;
+}
+.btn-hover-dark:hover {
+    border-color: #222222;
+    background-color: #222222;
+    color: #ffffff;
+}
+.btn:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.cart-table .table tbody td a:hover {
+    color: #00c4cc;
+}
+.quantity .cart-plus-minus>.qtybutton:hover {
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    background-color: #00c4cc;
+    color: #ffffff;
+}
+.note-box span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: underline;
+    color: #00c4cc;
+    margin-bottom: 8px;
+    display: block;
+    cursor: pointer;
+}
+.note-content p {
+    font-size: 1rem;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+.note-icon {
+    font-size: 1.2rem;
+    margin-right: 10px;
+    color: #00c4cc;
+}
+.cart__title {
+    margin-bottom: 5px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.cart__des {
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+.coupon span {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ff4591;
+    margin-bottom: 8px;
+    display: block;
+    cursor: pointer;
+}
+.coupon_icon {
+    font-size: 1.2rem;
+    margin-left: 10px;
+    animation: zoomIn 1s ease-in-out forwards infinite;
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.5);
+    }
+    25% {
+        transform: scale(0.75);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.25);
+    }
+}

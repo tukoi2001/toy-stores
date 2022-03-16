@@ -96,7 +96,7 @@ const AuthService = {
     }
     catch (err){ 
       return {
-        error: err.messag
+        error: err.message
       }
     }
   }

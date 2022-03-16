@@ -92,6 +92,7 @@ export default {
       this.$router.push(`/products/${id}`);
     },
     ...mapActions("products", ["actionSetProductDetail"]),
+    ...mapActions('cart', ['actionAddItem'])
   },
   mounted() {
     this.listProductsShow = this.listProducts;

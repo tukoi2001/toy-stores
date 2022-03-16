@@ -13,11 +13,7 @@
         <a href="#" class="action quickview"><b-icon icon="search"></b-icon></a>
       </div>
       <div class="add-cart-btn">
-        <button
-          class="btn btn-whited btn-hover-primary text-capitalize add-to-cart"
-        >
-          Add To Cart
-        </button>
+        <slot name="add-item"></slot>
       </div>
     </div>
     <div class="content">

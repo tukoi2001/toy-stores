@@ -65,6 +65,7 @@
           </a>
           <a href="" class="nav__icon" @click.prevent="showCart = true">
             <b-icon class="icon__header" icon="cart-check"></b-icon>
+            <span v-if="items.length">{{ items.length }}</span>
           </a>
           <template>
               <the-cart v-if="showCart" @myEvent="hideShowCart" />
@@ -76,6 +77,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import AccountTab from "./header-tabs/AccountTab.vue";
 import SearchBox from './header-tabs/SearchBox.vue';
 import TheCart from "./header-tabs/TheCart.vue";
@@ -88,6 +90,9 @@ export default {
       showCart: false,
       showSearch: false
     };
+  },
+  computed: { 
+    ...mapState('cart', ['items'])
   },
   methods: {
     hideShowCart() {
