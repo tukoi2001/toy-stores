@@ -6,9 +6,7 @@
           <b-col lg="" cols="12">
             <div class="section-title mb-0 text-center">
               <div class="title-container">
-                <h2 class="fw-bold">
-                  Sản phẩm mới nhất
-                </h2>
+                <h2 class="fw-bold">Sản phẩm mới nhất</h2>
               </div>
               <p class="text-start my-5">
                 Các sản phẩm mới nhất được cập nhật hàng ngày!
@@ -35,6 +33,14 @@
                         />
                       </p>
                     </template>
+                    <template v-slot:add-item>
+                      <button
+                        @click="actionAddItem(item)"
+                        class="btn btn-whited btn-hover-primary text-capitalize add-to-cart"
+                      >
+                        Add To Cart
+                      </button>
+                    </template>
                     <template v-slot:content>
                       <h5 class="title">
                         <p @click="getProductDetail(item)">{{ item.name }}</p>
@@ -43,7 +49,9 @@
                         class="price-block d-flex align-items-center justify-content-center"
                       >
                         <span class="price me-2">{{
-                          formatPrice(item.price - (item.price / 100) * item.sale_off)
+                          formatPrice(
+                            item.price - (item.price / 100) * item.sale_off
+                          )
                         }}</span>
                         <span class="price-old me-2">{{
                           formatPrice(item.price)
@@ -122,6 +130,7 @@ export default {
       return formatter.format(value);
     },
     ...mapActions("products", ["actionSetProductDetail"]),
+    ...mapActions("cart", ["actionAddItem"]),
   },
   async mounted() {
     this.getDataProduct();

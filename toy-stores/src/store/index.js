@@ -5,6 +5,8 @@ import GetSetData from '../utils/GetSetData';
 import users from "./modules/users";
 import categories from "./modules/categories";
 import products from "./modules/products";
+import cart from "./modules/cart";
+import checkout from "./modules/checkout";
 
 Vue.use(Vuex)
 
@@ -27,6 +29,8 @@ export default new Vuex.Store({
     verifyEmail,
     users,
     categories,
-    products
+    products,
+    cart,
+    checkout
   }
 })

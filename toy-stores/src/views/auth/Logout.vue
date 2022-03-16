@@ -9,11 +9,14 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import { AuthService } from "../../services/AuthService";
 export default {
     name: 'Logout',
     methods: {
+      ...mapMutations('cart', ['removeAllItems']),
     async onSignOut() {
+      this.removeAllItems();
       const response = await AuthService.signOut();
       if (response === true) {
         localStorage.setItem("token", "");

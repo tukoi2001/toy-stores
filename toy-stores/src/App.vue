@@ -31,6 +31,7 @@ export default {
     this.changeUser();
     this.actionSetDataCategory();
     this.actionSetDataProduct();
+    this.actionInitItems();
   },
   mounted() {
 
@@ -39,6 +40,7 @@ export default {
     ...mapActions('products', ['actionSetDataProduct']),
     ...mapActions('categories', ['actionSetDataCategory']),
     ...mapActions('users', ['getCurrentUser']),
+    ...mapActions('cart', ['actionInitItems']),
     ...mapMutations('users', ['updateUser']),
     changeUser() {
       auth.onAuthStateChanged(async (user) => {
