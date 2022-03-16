@@ -7,7 +7,7 @@
             <div class="section-title mb-0 text-center">
               <div class="title-container">
                 <hr />
-                <h2 class="title">Bộ sưu tập nổi bật</h2>
+                <h2 class="title">Sản phẩm bán chạy</h2>
                 <hr />
               </div>
               <p>Thêm các sản phẩm bán chạy nhất vào danh sách hàng tuần</p>

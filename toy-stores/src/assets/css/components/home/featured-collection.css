@@ -17,6 +17,7 @@ p:last-child {
     margin-bottom: 0;
     color: #222222;
     margin-top: -5px;
+    padding: 0 10px;
 }
 
 .arrow-outside-container {
