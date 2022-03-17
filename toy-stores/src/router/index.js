@@ -31,6 +31,15 @@ const routes = [
     },
   },
   {
+    path: "/contact",
+    name: "Contact",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/user/Contact.vue"),
+    meta: {
+      title: "contact",
+    },
+  },
+  {
     path: "/register",
     name: "Register",
     component: () =>
