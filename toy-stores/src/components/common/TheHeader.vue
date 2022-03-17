@@ -60,10 +60,10 @@
             <b-icon class="icon__header" icon="person-circle"></b-icon>
           </a>
             <account-tab v-if="accountTabs" @myAccount="hideShowAccount" />
-          <a href="" class="nav__icon">
+          <a href="" class="nav__icon" @click.prevent="wishlistClick">
             <b-icon class="icon__header" icon="suit-heart"></b-icon>
           </a>
-          <a href="" class="nav__icon" @click.prevent="showCart = true">
+          <a href="" class="nav__icon" @click.prevent="cartClick">
             <b-icon class="icon__header" icon="cart-check"></b-icon>
             <span v-if="items.length">{{ items.length }}</span>
           </a>
@@ -92,7 +92,8 @@ export default {
     };
   },
   computed: { 
-    ...mapState('cart', ['items'])
+    ...mapState('cart', ['items']),
+    ...mapState(['token'])
   },
   methods: {
     hideShowCart() {
@@ -103,6 +104,20 @@ export default {
     },
     hideShowSearch() {
       this.showSearch = false;
+    },
+    cartClick() {
+      if (this.token !== null) {
+        this.showCart = true;
+      } else {
+        alert("Bạn cần đăng nhập để sử dụng chức năng này!")
+      }
+    },
+    wishlistClick() {
+      if (this.token !== null) {
+        this.showCart = true;
+      } else {
+        alert("Bạn cần đăng nhập để sử dụng chức năng này!")
+      }
     }
   },
 };

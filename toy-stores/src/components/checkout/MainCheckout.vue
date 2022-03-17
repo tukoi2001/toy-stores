@@ -298,7 +298,7 @@ export default {
     ...mapState("users", ["userInformation"]),
   },
   methods: {
-    ...mapMutations('cart', ['removeAllItems']),   
+    ...mapMutations("cart", ["removeAllItems"]),
     showPaypalMethod() {
       this.pay_method = "Paypal";
       this.showPaypal = true;
@@ -328,6 +328,19 @@ export default {
       }
       const response = this.checkCondition();
       if (response) {
+        const data = this.items.map((item) => {
+          return {
+            category: item.category,
+            id: item.id,
+            index: item.index,
+            name: item.name,
+            price: item.price,
+            qty: item.qty,
+            sale_off: item.sale_off,
+            urlImage: item.urlImage,
+          };
+        });
+        console.log(data);
         const res = await CartService.add({
           uid: this.userForm.id,
           fullName: this.userForm.fullName,
@@ -337,14 +350,14 @@ export default {
           addressSpecific: this.userForm.address,
           note: this.userForm.note,
           pay_method: this.pay_method,
-          items: this.items,
+          items: data,
           total: this.itemsCheckout.total,
           paymentStatus: paymentStatus,
           status: "Đang xác nhận đơn hàng",
         });
         if (res) {
           this.removeAllItems();
-          this.$router.push('/order-complete');
+          this.$router.push("/order-complete");
         }
       }
     },
@@ -358,11 +371,10 @@ export default {
         this.userForm.ward !== "" &&
         this.userForm.street !== ""
       ) {
-        if (this.pay_method !== '') {
+        if (this.pay_method !== "") {
           return true;
-        }
-        else {
-          alert('Vui lòng lựa chọn phương thức thanh toán!');
+        } else {
+          alert("Vui lòng lựa chọn phương thức thanh toán!");
         }
       } else {
         alert("Vui lòng nhập đầy đủ thông tin!");
@@ -374,6 +386,7 @@ export default {
     this.userForm.fullName = this.userInformation.multiFactor.user.displayName;
     this.userForm.email = this.userInformation.multiFactor.user.email;
     this.userForm.id = this.userInformation.multiFactor.user.uid;
+    this.userForm.note = this.itemsCheckout.note;
   },
 };
 </script>

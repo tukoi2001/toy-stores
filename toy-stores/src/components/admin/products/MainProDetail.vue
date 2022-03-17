@@ -53,7 +53,6 @@ export default {
   },
   mounted() {
     this.listImage = this.productDetail.urlImage;
-    console.log(this.listImage);
   }
 };
 </script>

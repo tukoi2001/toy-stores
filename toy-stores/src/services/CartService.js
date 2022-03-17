@@ -26,7 +26,9 @@ const CartService = {
             status: cart.status,
             createdAt: timestamp,
             updatedAt: null,
-            notifications: ''
+            notifications: '',
+            deletedAt: null,
+            deleted: false,
         });
         if (!database) throw new Error("Not create order");
         return database;
