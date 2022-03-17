@@ -40,7 +40,7 @@ export default {
     return {
       ListOfBlogs: [
         {
-          link: "/blog",
+          link: "/blogs/:id",
           image: require("@/assets/images/blogs/demo/1.jpg"),
           date: "03/11/2021",
           author: "ADMIN",
@@ -108,5 +108,5 @@ export default {
 };
 </script>
 
-<style scoped src="@/assets/css/components/blogs/Blogs.css">
+<style scoped src="@/assets/css/components/user/Blogs.css">
 </style>
