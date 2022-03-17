@@ -211,6 +211,16 @@ const routes = [
       title: "Product Detail",
     },
   },
+  {
+    path: "/dashboard/orders",
+    name: "Orders",
+    component: () =>
+      import(/* webpackChunkName: "orders" */ "../views/admin/Orders.vue"),
+    meta: {
+      requireAuth: true,
+      title: "Orders",
+    },
+  },
 ];
 
 const router = new VueRouter({

@@ -1,19 +1,19 @@
 <template>
   <div>
     <admin-layout>
-      <bread-crumbs-admin :title="'Products Management'" />
-      <main-products />
+      <bread-crumbs-admin :title="'Orders Management'" />
+      <main-orders />
     </admin-layout>
   </div>
 </template>
 
 <script>
 import BreadCrumbsAdmin from "../../components/admin/BreadCrumbsAdmin.vue";
-import MainProducts from "../../components/admin/products/MainProducts.vue";
+import MainOrders from "../../components/admin/orders/MainOrders.vue";
 import AdminLayout from "../../components/layout/AdminLayout.vue";
 export default {
-  components: { AdminLayout, BreadCrumbsAdmin, MainProducts },
-  name: "Products",
+  components: { AdminLayout, BreadCrumbsAdmin, MainOrders },
+  name: "Orders",
 };
 </script>
 

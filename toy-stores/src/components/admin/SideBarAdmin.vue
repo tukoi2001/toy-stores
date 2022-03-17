@@ -44,7 +44,7 @@
         >
       </li>
       <li>
-        <router-link to="/admin/orders"
+        <router-link to="/dashboard/orders"
           ><b-icon class="icon-icon" icon="basket-fill"></b-icon> Orders</router-link
         >
       </li>
