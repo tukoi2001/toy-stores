@@ -127,7 +127,7 @@
                 mdi-pencil
               </v-icon>
               <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
-              <span class="icon__info" @click="setOrder(item)">
+              <span class="icon__info" @click="detailOrders(item)">
                 <b-icon icon="info-circle"></b-icon>
               </span>
             </td>
@@ -242,9 +242,10 @@ export default {
       }
       this.close();
     },
-    detailCategory(data) {
-      const slug = data.id;
-      this.$router.push(`/dashboard/categories/${slug}`);
+    detailOrders(data) {
+      const id = data.id;
+      this.$router.push(`/dashboard/orders/${id}`);
+      this.setOrder(data)
     },
     formatPrice(value) {
       const formatter = new Intl.NumberFormat("en-US", {
