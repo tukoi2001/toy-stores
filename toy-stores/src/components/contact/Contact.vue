@@ -57,7 +57,7 @@
                               <ul>
                                   <li>
                                       <i><b-icon icon="arrow-right-square-fill" aria-hidden="true"></b-icon></i>
-                                      Địa chỉ của bạn ở đây
+                                      66 Võ Văn Tần, Chính Gián, Thanh Khê, Đà Nẵng
                                   </li>
                                   <li>
                                       <i><b-icon icon="telephone-fill" aria-hidden="true"></b-icon></i>
