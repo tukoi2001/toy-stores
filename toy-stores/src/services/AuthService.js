@@ -29,6 +29,9 @@ const AuthService = {
         email: user.email,
         role: "user",
         created_at: timestamp,
+        updated_at: timestamp,
+        isActive: true,
+        customField: ''
       });
 
       return true;

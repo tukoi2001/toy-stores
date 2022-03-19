@@ -48,7 +48,7 @@ export default {
                   description: this.product.description,
                   amount: {
                     currency_code: "USD",
-                    value: this.totalPrice,
+                    value: this.totalPrice / 23000,
                   },
                 },
               ],

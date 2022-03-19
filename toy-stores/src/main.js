@@ -7,6 +7,7 @@ import store from './store'
 import Vuelidate from 'vuelidate'
 import Vue2Editor from "vue2-editor";
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
+import { auth } from "./configs/firebase";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'swiper/css/swiper.css'
@@ -39,9 +40,21 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.config.productionTip = false
 
 
-new Vue({
-    router,
-    store,
-    vuetify,
-    render: h => h(App)
-}).$mount('#app')
+// new Vue({
+//     router,
+//     store,
+//     vuetify,
+//     render: h => h(App)
+// }).$mount('#app')
+let _app;
+
+auth.onAuthStateChanged(() => {
+    if (!_app) {
+      new Vue({
+        router,
+        store,
+        vuetify,
+        render: (h) => h(App),
+      }).$mount("#app");
+    }
+  });

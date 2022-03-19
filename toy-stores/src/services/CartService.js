@@ -25,7 +25,7 @@ const CartService = {
             paymentStatus: cart.paymentStatus,
             status: cart.status,
             createdAt: timestamp,
-            updatedAt: null,
+            updatedAt: timestamp,
             notifications: '',
             deletedAt: null,
             deleted: false,

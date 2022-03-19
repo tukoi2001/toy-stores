@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/user/Home.vue";
+import { RoleMiddleware } from "../middleware/checkRole";
 Vue.use(VueRouter);
 
 const routes = [
@@ -25,7 +26,9 @@ const routes = [
     path: "/blogs/:id",
     name: "BlogDetails",
     component: () =>
-      import(/* webpackChunkName: "blog-details" */ "../views/user/BlogDetails.vue"),
+      import(
+        /* webpackChunkName: "blog-details" */ "../views/user/BlogDetails.vue"
+      ),
     meta: {
       title: "Blog Details",
     },
@@ -72,7 +75,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "logout" */ "../views/auth/Logout.vue"),
     meta: {
-      requireAuth: true,
+      requireUser: true,
       title: "Logout",
     },
   },
@@ -104,7 +107,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "me" */ "../views/user/Me.vue"),
     meta: {
-      requireAuth: true,
+      requireUser: true,
       title: "My Account",
     },
   },
@@ -147,7 +150,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "cart" */ "../views/user/Cart.vue"),
     meta: {
-      requireAuth: true,
+      requireUser: true,
       title: "Cart",
     },
   },
@@ -157,7 +160,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "checkout" */ "../views/user/Checkout.vue"),
     meta: {
-      requireAuth: true,
+      requireUser: true,
       title: "Checkout",
     },
   },
@@ -165,9 +168,11 @@ const routes = [
     path: "/order-complete",
     name: "OrderComplete",
     component: () =>
-      import(/* webpackChunkName: "order-complete" */ "../views/user/OrderComplete.vue"),
+      import(
+        /* webpackChunkName: "order-complete" */ "../views/user/OrderComplete.vue"
+      ),
     meta: {
-      requireAuth: true,
+      requireUser: true,
       title: "Order Complete",
     },
   },
@@ -179,9 +184,9 @@ const routes = [
         /* webpackChunkName: "dashboard" */ "../views/admin/Dashboard.vue"
       ),
     meta: {
-      requireAuth: true,
       title: "Dashboard",
     },
+    beforeEnter: RoleMiddleware.admin,
   },
   {
     path: "/dashboard/categories",
@@ -191,9 +196,9 @@ const routes = [
         /* webpackChunkName: "categories" */ "../views/admin/Categories.vue"
       ),
     meta: {
-      requireAuth: true,
       title: "Categories",
     },
+    beforeEnter: RoleMiddleware.admin,
   },
   {
     path: "/dashboard/categories/:slug",
@@ -203,9 +208,9 @@ const routes = [
         /* webpackChunkName: "category-detail" */ "../views/admin/CategoriesDetail.vue"
       ),
     meta: {
-      requireAuth: true,
       title: "Category Detail",
     },
+    beforeEnter: RoleMiddleware.admin,
   },
   {
     path: "/dashboard/products",
@@ -213,9 +218,9 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "products" */ "../views/admin/Products.vue"),
     meta: {
-      requireAuth: true,
       title: "Products",
     },
+    beforeEnter: RoleMiddleware.admin,
   },
   {
     path: "/dashboard/products/:slug",
@@ -225,9 +230,9 @@ const routes = [
         /* webpackChunkName: "product-detail" */ "../views/admin/ProductsDetail.vue"
       ),
     meta: {
-      requireAuth: true,
       title: "Product Detail",
     },
+    beforeEnter: RoleMiddleware.admin,
   },
   {
     path: "/dashboard/orders",
@@ -235,9 +240,9 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "orders" */ "../views/admin/Orders.vue"),
     meta: {
-      requireAuth: true,
       title: "Orders",
     },
+    beforeEnter: RoleMiddleware.admin,
   },
   {
     path: "/dashboard/orders/:id",
@@ -247,9 +252,19 @@ const routes = [
         /* webpackChunkName: "orders-detail" */ "../views/admin/OrdersDetail.vue"
       ),
     meta: {
-      requireAuth: true,
       title: "Orders Detail",
     },
+    beforeEnter: RoleMiddleware.admin,
+  },
+  {
+    path: "/dashboard/users",
+    name: "Users",
+    component: () =>
+      import(/* webpackChunkName: "users" */ "../views/admin/Users.vue"),
+    meta: {
+      title: "Users",
+    },
+    beforeEnter: RoleMiddleware.admin,
   },
 ];
 
@@ -271,4 +286,17 @@ router.beforeEach((to, from, next) => {
   next();
 });
 
+router.beforeEach(async (to, from, next) => {
+  if (to.meta && to.meta.required) {
+    const auth = localStorage.getItem("token");
+    if (auth && auth !== "") {
+        next();
+    } else {
+        alert("Bạn cần đăng nhập để sử dụng chức năng này!");
+        next({ path: "/login" });
+    }
+} else {
+    next();
+}
+});
 export default router;
