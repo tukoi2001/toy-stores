@@ -10,6 +10,7 @@
 <script>
 import { auth } from "./configs/firebase";
 import { mapActions, mapMutations} from 'vuex';
+import { MeService } from "./services/MeService";
 export default {
   name: "Home",
   components: {
@@ -47,6 +48,8 @@ export default {
         this.updateUser(user);
         if (user) {
           this.getCurrentUser(user.uid);
+           const response = await MeService.me(user.uid);
+           this.$store.commit('setRole', response.data().role);
         }
       });
     },

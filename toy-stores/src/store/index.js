@@ -12,12 +12,21 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    token: null
+    token: null,
+    role: ""
+  },
+  getters: {
+    getRole(state){
+      return state.role;
+    }
   },
   mutations: {
     setToken(state, token) {
       state.token = token;
       GetSetData.setLocalStorageData('token', token);
+    },
+    setRole(state, role) {
+      state.role = role;
     }
   },
   actions: {

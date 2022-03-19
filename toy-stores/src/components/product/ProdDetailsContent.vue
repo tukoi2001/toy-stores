@@ -51,7 +51,7 @@
       />
     </div>
     <div class="btn__prod">
-      <button type="button" class="btn btn-primary">Add To Cart</button>
+      <button type="button" @click="actionAddItem(productDetail)" class="btn btn-primary">Add To Cart</button>
       <a href=""
         ><b-icon class="btn__prod-icon" icon="arrow-repeat"></b-icon>Compare</a
       >
@@ -63,7 +63,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   name: "ProdDetailsContent",
   data() {
@@ -75,6 +75,7 @@ export default {
     ...mapState("products", ["productDetail"]),
   },
   methods: {
+    ...mapActions('cart', ['actionAddItem']),
     formatPrice(value) {
       const formatter = new Intl.NumberFormat("en-US", {
         style: "currency",
@@ -220,5 +221,8 @@ export default {
     margin-left: 10px;
     z-index: 3;
     border-radius: 3px;
+} 
+.btn:focus {
+  box-shadow: none;
 }
 </style>

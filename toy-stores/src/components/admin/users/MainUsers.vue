@@ -3,7 +3,7 @@
     <v-card>
       <template>
         <v-toolbar flat>
-          <v-toolbar-title class="h2">Orders</v-toolbar-title>
+          <v-toolbar-title class="h2">Users</v-toolbar-title>
           <v-divider class="mx-4" inset vertical></v-divider>
           <v-spacer></v-spacer>
 
@@ -11,33 +11,33 @@
           <v-dialog v-model="dialog" max-width="500px">
             <v-card class="card-toglle" :loading="isPending">
               <v-card-title class="card-title">
-                <span class="text-h5 font-weight-medium">Update Order</span>
+                <span class="text-h5 font-weight-medium">Update Users</span>
               </v-card-title>
               <v-card-text class="card-content">
                 <v-row>
                   <v-col cols="12" sm="12" md="12">
                     <template>
                       <v-select
-                        :items="['Đang xác nhận đơn hàng', 'Đơn hàng đã được xác nhận', 'Đơn hàng đã được giao cho bên vận chuyển', 'Giao hàng thành công', 'Đơn hàng bị hủy', 'Khách hàng trả hàng']"
-                        label="Order Status"
-                        v-model="dataEditItem.status"
+                        :items="['admin', 'supplier', 'user']"
+                        label="Role"
+                        v-model="dataEditItem.role"
                       ></v-select>
                     </template>
                   </v-col>
                   <v-col cols="12" sm="12" md="12">
                     <template>
                       <v-select
-                        :items="['Chưa thanh toán', 'Đã thanh toán']"
-                        label="Payment Status"
-                        v-model="dataEditItem.paymentStatus"
+                        :items="['true', 'false']"
+                        label="Is Active"
+                        v-model="dataEditItem.isActive"
                       ></v-select>
                     </template>
                   </v-col>
                   <v-col cols="12" sm="12" md="12">
                     <v-text-field
                       label="Notifications:"
-                      placeholder="Notifications"
-                      v-model="dataEditItem.notifications"
+                      placeholder="Note"
+                      v-model="dataEditItem.customField"
                       clearable
                     ></v-text-field>
                   </v-col>
@@ -71,7 +71,7 @@
             <v-card class="r" :loading="isPending">
               <v-card-title
                 class="text-h5 justify-content-center text-danger fw-bold"
-                >Are you sure to remove it?</v-card-title
+                >Không thể xóa danh sách người dùng!</v-card-title
               >
               <v-card-actions>
                 <v-spacer></v-spacer>
@@ -109,27 +109,24 @@
 
       <v-data-table
         :headers="headers"
-        :items="orders"
+        :items="users"
         class="elevation-1"
         :search="search"
       >
         <template v-slot:item="{ item }">
           <tr class="tr-body-table text-start orders">
             <td style="display: flex; align-items: center">{{ item.index }}</td>
-            <td>{{ item.fullName }}</td>
+            <td>{{ item.name }}</td>
             <td>{{ item.email }}</td>
-            <td>{{ item.phoneNumber }}</td>
-            <td>{{ formatPrice(item.totalPrice) }}</td>
-            <td>{{ item.paymentStatus }}</td>
-            <td>{{ item.status }}</td>
-            <td>
+            <td>{{ item.role }}</td>
+            <td>{{ item.isActive }}</td>
+            <td>{{ item.created_at }}</td>
+            <td>{{ item.updated_at }}</td>
+            <td class="text-start">
               <v-icon small class="mr-2" @click="editItem(item)">
                 mdi-pencil
               </v-icon>
               <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
-              <span class="icon__info" @click="detailOrders(item)">
-                <b-icon icon="info-circle"></b-icon>
-              </span>
             </td>
           </tr>
         </template>
@@ -139,10 +136,10 @@
 </template>
 
 <script>
-import { error, isPending, CartService } from "../../../services/CartService";
-import { mapMutations } from "vuex";
+import { MeService, error, isPending } from "../../../services/MeService";
+import { DateHourFilter } from "../../../utils/DateFilter";
 export default {
-  name: "MainOrders",
+  name: "MainUsers",
   setup() {
     return { error, isPending };
   },
@@ -155,68 +152,63 @@ export default {
         { text: "#", align: "start", sortable: false, value: "id" },
         { text: "Full Name", value: "fullName", sortable: false },
         { text: "Email", value: "email" },
-        { text: "Phone Number", value: "phoneNumber" },
-        { text: "Total Price", value: "totalPrice" },
-        { text: "Payment Status", value: "paymentStatus" },
-        { text: "Order Status", value: "status" },
+        { text: "Role", value: "role" },
+        { text: "Status", value: "isActive" },
+        { text: "Created At", value: "createdAt" },
+        { text: "Updated At", value: "updatedAt" },
         { text: "Actions", value: "actions", sortable: false },
       ],
-      orders: [],
+      users: [],
       editedIndex: -1,
       dataEditItem: {
-        status: "",
-        paymentStatus: "",
-        notifications: "",
+        role: "",
+        isActive: "",
+        customField: "",
       },
       dataItem: {
-        status: "",
-        paymentStatus: "",
-        notifications: "",
+        role: "",
+        isActive: "",
+        customField: "",
       },
     };
   },
   mounted() {
-    this.innitData(); 
+    this.innitData();
   },
   methods: {
-    ...mapMutations("cart", ["setOrder"]),
     async innitData() {
-      const response = await CartService.show();
+      const response = await MeService.display();
       const newRes = response.docs.map((item, index) => {
         const createdDate = new Date(
-          item.data().createdAt.seconds * 1000 +
-            item.data().createdAt.nanoseconds / 1000000
+          item.data().created_at.seconds * 1000 +
+            item.data().created_at.nanoseconds / 1000000
         );
         const updatedDate = new Date(
-          item.data().updatedAt.seconds * 1000 +
-            item.data().updatedAt.nanoseconds / 1000000
+          item.data().updated_at.seconds * 1000 +
+            item.data().updated_at.nanoseconds / 1000000
         );
         return {
           id: item.id,
           index,
           ...item.data(),
-          createdAt: createdDate,
-          updatedAt: updatedDate,
+          created_at: DateHourFilter(createdDate),
+          updated_at: DateHourFilter(updatedDate),
         };
       });
-      this.orders = newRes;
+      this.users = newRes;
+      console.log(newRes)
     },
     editItem(item) {
-      this.editedIndex = this.orders.indexOf(item);
+      this.editedIndex = this.users.indexOf(item);
       this.dataEditItem = Object.assign({}, item);
       this.dialog = true;
     },
     deleteItem(item) {
-      this.editedIndex = this.orders.indexOf(item);
+      this.editedIndex = this.users.indexOf(item);
       this.dataEditItem = Object.assign({}, item);
       this.dialogDelete = true;
     },
     async deleteItemConfirm() {
-      const id = this.dataEditItem.id;
-      const res = await CartService.delete(id);
-      if (res) {
-        this.innitData();
-      }
       this.closeDelete();
     },
     close() {
@@ -235,28 +227,14 @@ export default {
     },
     async save() {
       if (this.editedIndex > -1) {
-        const res = await CartService.update(this.dataEditItem);
+        const res = await MeService.update(this.dataEditItem);
         if (res) {
           this.innitData();
         }
       }
       this.close();
     },
-    detailOrders(data) {
-      const id = data.id;
-      this.$router.push(`/dashboard/orders/${id}`);
-      this.setOrder(data)
-    },
-    formatPrice(value) {
-      const formatter = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "VND",
-        minimumFractionDigits: 0,
-      });
-      return formatter.format(value);
-    },
   },
-  computed: {},
   watch: {
     dialog(val) {
       val || this.close();

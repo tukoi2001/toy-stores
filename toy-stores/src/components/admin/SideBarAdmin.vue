@@ -29,7 +29,7 @@
         >
       </li>
       <li>
-        <router-link to="/admin/users"
+        <router-link to="/dashboard/users"
           ><b-icon class="icon-icon" icon="people-fill"></b-icon> Users</router-link 
         >
       </li>

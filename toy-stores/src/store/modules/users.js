@@ -22,6 +22,7 @@ const actions = {
   async getCurrentUser({ commit }, userId) {
     const response = await MeService.me(userId);
     commit("setInfoUser", response);
+    localStorage.setItem("uid", JSON.stringify(userId));
   },
 };
 
