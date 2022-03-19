@@ -66,7 +66,7 @@ export default {
                 },
                 {
                     img: require("@/assets/images/about-us/vanh.jpg"),
-                    role: 'Tester',
+                    role: 'Designer/Tester',
                     name: 'Nguyễn Văn Anh',
                     linkFb: 'https://www.facebook.com/nvananht.1002'
                 },
