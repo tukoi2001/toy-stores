@@ -52,6 +52,7 @@
                 >Add To Cart</a
               >
               <a href="" class="card-link"
+                @click.prevent="actionAddItemWishlist(item)"
                 ><b-icon icon="heart-fill"></b-icon> Add To Wishlist</a
               >
             </div>
@@ -92,7 +93,8 @@ export default {
       this.$router.push(`/products/${id}`);
     },
     ...mapActions("products", ["actionSetProductDetail"]),
-    ...mapActions('cart', ['actionAddItem'])
+    ...mapActions('cart', ['actionAddItem']),
+    ...mapActions("wishlist", ["actionAddItemWishlist"]),
   },
   mounted() {
     this.listProductsShow = this.listProducts;

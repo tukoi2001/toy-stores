@@ -18,13 +18,13 @@
                 >
                   <b-icon icon="basket"></b-icon>
                 </a>
-                <a href="" class="single-btn">
+                <a href="" class="single-btn"
+                  @click.prevent="actionAddItemWishlist(item)"
+                >
                   <b-icon icon="heart"></b-icon>
                 </a>
                 <a
                   href=""
-                  data-toggle="modal"
-                  data-target="#quickModal"
                   class="single-btn"
                 >
                   <b-icon icon="eye"></b-icon>
@@ -136,7 +136,8 @@ export default {
       ...mapActions('products', [
         'actionSetProductDetail'
       ]),
-      ...mapActions('cart', ['actionAddItem'])
+      ...mapActions('cart', ['actionAddItem']),
+      ...mapActions("wishlist", ["actionAddItemWishlist"]),
   },
   mounted() {
     // setTimeout(() => {{ 

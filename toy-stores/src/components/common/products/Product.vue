@@ -6,11 +6,7 @@
         <span class="status">New</span>
       </span>
       <div class="actions">
-        <a href="" class="action wishlist"><b-icon icon="heart"></b-icon> </a>
-        <a href="" class="action compare"
-          ><b-icon icon="arrow-repeat"></b-icon>
-        </a>
-        <a href="#" class="action quickview"><b-icon icon="search"></b-icon></a>
+        <slot name="action"></slot>
       </div>
       <div class="add-cart-btn">
         <slot name="add-item"></slot>

@@ -33,6 +33,17 @@
                         />
                       </p>
                     </template>
+                    <template v-slot:action>
+                      <a href="" @click.prevent="actionAddItemWishlist(item)" class="action wishlist"
+                        ><b-icon icon="heart"></b-icon>
+                      </a>
+                      <a href="" class="action compare"
+                        ><b-icon icon="arrow-repeat"></b-icon>
+                      </a>
+                      <a href="#" class="action quickview"
+                        ><b-icon icon="search"></b-icon
+                      ></a>
+                    </template>
                     <template v-slot:add-item>
                       <button
                         @click="actionAddItem(item)"
@@ -131,6 +142,7 @@ export default {
     },
     ...mapActions("products", ["actionSetProductDetail"]),
     ...mapActions("cart", ["actionAddItem"]),
+    ...mapActions("wishlist", ["actionAddItemWishlist"]),
   },
   async mounted() {
     this.getDataProduct();
