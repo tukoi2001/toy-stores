@@ -1,11 +1,18 @@
+
 <template>
   <div>
     <div class="profile-sidebar">
       <div class="profile-userpic">
+        <img v-if="!dataCurrentUser.photoURL"
+          src="../../assets/images/user/empty.jpg"
+          class="img-responsive"
+          alt="img-admin"
+        />
         <img
+          v-else
           :src="dataCurrentUser.photoURL"
           class="img-responsive"
-          alt=""
+          alt="img-admin"
         />
       </div>
       <div class="profile-usertitle">
@@ -28,7 +35,7 @@
           ><b-icon class="icon-icon" icon="card-list"></b-icon> Dashboard</router-link
         >
       </li>
-      <li>
+      <li  v-if="role == 'admin' || role == 'super admin'">
         <router-link to="/dashboard/users"
           ><b-icon class="icon-icon" icon="people-fill"></b-icon> Users</router-link 
         >
@@ -43,7 +50,7 @@
           ><b-icon class="icon-icon" icon="tags-fill"></b-icon> Categories</router-link
         >
       </li>
-      <li>
+      <li v-if="role == 'admin' || role == 'super admin'">
         <router-link to="/dashboard/orders"
           ><b-icon class="icon-icon" icon="basket-fill"></b-icon> Orders</router-link
         >
@@ -77,10 +84,14 @@ export default {
     name: 'SideBarAdmin',
     computed: {
     ...mapState("users", ["userInformation"]),
+    ...mapState(['role']),
     dataCurrentUser() {
       return this.userInformation.multiFactor.user;
     },
   },
+  mounted() {
+    console.log(this.role);
+  }
 }
 </script>
 

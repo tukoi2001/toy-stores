@@ -1,18 +1,22 @@
 <template>
   <div class="content_categories">
-    <v-card :class="{'active-admin': getRole === 'admin'}">
+    <v-card
+      :class="{
+        'active-admin': getRole === 'admin' || getRole === 'super admin',
+      }"
+    >
       <template>
         <v-toolbar flat>
-        <v-toolbar-title class="h2 text-start">User</v-toolbar-title>
-        <v-divider class="mx-4" inset vertical></v-divider>
-        <v-spacer></v-spacer>
+          <v-toolbar-title class="h2 text-start">User</v-toolbar-title>
+          <v-divider class="mx-4" inset vertical></v-divider>
+          <v-spacer></v-spacer>
         </v-toolbar>
-        <p class="fw-bold text-start p-3 text-danger" style="font-size: 2rem;">
+        <p class="fw-bold text-start p-3 text-danger" style="font-size: 2rem">
           Bạn không có quyền truy cập vào đây! Vui lòng thử lại! Cảm ơn!
         </p>
       </template>
     </v-card>
-    <v-card :class="{'active-admin': getRole === 'supplier'}">
+    <v-card :class="{ 'active-admin': getRole === 'supplier' }">
       <template>
         <v-toolbar flat>
           <v-toolbar-title class="h2">Users</v-toolbar-title>
@@ -21,16 +25,55 @@
 
           <!-- dialog update -->
           <v-dialog v-model="dialog" max-width="500px">
+            <template v-slot:activator="{ on, attrs }" v-if=" getRole === 'super admin'">
+              <v-btn dark class="mb-2 btn__add" v-bind="attrs" v-on="on">
+                <v-icon> mdi-plus </v-icon>
+                Add New User
+              </v-btn>
+            </template>
+
             <v-card class="card-toglle" :loading="isPending">
               <v-card-title class="card-title">
-                <span class="text-h5 font-weight-medium">Update Users</span>
+                <span class="text-h5 font-weight-medium">{{ formTitle }}</span>
               </v-card-title>
               <v-card-text class="card-content">
                 <v-row>
+                  <v-col cols="12" sm="12" md="12" v-if="editedIndex == -1">
+                    <v-text-field
+                      label="Full Name:"
+                      placeholder="Full Name"
+                      v-model="dataEditItem.fullName"
+                      clearable
+                    ></v-text-field>
+                  </v-col>
+
+                  <v-col cols="12" sm="12" md="12" v-if="editedIndex == -1">
+                    <v-text-field
+                      v-model="dataEditItem.email"
+                      :rules="[rules.required, rules.email]"
+                      label="E-mail"
+                      placeholder="Email"
+                    ></v-text-field>
+                  </v-col>
+
+                  <v-col cols="12" sm="12" md="12" v-if="editedIndex == -1">
+                    <v-text-field
+                      :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+                      :type="show ? 'text' : 'password'"
+                      name="input-10-2"
+                      label="Password"
+                      :rules="[rules.required, rules.min]"
+                      hint="At least 8 characters"
+                      v-model="dataEditItem.password"
+                      class="input-group--focused"
+                      @click:append="show = !show"
+                    ></v-text-field>
+                  </v-col>
+
                   <v-col cols="12" sm="12" md="12">
                     <template>
                       <v-select
-                        :items="['admin', 'supplier', 'user']"
+                        :items="['super admin', 'admin', 'supplier', 'user']"
                         label="Role"
                         v-model="dataEditItem.role"
                       ></v-select>
@@ -173,6 +216,9 @@ export default {
       users: [],
       editedIndex: -1,
       dataEditItem: {
+        fullName: "",
+        email: "",
+        password: "",
         role: "",
         isActive: "",
         customField: "",
@@ -182,6 +228,17 @@ export default {
         isActive: "",
         customField: "",
       },
+      show: false,
+      rules: {
+        required: (value) => !!value || "Required.",
+        counter: (value) => value.length <= 20 || "Max 20 characters",
+        email: (value) => {
+          const pattern =
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return pattern.test(value) || "Invalid e-mail.";
+        },
+        min: v => v.length >= 8 || 'Min 8 characters',
+      },
     };
   },
   mounted() {
@@ -190,7 +247,10 @@ export default {
   computed: {
     getRole() {
       return this.$store.state.role;
-    }
+    },
+    formTitle() {
+      return this.editedIndex === -1 ? "Add New User" : "Edit User";
+    },
   },
   methods: {
     async innitData() {
@@ -212,8 +272,8 @@ export default {
           updated_at: DateHourFilter(updatedDate),
         };
       });
+      console.log(newRes);
       this.users = newRes;
-      console.log(newRes)
     },
     editItem(item) {
       this.editedIndex = this.users.indexOf(item);
@@ -247,6 +307,12 @@ export default {
         const res = await MeService.update(this.dataEditItem);
         if (res) {
           this.innitData();
+        }
+      } else {
+        const res = await MeService.register(this.dataEditItem);
+        if (res) {
+          this.innitData();
+          this.$router.push('/dashboard/users');
         }
       }
       this.close();

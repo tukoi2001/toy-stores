@@ -307,7 +307,7 @@ router.beforeEach((to, from, next) => {
 router.beforeEach((to, from, next) => {
   if (to.meta.requireLogin) {
     const login = JSON.parse(localStorage.getItem("token"));
-    if (login == "") {
+    if (!login || login == "") {
       next();     
     } else {
       alert("Bạn đã đăng nhập rồi mà!");

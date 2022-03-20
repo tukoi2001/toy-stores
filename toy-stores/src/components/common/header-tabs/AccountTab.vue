@@ -19,7 +19,7 @@
               xuất</router-link
             >
           </li>
-           <li v-if="getRole === 'admin' || getRole === 'supplier'">
+           <li v-if="getRole === 'admin' || getRole === 'supplier' || getRole === 'super admin'">
             <router-link class="nav__link" to="/dashboard"
               ><b-icon class="icon__link" icon="folder"></b-icon>Dashboard</router-link
             >
