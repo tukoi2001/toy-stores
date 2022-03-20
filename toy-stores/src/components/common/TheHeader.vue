@@ -62,6 +62,7 @@
             <account-tab v-if="accountTabs" @myAccount="hideShowAccount" />
           <a href="" class="nav__icon" @click.prevent="wishlistClick">
             <b-icon class="icon__header" icon="suit-heart"></b-icon>
+            <span v-if="itemsWishlist.length">{{ itemsWishlist.length }}</span>
           </a>
           <a href="" class="nav__icon" @click.prevent="cartClick">
             <b-icon class="icon__header" icon="cart-check"></b-icon>
@@ -93,6 +94,7 @@ export default {
   },
   computed: { 
     ...mapState('cart', ['items']),
+    ...mapState('wishlist', ['itemsWishlist']),
     ...mapState(['token'])
   },
   methods: {
@@ -114,7 +116,7 @@ export default {
     },
     wishlistClick() {
       if (this.token !== null) {
-        this.showCart = true;
+        this.$router.push('/wishlist');
       } else {
         alert("Bạn cần đăng nhập để sử dụng chức năng này!")
       }

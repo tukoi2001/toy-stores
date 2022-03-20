@@ -20,7 +20,9 @@
                 >
                   <b-icon icon="basket"></b-icon>
                 </a>
-                <a href="" class="single-btn">
+                <a href="" class="single-btn"
+                  @click.prevent="actionAddItemWishlist(item)"
+                >
                   <b-icon icon="heart"></b-icon>
                 </a>
                 <a
@@ -98,6 +100,7 @@ export default {
     },
     ...mapActions("products", ["actionSetProductDetail"]),
     ...mapActions("cart", ["actionAddItem"]),
+    ...mapActions("wishlist", ["actionAddItemWishlist"]),
   },
   watch: {
     listProducts() {

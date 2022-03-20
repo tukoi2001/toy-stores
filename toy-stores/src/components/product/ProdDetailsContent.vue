@@ -55,7 +55,7 @@
       <a href=""
         ><b-icon class="btn__prod-icon" icon="arrow-repeat"></b-icon>Compare</a
       >
-      <a href=""
+      <a href="" @click.prevent="actionAddItemWishlist(productDetail)"
         ><b-icon class="btn__prod-icon" icon="heart"></b-icon>Wishlist</a
       >
     </div>
@@ -76,6 +76,7 @@ export default {
   },
   methods: {
     ...mapActions('cart', ['actionAddItem']),
+    ...mapActions("wishlist", ["actionAddItemWishlist"]),
     formatPrice(value) {
       const formatter = new Intl.NumberFormat("en-US", {
         style: "currency",

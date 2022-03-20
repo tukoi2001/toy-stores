@@ -15,8 +15,10 @@ export default {
     name: 'Logout',
     methods: {
       ...mapMutations('cart', ['removeAllItems']),
+      ...mapMutations('wishlist', ['removeAllItemsWishlist']),
     async onSignOut() {
       this.removeAllItems();
+      this.removeAllItemsWishlist();
       const response = await AuthService.signOut();
       if (response === true) {
         localStorage.setItem("token", '');

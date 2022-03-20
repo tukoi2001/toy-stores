@@ -159,6 +159,16 @@ const routes = [
     },
   },
   {
+    path: "/wishlist",
+    name: "Wishlist",
+    component: () =>
+      import(/* webpackChunkName: "cart" */ "../views/user/Wishlist.vue"),
+    meta: {
+      requireUser: true,
+      title: "Wishlist",
+    },
+  },
+  {
     path: "/checkout",
     name: "Checkout",
     component: () =>
@@ -180,6 +190,8 @@ const routes = [
       title: "Order Complete",
     },
   },
+
+  // Admin
   {
     path: "/dashboard",
     name: "Dashboard",
