@@ -19,9 +19,9 @@ export default {
       this.removeAllItems();
       const response = await AuthService.signOut();
       if (response === true) {
-        localStorage.setItem("token", "");
+        localStorage.setItem("token", '');
         localStorage.setItem("uid", '')
-        this.$store.dispatch('actionSetToken', null);
+        this.$store.dispatch('actionSetToken', '');
         this.$router.push('/');
       }
     },

@@ -1,6 +1,18 @@
 <template>
   <div class="content_categories">
-    <v-card>
+    <v-card :class="{'active-admin': getRole === 'admin'}">
+      <template>
+        <v-toolbar flat>
+        <v-toolbar-title class="h2 text-start">User</v-toolbar-title>
+        <v-divider class="mx-4" inset vertical></v-divider>
+        <v-spacer></v-spacer>
+        </v-toolbar>
+        <p class="fw-bold text-start p-3 text-danger" style="font-size: 2rem;">
+          Bạn không có quyền truy cập vào đây! Vui lòng thử lại! Cảm ơn!
+        </p>
+      </template>
+    </v-card>
+    <v-card :class="{'active-admin': getRole === 'supplier'}">
       <template>
         <v-toolbar flat>
           <v-toolbar-title class="h2">Users</v-toolbar-title>
@@ -174,6 +186,11 @@ export default {
   },
   mounted() {
     this.innitData();
+  },
+  computed: {
+    getRole() {
+      return this.$store.state.role;
+    }
   },
   methods: {
     async innitData() {

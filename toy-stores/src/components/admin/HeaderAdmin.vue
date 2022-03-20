@@ -20,7 +20,7 @@
               <a class="admin-img" @click.prevent="isShowSettings = true">
                 <img
                   class="img-admin"
-                  src="@/assets/images/user/empty.jpg"
+                  :src="dataCurrentUser.photoURL"
                   alt=""
                 />
               </a>
@@ -38,6 +38,8 @@
 <script>
 import NotifyAdmin from './NotifyAdmin.vue';
 import SettingAdmin from './SettingAdmin.vue';
+import { mapState } from "vuex";
+
 export default {
   components: { SettingAdmin, NotifyAdmin },
   name: "HeaderAdmin",
@@ -46,6 +48,12 @@ export default {
       isShowSettings: false,
       isShowNotifies: false,
     }
+  },
+   computed: {
+    ...mapState("users", ["userInformation"]),
+    dataCurrentUser() {
+      return this.userInformation.multiFactor.user;
+    },
   },
   methods: {
     backToHome() {

@@ -57,6 +57,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "register" */ "../views/auth/Register.vue"),
     meta: {
+      requireLogin: true,
       title: "Register",
     },
   },
@@ -66,6 +67,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "login" */ "../views/auth/Login.vue"),
     meta: {
+      requireLogin: true,
       title: "Login",
     },
   },
@@ -87,6 +89,7 @@ const routes = [
         /* webpackChunkName: "verify-email" */ "../views/auth/VerifyEmail.vue"
       ),
     meta: {
+      requireLogin: true,
       title: "Verify Email",
     },
   },
@@ -98,6 +101,7 @@ const routes = [
         /* webpackChunkName: "verify-email" */ "../views/auth/ResetPassword.vue"
       ),
     meta: {
+      requireLogin: true,
       title: "Reset Password",
     },
   },
@@ -286,17 +290,32 @@ router.beforeEach((to, from, next) => {
   next();
 });
 
-router.beforeEach(async (to, from, next) => {
-  if (to.meta && to.meta.required) {
-    const auth = localStorage.getItem("token");
-    if (auth && auth !== "") {
-        next();
+router.beforeEach((to, from, next) => {
+  if (to.meta && to.meta.requireUser) {
+    const auth = JSON.parse(localStorage.getItem("token"));
+    if (auth == "") {
+      alert("Bạn cần đăng nhập để sử dụng chức năng này!");
+      next({ path: "/login" });
     } else {
-        alert("Bạn cần đăng nhập để sử dụng chức năng này!");
-        next({ path: "/login" });
+      next();
     }
-} else {
+  } else {
     next();
-}
+  }
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requireLogin) {
+    const login = JSON.parse(localStorage.getItem("token"));
+    if (login == "") {
+      next();     
+    } else {
+      alert("Bạn đã đăng nhập rồi mà!");
+      next({ path: "/" });
+    }
+  } else {
+    next();
+  }
+});
+
 export default router;

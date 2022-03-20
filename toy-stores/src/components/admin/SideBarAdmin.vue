@@ -3,13 +3,13 @@
     <div class="profile-sidebar">
       <div class="profile-userpic">
         <img
-          src="@/assets/images/user/empty.jpg"
+          :src="dataCurrentUser.photoURL"
           class="img-responsive"
           alt=""
         />
       </div>
       <div class="profile-usertitle">
-        <div class="profile-usertitle-name">Tú Xưn</div>
+        <div class="profile-usertitle-name">{{ dataCurrentUser.displayName }}</div>
         <div class="profile-usertitle-status">
           <span class="indicator label-success"></span>Online
         </div>
@@ -61,9 +61,9 @@
         >
       </li>
       <li>
-        <a href="" @click.prevent=""
+        <router-link to="/logout"
           ><b-icon class="icon-icon" icon="box-arrow-in-right"></b-icon>
-          Logout</a
+          Logout</router-link
         >
       </li>
     </ul>
@@ -71,8 +71,16 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
-    name: 'SideBarAdmin'
+    name: 'SideBarAdmin',
+    computed: {
+    ...mapState("users", ["userInformation"]),
+    dataCurrentUser() {
+      return this.userInformation.multiFactor.user;
+    },
+  },
 }
 </script>
 

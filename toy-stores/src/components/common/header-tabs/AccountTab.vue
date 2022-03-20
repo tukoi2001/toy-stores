@@ -19,6 +19,11 @@
               xuất</router-link
             >
           </li>
+           <li v-if="getRole === 'admin' || getRole === 'supplier'">
+            <router-link class="nav__link" to="/dashboard"
+              ><b-icon class="icon__link" icon="folder"></b-icon>Dashboard</router-link
+            >
+          </li>
         </template>
 
         <template v-else>
@@ -48,7 +53,10 @@ export default {
     token() {
       return this.$store.state.token;
     },
-    ...mapState('users', ['userInformation'])
+    ...mapState('users', ['userInformation']),
+    getRole() {
+      return this.$store.state.role;
+    }
   },
   methods: {
     hideShowAccount() {
