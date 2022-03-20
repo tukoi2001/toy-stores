@@ -129,3 +129,6 @@ h4.cate-detail-title {
   background-color: #333;
   border-color: #333;
 }
+.active-admin {
+  display: none!important;
+}

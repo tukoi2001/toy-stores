@@ -11,9 +11,9 @@
         <router-link to="/dashboard/notification"> <b-icon class="icon" icon="gear-fill"></b-icon>Notifications </router-link>
       </li>
       <li>
-        <a href="" @click.prevent="">
+        <router-link to="/logout" >
           <b-icon class="icon" icon="box-arrow-right"></b-icon>Logout
-        </a>
+        </router-link>
       </li>
     </ul>
   </div>

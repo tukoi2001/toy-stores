@@ -180,26 +180,6 @@ export default {
       this.imgUpLoad = event.target.files[0];
       console.log(this.imgUpLoad);
     },
-    // async uploadImg() {
-    //   storage.ref('users/' + auth.currentUser.uid + '/profile.jpg').put(this.imgUpLoad).then(() => {
-    //     this.getImg();
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   })
-    // },
-    // getImg() {
-    //   auth.onAuthStateChanged(async (user) => {
-    //     if (user) {
-    //       storage.ref('users/' + user.uid + '/profile.jpg').getDownloadURL().then(photoUrl => {
-    //         this.imgUser = photoUrl;
-    //       })
-    //       .catch((error) => {
-    //         console.log(error);
-    //       })
-    //     }
-    //   });
-    // },
     uploadImg() {
       const storageRef = storage.ref(`/imageUser/${this.imgUpLoad.name}`);
       const task = storageRef.put(this.imgUpLoad);
