@@ -1,9 +1,9 @@
 <template>
   <div class="content_categories">
-    <v-card :class="{'active-admin': getRole === 'admin'}">
+    <v-card :class="{'active-admin': getRole === 'admin' || getRole === 'super admin'}">
       <template>
         <v-toolbar flat>
-        <v-toolbar-title class="h2 text-start">User</v-toolbar-title>
+        <v-toolbar-title class="h2 text-start">Orders</v-toolbar-title>
         <v-divider class="mx-4" inset vertical></v-divider>
         <v-spacer></v-spacer>
         </v-toolbar>

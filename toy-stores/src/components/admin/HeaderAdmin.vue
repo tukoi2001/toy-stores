@@ -19,9 +19,16 @@
             <li class="dropdown">
               <a class="admin-img" @click.prevent="isShowSettings = true">
                 <img
+                  v-if="!dataCurrentUser.photoURL"
+                  class="img-admin"
+                  src="../../assets/images/user/empty.jpg"
+                  alt="img-admin"
+                />
+                <img
+                  v-else
                   class="img-admin"
                   :src="dataCurrentUser.photoURL"
-                  alt=""
+                  alt="img-admin"
                 />
               </a>
               <transition name="fade">
