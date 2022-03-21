@@ -149,6 +149,17 @@ const routes = [
     },
   },
   {
+    path: "/products-search",
+    name: "Search Products",
+    component: () =>
+      import(
+        /* webpackChunkName: "product-detail" */ "../views/user/ProductSearch.vue"
+      ),
+    meta: {
+      title: "Search Products",
+    },
+  },
+  {
     path: "/cart",
     name: "Cart",
     component: () =>

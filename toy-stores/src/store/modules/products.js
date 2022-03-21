@@ -3,7 +3,8 @@ const state = () => ({
     productDetail: null,
     listProducts: [],
     listImg: [],
-    currentImg: null
+    currentImg: null,
+    search: '',
   });
   
   const mutations = {
@@ -20,7 +21,10 @@ const state = () => ({
     },
     setImageCurrent(state, img) {
       state.currentImg = img;
-    }
+    },
+    setSearchTitle(state, title) {
+      state.search = title;
+    },
   };
   
   const actions = {

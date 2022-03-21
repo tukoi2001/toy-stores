@@ -5,8 +5,8 @@
       <div class="row">
         <div class="col-12">
           <div class="search__box">
-            <input type="text" class="search__input" placeholder="Search ..."/>
-            <div class="search__icon">
+            <input type="text" @keyup.enter="submitSearch" class="search__input" v-model.trim="search" placeholder="Search ..."/>
+            <div class="search__icon" @click="submitSearch">
                 <b-icon class="icon" icon="search"></b-icon>
             </div>
           </div>
@@ -17,12 +17,25 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   name: "SearchBox",
+  data() {
+    return {
+      search: ''
+    }
+  },
   methods: {
+    ...mapMutations('products', ['setSearchTitle']),
     hideShowSearch() {
       this.$emit("mySearch");
     },
+    submitSearch() {
+      const result = this.search;
+      this.setSearchTitle(result);
+      this.$router.push({ path: '/products-search', query: { product: `${result}` } });
+      this.hideShowSearch();
+    }
   },
 };
 </script>
