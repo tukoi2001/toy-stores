@@ -30,7 +30,7 @@
                 </tr>
                 <tr v-else v-for="(item, index) in itemsWishlist" :key="index">
                   <td class="pro-thumbnail">
-                    <a href="#"
+                    <a href="" @click.prevent="getProductDetail(item)"
                       ><img
                         class="fit-image"
                         :src="item.urlImage[0]"
@@ -38,7 +38,7 @@
                     /></a>
                   </td>
                   <td class="pro-title">
-                    <a href="#">{{ item.name }}</a>
+                    <a href="" @click.prevent="getProductDetail(item)">{{ item.name }}</a>
                   </td>
                   <td class="pro-price">
                     <span>{{
@@ -88,8 +88,9 @@ export default {
   },
   methods: {
     ...mapMutations("wishlist", ["removeAllItemsWishlist"]),
-    ...mapActions("wishlist", ["actionInitItems", "actionDeleteItem"]),
+    ...mapActions("wishlist", ["actionInitItemsWishlist", "actionDeleteItem"]), 
     ...mapActions('cart', ['actionAddItem']),
+    ...mapActions("products", ["actionSetProductDetail"]),
     formatPrice(value) {
       const formatter = new Intl.NumberFormat("en-US", {
         style: "currency",
@@ -100,8 +101,13 @@ export default {
     },
     removeAllItem() {
       this.removeAllItemsWishlist();
-      this.actionInitItems();
+      this.actionInitItemsWishlist();
     },
+    getProductDetail(product) {
+      this.actionSetProductDetail(product);
+      const id = product.slug + product.id;
+      this.$router.push(`/products/${id}`);
+    }
   },
 };
 </script>

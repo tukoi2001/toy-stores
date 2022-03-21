@@ -20,15 +20,16 @@
                 >
                   <b-icon icon="basket"></b-icon>
                 </a>
-                <a href="" class="single-btn"
+                <a
+                  href=""
+                  class="single-btn"
                   @click.prevent="actionAddItemWishlist(item)"
                 >
                   <b-icon icon="heart"></b-icon>
                 </a>
                 <a
                   href=""
-                  data-toggle="modal"
-                  data-target="#quickModal"
+                  @click.prevent="setItemQuickView(item)"
                   class="single-btn"
                 >
                   <b-icon icon="eye"></b-icon>
@@ -62,16 +63,25 @@
         </div>
       </div>
     </div>
+    <quick-view-product
+      v-if="quickView"
+      :items="itemQuickView"
+      @myClose="hideQuickView"
+    />
   </div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
+import QuickViewProduct from "../../product/QuickViewProduct.vue";
 export default {
+  components: { QuickViewProduct },
   name: "GridProduct",
   data() {
     return {
       listProductsShow: [],
+      quickView: false,
+      itemQuickView: {},
     };
   },
   props: {
@@ -101,6 +111,13 @@ export default {
     ...mapActions("products", ["actionSetProductDetail"]),
     ...mapActions("cart", ["actionAddItem"]),
     ...mapActions("wishlist", ["actionAddItemWishlist"]),
+    setItemQuickView(item) {
+      this.itemQuickView = item;
+      this.quickView = true;
+    },
+    hideQuickView() {
+      this.quickView = false;
+    },
   },
   watch: {
     listProducts() {
