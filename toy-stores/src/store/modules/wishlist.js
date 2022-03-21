@@ -38,7 +38,7 @@ const state = () => ({
   };
   
   const actions = {
-    actionInitItems({ commit }) {
+    actionInitItemsWishlist({ commit }) {
       commit("initItems");
     },
     actionAddItemWishlist({ commit }, item) {
