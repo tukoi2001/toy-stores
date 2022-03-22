@@ -55,10 +55,16 @@
           ><b-icon class="icon-icon" icon="basket-fill"></b-icon> Orders</router-link
         >
       </li>
+      <li v-if="role == 'admin' || role == 'super admin'">
+        <router-link to="/dashboard/blogs"
+          ><b-icon class="icon-icon" icon="journals"></b-icon>
+          Blogs</router-link
+        >
+      </li>
       <li>
         <a href=""
           ><b-icon class="icon-icon" icon="chat-square-dots-fill"></b-icon>
-          Blogs and Comments</a
+          Comments</a
         >
       </li>
       <li>
@@ -90,7 +96,7 @@ export default {
     },
   },
   mounted() {
-    console.log(this.role);
+
   }
 }
 </script>
