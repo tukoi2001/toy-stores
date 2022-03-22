@@ -8,6 +8,7 @@ import products from "./modules/products";
 import cart from "./modules/cart";
 import checkout from "./modules/checkout";
 import wishlist from "./modules/wishlist";
+import blogs from "./modules/blogs";
 
 Vue.use(Vuex)
 
@@ -42,6 +43,7 @@ export default new Vuex.Store({
     products,
     cart,
     wishlist,
-    checkout
+    checkout,
+    blogs
   }
 })

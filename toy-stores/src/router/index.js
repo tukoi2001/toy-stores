@@ -293,7 +293,28 @@ const routes = [
     },
     beforeEnter: RoleMiddleware.admin,
   },
-
+  {
+    path: "/dashboard/blogs",
+    name: "Blogs",
+    component: () =>
+      import(/* webpackChunkName: "blogs" */ "../views/admin/Blogs.vue"),
+    meta: {
+      title: "Blogs",
+    },
+    beforeEnter: RoleMiddleware.admin,
+  },
+  {
+    path: "/dashboard/blogs/:id",
+    name: "BlogsDetail",
+    component: () =>
+      import(
+        /* webpackChunkName: "blogs-detail" */ "../views/admin/BlogsDetail.vue"
+      ),
+    meta: {
+      title: "Blogs Detail",
+    },
+    beforeEnter: RoleMiddleware.admin,
+  },
   {
     path: "/:404(.*)",
     name: "404",

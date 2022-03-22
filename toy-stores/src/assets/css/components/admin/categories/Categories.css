@@ -132,3 +132,7 @@ h4.cate-detail-title {
 .active-admin {
   display: none!important;
 }
+.td {
+  font-size: 1rem!important;
+  color: #000!important;
+}
