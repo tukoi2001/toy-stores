@@ -293,6 +293,15 @@ const routes = [
     },
     beforeEnter: RoleMiddleware.admin,
   },
+
+  {
+    path: "/:404(.*)",
+    name: "404",
+    component: () => import(/* webpackChunkName: '404' */ "../views/user/404.vue"),
+    meta: {
+      title: "Page Not Found",
+    },
+  },
 ];
 
 const router = new VueRouter({
@@ -331,7 +340,7 @@ router.beforeEach((to, from, next) => {
   if (to.meta.requireLogin) {
     const login = JSON.parse(localStorage.getItem("token"));
     if (!login || login == "") {
-      next();     
+      next();
     } else {
       alert("Bạn đã đăng nhập rồi mà!");
       next({ path: "/" });

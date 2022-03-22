@@ -17,7 +17,7 @@ const AuthService = {
 
       if (!res) throw new Error("Could not create user!");
       await res.user.sendEmailVerification({
-        url: "http://localhost:8080/login",
+        url: "https://toys-stores.netlify.app/login",
       });
       await res.user.updateProfile({
         displayName: user.fullName,

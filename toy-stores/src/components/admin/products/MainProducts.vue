@@ -193,8 +193,8 @@
         :search="search"
       >
         <template v-slot:item="{ item }">
-          <tr class="tr-body-table text-start">
-            <td>{{ item.index }}</td>
+          <tr class="tr-body-table text-start" style="font-size: 1rem">
+            <td style="display: flex; align-items: center">{{ item.index }}</td>
             <td class="td-image">
               <img :src="item.urlImage" alt="" class="rounded" width="50px" />
             </td>

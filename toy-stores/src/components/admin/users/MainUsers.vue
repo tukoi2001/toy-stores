@@ -169,7 +169,7 @@
         :search="search"
       >
         <template v-slot:item="{ item }">
-          <tr class="tr-body-table text-start orders">
+          <tr class="tr-body-table text-start orders" style="font-size: 1rem">
             <td style="display: flex; align-items: center">{{ item.index }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.email }}</td>
