@@ -7,6 +7,7 @@ import store from './store'
 import Vuelidate from 'vuelidate'
 import Vue2Editor from "vue2-editor";
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue';
+import VueFbCustomerChat from 'vue-fb-customer-chat';
 import { auth } from "./configs/firebase";
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -18,6 +19,11 @@ Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(Vuelidate)
 Vue.use(Vue2Editor);
+Vue.use(VueFbCustomerChat, {
+  page_id: 103769678951581, //  change 'null' to your Facebook Page ID,
+  theme_color: '#0a7cff', // theme color in HEX
+  locale: 'en_US', // default 'en_US'
+})
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
 
