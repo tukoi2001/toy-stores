@@ -21,6 +21,7 @@ a, a:hover, a:focus, a:active, button, button:focus, .btn, .btn:focus, input, in
     -webkit-transition: all 0.5s ease 0s;
     -o-transition: all 0.5s ease 0s;
     transition: all 0.5s ease 0s;
+    height: 100%;
 }
 
 .single-blog .blog-thumb a:hover img {

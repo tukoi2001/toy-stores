@@ -45,7 +45,6 @@ export default {
         };
       });
       this.listOfBlogs = newRes;
-      console.log(this.listOfBlogs);
     },
   },
   mounted() {
