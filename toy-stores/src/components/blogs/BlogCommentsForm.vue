@@ -1,85 +1,75 @@
 <template>
-  <!-- Blog Comments Form Start -->
   <div
     class="blog-comment-form-wrapper mt-10"
   >
-    <!-- Blog Comment Form Title Start -->
     <div class="blog-comment-form-title">
-      <h2 class="title">Leave a comment</h2>
+      <h2 class="title">Để lại bình luận:</h2>
     </div>
-    <!-- Blog Comment Form Title End -->
-
-    <!-- Comment Box Start -->
     <div class="comment-box">
-      <form action="#">
+      <form action="" @submit.prevent="postComment(blog.id)">
         <div class="row">
-          <!-- Message Input Start -->
           <div class="col-12 col-custom">
             <div class="input-item mt-4 mb-4">
               <textarea
+                v-model.trim="comment"
                 cols="30"
                 rows="5"
                 name="comment"
-                class="rounded-0 w-100 custom-textarea input-area"
-                placeholder="Message"
+                class="w-100 custom-textarea input-area"
+                placeholder="Comment..."
               ></textarea>
             </div>
           </div>
-          <!-- Message Input End -->
-
-          <!-- Name Input Start -->
-          <div class="col-md-6 col-custom">
-            <div class="input-item mb-4">
-              <input
-                class="rounded-0 w-100 input-area name"
-                type="text"
-                placeholder="Name"
-              />
-            </div>
-          </div>
-          <!-- Name Input End -->
-
-          <!-- Email Input Start -->
-          <div class="col-md-6 col-custom">
-            <div class="input-item mb-4">
-              <input
-                class="rounded-0 w-100 input-area email"
-                type="text"
-                placeholder="Email"
-              />
-            </div>
-          </div>
-          <!-- Email Input End -->
-
-          <!-- Website Input Start -->
-          <div class="col-12-6 col-custom">
-            <div class="input-item mb-4">
-              <input
-                class="rounded-0 w-100 input-area name"
-                type="text"
-                placeholder="Website"
-              />
-            </div>
-          </div>
-          <!-- Website Input End -->
-
-          <!-- Submit Button Start -->
           <div class="col-12 col-custom mt-4">
             <button type="submit" class="btn btn-primary btn-hover-dark">
-              Post comment
+              Bình luận
             </button>
           </div>
-          <!-- Submit Button End -->
         </div>
       </form>
     </div>
-    <!-- Comment Box End -->
   </div>
-  <!-- Blog Comments Form End -->
 </template>
 
 <script>
-export default {};
+import { BlogService, isPending, error } from "../../services/BlogService";
+import { mapActions, mapState } from 'vuex';
+export default {
+  name: 'BlogCommentsForm',
+  setup() {
+    return { error, isPending }
+  },
+  data() {
+    return {
+      comment: '',
+      data: []
+    }
+  },
+  computed: {
+    ...mapState('users', ['userInformation']),
+    ...mapState('blogs', ['blog'])
+  },
+  methods:{
+    ...mapActions('blogs', ['actionSetBlogDetail']),
+    async postComment(item) {
+      this.data.push({
+        id: item,
+        content: this.comment,
+        name: this.userInformation.multiFactor.user.displayName,
+        photoURL: this.userInformation.multiFactor.user.photoURL,
+        publishedAt: new Date().toLocaleDateString()
+      });
+      const res = await BlogService.comment(this.data);
+      if(res) {
+        this.comment = '';
+      }
+    },
+  },
+  mounted() {
+    this.data = this.blog.comment;
+    console.log(this.data);
+  }
+};
 </script>
 
 <style scoped>
@@ -117,10 +107,12 @@ export default {};
 }
 .blog-comment-form-wrapper .comment-box .input-area {
     padding: 10px 15px;
-    background: #f8f8f8;
+    background: #d3d6db;
     border: 1px solid transparent;
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
+    border-radius: 10px!important;
+    font-size: 1rem;
 }
 </style>

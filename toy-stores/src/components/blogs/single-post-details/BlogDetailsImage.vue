@@ -5,15 +5,21 @@
   >
     <img
       class="fit-image"
-      src="@/assets/images/blogs/demo/1.jpg"
-      alt="Blog"
+      :src="blog.urlImage"
+      :alt="blog.slug"
     />
   </div>
   <!-- Blog Details Image End -->
 </template>
 
 <script>
-export default {};
+import { mapState } from "vuex";
+export default {
+  name: 'BlogDetailsImage',
+  computed: {
+    ...mapState('blogs', ['blog'])
+  }
+};
 </script>
 
 <style scoped>
