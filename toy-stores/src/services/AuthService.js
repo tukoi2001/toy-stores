@@ -22,6 +22,9 @@ const AuthService = {
       await res.user.updateProfile({
         displayName: user.fullName,
       });
+      await res.user.updateProfile({
+        photoURL: 'https://1.bp.blogspot.com/-A7UYXuVWb_Q/XncdHaYbcOI/AAAAAAAAZhM/hYOevjRkrJEZhcXPnfP42nL3ZMu4PvIhgCLcBGAsYHQ/s1600/Trend-Avatar-Facebook%2B%25281%2529.jpg',
+      })
 
       const dataBase = db.collection("users").doc(res.user.uid);
       await dataBase.set({

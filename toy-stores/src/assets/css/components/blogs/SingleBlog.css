@@ -72,30 +72,12 @@ a, a:hover, a:focus, a:active, button, button:focus, .btn, .btn:focus, input, in
     font-size: 13px;
     text-transform: uppercase;
     padding-top: 18px;
+    text-decoration: none;
 }
-
-.link::before {
-    content: "\f178";
-    font-family: FontAwesome;
-    position: relative;
-    left: 0;
-    margin-right: -12px;
-    color: #00c4cc;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    transition: .3s;
-    width: 0;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.link:hover::before {
-    width: 14px;
-    margin-right: 5px;
-    opacity: 1;
-    visibility: visible;
-}
-
 .link span {
+    transition: all 0.3s ease 0s;
+}
+.link:hover span{
     text-decoration: underline;
+    color: #00c4cc;
 }

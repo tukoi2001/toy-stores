@@ -86,6 +86,20 @@ const BlogService = {
       isPending.value = false;
     }
   },
+  comment: async (blog) => {
+    isPending.value = true;
+    error.value = null;
+    try {
+      await db.collection("blogs").doc(blog[0].id).update({
+       comment: [...blog]
+      });
+      return true;
+    } catch (err) {
+      console.log("Error update comment: " + err);
+    } finally {
+      isPending.value = false;
+    }
+  },
   delete: async (id) => {
     isPending.value = true;
     error.value = null;

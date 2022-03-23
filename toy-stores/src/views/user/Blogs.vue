@@ -3,27 +3,13 @@
     <user-layout>
       <bread-crumbs :title="'Blogs'" />
       <b-container>
-        <div class="blogs-wrapper">
-          <b-row class="mb-n3">
-            <b-col
-              md="6"
-              lg="4"
-              class="mb-10"
-              v-for="(item, index) in ListOfBlogs"
-              :key="index"
-            >
-              <single-blog
-                :link="item.link"
-                :image="item.image"
-                :date="item.date"
-                :author="item.author"
-                :title="item.title"
-              />
-            </b-col>
-          </b-row>
+        <div class="blogs-wrapper text-start">
+          <h2>Tin mới nhất</h2>
+          <p>Những tin tức được cập nhật mới nhất!</p>
+          <single-blog :listOfBlogs="listOfBlogs" />
         </div>
       </b-container>
-      <brands/>
+      <brands />
     </user-layout>
   </div>
 </template>
@@ -31,82 +17,41 @@
 <script>
 import SingleBlog from "../../components/blogs/SingleBlog.vue";
 import BreadCrumbs from "../../components/common/BreadCrumbs.vue";
-import Brands from '../../components/home/brands/Brands.vue';
+import Brands from "../../components/home/brands/Brands.vue";
 import UserLayout from "../../components/layout/UserLayout.vue";
+import { BlogService } from "../../services/BlogService";
 export default {
   name: "Blogs",
   components: { SingleBlog, UserLayout, BreadCrumbs, Brands },
   data() {
     return {
-      ListOfBlogs: [
-        {
-          link: "/blogs/:id",
-          image: require("@/assets/images/blogs/demo/1.jpg"),
-          date: "03/11/2021",
-          author: "ADMIN",
-          title: "TÁC DỤNG CỦA ĐỒ CHƠI TRẺ EM ĐỐI VỚI SỰ PHÁT TRIỂN CỦA BÉ",
-        },
-        {
-          link: "/blogs/:id",
-          image: require("@/assets/images/blogs/demo/2.jpg"),
-          date: "03/11/2021",
-          author: "ADMIN",
-          title: "TÁC DỤNG CỦA ĐỒ CHƠI TRẺ EM ĐỐI VỚI SỰ PHÁT TRIỂN CỦA BÉ",
-        },
-        {
-          link: "/blogs/:id",
-          image: require("@/assets/images/blogs/demo/3.jpg"),
-          date: "03/11/2021",
-          author: "ADMIN",
-          title: "TÁC DỤNG CỦA ĐỒ CHƠI TRẺ EM ĐỐI VỚI SỰ PHÁT TRIỂN CỦA BÉ",
-        },
-        {
-          link: "/blogs/:id",
-          image: require("@/assets/images/blogs/demo/1.jpg"),
-          date: "03/11/2021",
-          author: "ADMIN",
-          title: "TÁC DỤNG CỦA ĐỒ CHƠI TRẺ EM ĐỐI VỚI SỰ PHÁT TRIỂN CỦA BÉ",
-        },
-        {
-          link: "/blogs/:id",
-          image: require("@/assets/images/blogs/demo/2.jpg"),
-          date: "03/11/2021",
-          author: "ADMIN",
-          title: "TÁC DỤNG CỦA ĐỒ CHƠI TRẺ EM ĐỐI VỚI SỰ PHÁT TRIỂN CỦA BÉ",
-        },
-        {
-          link: "/blogs/:id",
-          image: require("@/assets/images/blogs/demo/3.jpg"),
-          date: "03/11/2021",
-          author: "ADMIN",
-          title: "TÁC DỤNG CỦA ĐỒ CHƠI TRẺ EM ĐỐI VỚI SỰ PHÁT TRIỂN CỦA BÉ",
-        },
-        {
-          link: "/blogs/:id",
-          image: require("@/assets/images/blogs/demo/1.jpg"),
-          date: "03/11/2021",
-          author: "ADMIN",
-          title: "TÁC DỤNG CỦA ĐỒ CHƠI TRẺ EM ĐỐI VỚI SỰ PHÁT TRIỂN CỦA BÉ",
-        },
-        {
-          link: "/blogs/:id",
-          image: require("@/assets/images/blogs/demo/2.jpg"),
-          date: "03/11/2021",
-          author: "ADMIN",
-          title: "TÁC DỤNG CỦA ĐỒ CHƠI TRẺ EM ĐỐI VỚI SỰ PHÁT TRIỂN CỦA BÉ",
-        },
-        {
-          link: "/blogs/:id",
-          image: require("@/assets/images/blogs/demo/3.jpg"),
-          date: "03/11/2021",
-          author: "ADMIN",
-          title: "TÁC DỤNG CỦA ĐỒ CHƠI TRẺ EM ĐỐI VỚI SỰ PHÁT TRIỂN CỦA BÉ",
-        },
-      ],
+      listOfBlogs: [],
     };
+  },
+  methods: {
+    async getDataBlog() {
+      const response = await BlogService.show();
+      const newRes = response.docs.map((item, index) => {
+        const createdDate = new Date(
+          item.data().createdAt.seconds * 1000 +
+            item.data().createdAt.nanoseconds / 1000000
+        );
+        let myDate = ((createdDate.getUTCDate() + "/" + (createdDate.getMonth() + 1)  + "/" + createdDate.getUTCFullYear()));
+        return {
+          id: item.id,
+          index: index,
+          ...item.data(),
+          createdAt: myDate
+        };
+      });
+      this.listOfBlogs = newRes;
+      console.log(this.listOfBlogs);
+    },
+  },
+  mounted() {
+    this.getDataBlog();
   },
 };
 </script>
 
-<style scoped src="@/assets/css/components/user/Blogs.css">
-</style>
+<style scoped src="@/assets/css/components/user/Blogs.css"></style>

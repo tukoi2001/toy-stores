@@ -272,7 +272,6 @@ export default {
           updated_at: DateHourFilter(updatedDate),
         };
       });
-      console.log(newRes);
       this.users = newRes;
     },
     editItem(item) {

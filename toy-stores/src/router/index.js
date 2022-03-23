@@ -223,7 +223,7 @@ const routes = [
         /* webpackChunkName: "categories" */ "../views/admin/Categories.vue"
       ),
     meta: {
-      title: "Categories",
+      title: "Categories Management",
     },
     beforeEnter: RoleMiddleware.admin,
   },
@@ -245,7 +245,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "products" */ "../views/admin/Products.vue"),
     meta: {
-      title: "Products",
+      title: "Products Management",
     },
     beforeEnter: RoleMiddleware.admin,
   },
@@ -267,7 +267,7 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "orders" */ "../views/admin/Orders.vue"),
     meta: {
-      title: "Orders",
+      title: "Orders Management",
     },
     beforeEnter: RoleMiddleware.admin,
   },
@@ -289,17 +289,17 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "users" */ "../views/admin/Users.vue"),
     meta: {
-      title: "Users",
+      title: "Users Management",
     },
     beforeEnter: RoleMiddleware.admin,
   },
   {
     path: "/dashboard/blogs",
-    name: "Blogs",
+    name: "BlogsManagement",
     component: () =>
       import(/* webpackChunkName: "blogs" */ "../views/admin/Blogs.vue"),
     meta: {
-      title: "Blogs",
+      title: "Blogs Management",
     },
     beforeEnter: RoleMiddleware.admin,
   },

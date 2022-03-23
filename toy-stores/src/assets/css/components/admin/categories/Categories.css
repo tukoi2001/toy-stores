@@ -136,3 +136,7 @@ h4.cate-detail-title {
   font-size: 1rem!important;
   color: #000!important;
 }
+.v-data-table>.v-data-table__wrapper>table>tbody>tr>td, .v-data-table>.v-data-table__wrapper>table>tfoot>tr>td, .v-data-table>.v-data-table__wrapper>table>thead>tr>td {
+  font-size: 1rem!important;
+  height: 48px;
+}

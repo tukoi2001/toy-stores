@@ -1,59 +1,35 @@
 <template>
-  <!-- Single Post Details Content Start -->
   <div
     class="content"
   >
-    <!-- Title Start -->
     <h2 class="title mb-3">
-      TÁC DỤNG CỦA ĐỒ CHƠI TRẺ EM ĐỐI VỚI SỰ PHÁT TRIỂN CỦA BÉ
+      {{ blog.name }}
     </h2>
-    <!-- Title End -->
-
-    <!-- Meta List Start -->
     <div class="meta-list mb-3">
-      <span>By <a href="#" class="meta-item author mr-1">Admin,</a></span>
-      <span class="meta-item date">May 21, 2021</span>
-      <span class="meta-item comment"><a href="#">03 Comments</a></span>
+      <span>By <a href="#" class="meta-item author mr-1">{{ blog.author }},</a></span>
+      <span class="meta-item date">{{ blog.createdAt }}</span>
+      <span class="meta-item comment"><a href="#">{{ blog.comment.length }} Comments</a></span>
     </div>
-    <!-- Meta List End -->
-
-    <!-- Description Start -->
     <div class="desc">
-      <p>
-        Contrary to popular belief, Lorem Ipsum is not simply random text. It
-        has roots in a piece of classical Latin literature from 45 BC, making it
-        over 2000 years old. Richard McClintock, a Latin professor at
-        Hampden-Sydney College in Virginia, looked up one of the more obscure
-        Latin words, consectetur, from a Lorem Ipsum passage.
-      </p>
-
-      <!-- Blockquote Start -->
       <blockquote class="blockquote mt-5 mb-5">
         <p>
-          “Contrary to popular belief, Lorem Ipsum is not simply random text. It
-          has roots in a piece of classical Latin literature from 45 BC, making
-          it over 2000 years old. Richard McClintock,”
+          “{{ blog.sub_description }}”
         </p>
       </blockquote>
-      <!-- Blockquote End -->
-
-      <p>
-        and going through the cites of the word in classical literature,
-        discovered the undoubtable source. Lorem Ipsum comes from sections
-        1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of
-        Good and Evil) by Cicero, written in 45 BC. This book is a treatise on
-        the theory of ethics, very popular during the Renaissance. The first
-        line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line
-        in section 1.10.32.
-      </p>
+      <div v-html="blog.description" class="description">
+      </div>
     </div>
-    <!-- Description End -->
   </div>
-  <!-- Single Post Details Content End -->
 </template>
 
 <script>
-export default {};
+import { mapState } from 'vuex';
+export default {
+  name: 'BlogDetailsContent',
+  computed: {
+    ...mapState('blogs', ['blog'])
+  }
+};
 </script>
 
 <style scoped>
@@ -68,8 +44,11 @@ a, a:hover, a:focus, a:active, button, button:focus, .btn, .btn:focus, input, in
     color: #00c4cc;
 }
 .blog-details .content .title {
-    font-size: 24px;
+    font-size: 28px!important;
     font-weight: 500;
+    color: #000;
+    margin: 30px 0 20px!important;
+    text-transform: uppercase;
 }
 .blog-details .content .meta-list {
     display: flex;
@@ -95,11 +74,13 @@ a, a:hover, a:focus, a:active, button, button:focus, .btn, .btn:focus, input, in
 .blog-details .blockquote {
     position: relative;
     background-color: #f8f8f8;
-    color: #555555;
     font-style: italic;
     margin: 25px 32px 25px 30px;
     padding: 25px;
-    font-size: 16px;
+}
+.blockquote p {
+  font-size: 16px;
+  color: #333;
 }
 .blog-details .blockquote:before {
     background-color: #00c4cc;
@@ -110,7 +91,18 @@ a, a:hover, a:focus, a:active, button, button:focus, .btn, .btn:focus, input, in
     height: 100%;
     width: 5px;
 }
+.description {
+  font-size: 18px!important;
+  color: #000;
+}
 .blockquote > :last-child {
     margin-bottom: 0;
+}
+.v-application p {
+  font-size: 1rem!important;
+}
+b, strong {
+    font-weight: bolder;
+    font-size: 1rem!important;
 }
 </style>
