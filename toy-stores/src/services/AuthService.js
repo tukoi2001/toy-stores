@@ -17,14 +17,12 @@ const AuthService = {
 
       if (!res) throw new Error("Could not create user!");
       await res.user.sendEmailVerification({
-        url: "https://toys-stores.netlify.app/login",
+        url: "http://localhost:8080/login",
       });
       await res.user.updateProfile({
         displayName: user.fullName,
+        photoURL: 'https://1.bp.blogspot.com/-A7UYXuVWb_Q/XncdHaYbcOI/AAAAAAAAZhM/hYOevjRkrJEZhcXPnfP42nL3ZMu4PvIhgCLcBGAsYHQ/s1600/Trend-Avatar-Facebook%2B%25281%2529.jpg'
       });
-      await res.user.updateProfile({
-        photoURL: 'https://1.bp.blogspot.com/-A7UYXuVWb_Q/XncdHaYbcOI/AAAAAAAAZhM/hYOevjRkrJEZhcXPnfP42nL3ZMu4PvIhgCLcBGAsYHQ/s1600/Trend-Avatar-Facebook%2B%25281%2529.jpg',
-      })
 
       const dataBase = db.collection("users").doc(res.user.uid);
       await dataBase.set({

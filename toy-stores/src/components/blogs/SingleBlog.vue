@@ -42,6 +42,7 @@ export default {
     getBlogDetails(blog) {
       const id = `${blog.slug} ${blog.id}`;
       this.actionSetBlogDetail(blog);
+      localStorage.setItem("blogDetail", JSON.stringify(blog));
       this.$router.push(`/blogs/${id}`);
     }
   }

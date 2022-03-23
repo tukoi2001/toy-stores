@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="blog-comment-form-wrapper mt-10"
-  >
+  <div class="blog-comment-form-wrapper mt-10">
     <div class="blog-comment-form-title">
       <h2 class="title">Để lại bình luận:</h2>
     </div>
@@ -33,86 +31,89 @@
 
 <script>
 import { BlogService, isPending, error } from "../../services/BlogService";
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapState } from "vuex";
 export default {
-  name: 'BlogCommentsForm',
+  name: "BlogCommentsForm",
   setup() {
-    return { error, isPending }
+    return { error, isPending };
   },
   data() {
     return {
-      comment: '',
-      data: []
-    }
+      comment: "",
+      data: [],
+    };
   },
   computed: {
-    ...mapState('users', ['userInformation']),
-    ...mapState('blogs', ['blog'])
+    ...mapState("users", ["userInformation"]),
+    ...mapState("blogs", ["blog"]),
   },
-  methods:{
-    ...mapActions('blogs', ['actionSetBlogDetail']),
+  methods: {
+    ...mapActions("blogs", ["actionSetBlogDetail"]),
     async postComment(item) {
-      this.data.push({
-        id: item,
-        content: this.comment,
-        name: this.userInformation.multiFactor.user.displayName,
-        photoURL: this.userInformation.multiFactor.user.photoURL,
-        publishedAt: new Date().toLocaleDateString()
-      });
-      const res = await BlogService.comment(this.data);
-      if(res) {
-        this.comment = '';
+      if (this.userInformation !== null) {
+        this.data.push({
+          id: item,
+          content: this.comment,
+          name: this.userInformation.multiFactor.user.displayName,
+          photoURL: this.userInformation.multiFactor.user.photoURL,
+          publishedAt: new Date().toLocaleDateString(),
+        });
+        const res = await BlogService.comment(this.data);
+        if (res) {
+          this.comment = "";
+        }
+      } else {
+        alert('Bạn cần đăng nhập để bình luận!');
       }
     },
   },
   mounted() {
     this.data = this.blog.comment;
-    console.log(this.data);
-  }
+  },
 };
 </script>
 
 <style scoped>
 .btn {
-    font-size: 15px;
-    padding: 14px 30px;
-    border-radius: 3px;
-    border: 1px solid transparent;
-    line-height: 1;
+  font-size: 15px;
+  padding: 14px 30px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  line-height: 1;
 }
 .btn-primary {
-    border-color: #00c4cc;
-    background-color: #00c4cc;
-    color: #ffffff;
-    background-color: #00c4cc;
-    border: 1px solid transparent;
+  border-color: #00c4cc;
+  background-color: #00c4cc;
+  color: #ffffff;
+  background-color: #00c4cc;
+  border: 1px solid transparent;
 }
 .btn:hover {
-    color: #555555;
+  color: #555555;
 }
 .btn-primary:hover {
-    color: #000;
-    background-color: #26cdd4;
-    border-color: #1acad1;
+  color: #000;
+  background-color: #26cdd4;
+  border-color: #1acad1;
 }
 .btn-hover-dark:hover {
-    border-color: #222222;
-    background-color: #222222;
-    color: #ffffff;
+  border-color: #222222;
+  background-color: #222222;
+  color: #ffffff;
 }
 .blog-comment-form-wrapper .title {
-    font-size: 24px;
-    font-weight: 700;
-    color: #222222;
+  font-size: 24px;
+  font-weight: 700;
+  color: #222222;
 }
 .blog-comment-form-wrapper .comment-box .input-area {
-    padding: 10px 15px;
-    background: #d3d6db;
-    border: 1px solid transparent;
-    -webkit-transition: .3s;
-    -o-transition: .3s;
-    transition: .3s;
-    border-radius: 10px!important;
-    font-size: 1rem;
+  padding: 10px 15px;
+  background: #d3d6db;
+  border: 1px solid transparent;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+  border-radius: 10px !important;
+  font-size: 1rem;
 }
 </style>

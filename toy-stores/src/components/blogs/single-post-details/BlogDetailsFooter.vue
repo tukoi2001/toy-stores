@@ -1,9 +1,5 @@
 <template>
-  <!-- Single Post Details Footer Start -->
-  <div
-    class="single-post-details-footer mt-10"
-  >
-    <!-- Shear Article Start -->
+  <div class="single-post-details-footer mt-10">
     <div class="share-article">
       <span class="left-side">
         <a href="#"> <b-icon icon="caret-left-fill"></b-icon> Older Post</a>
@@ -13,17 +9,13 @@
         <a href="#">Newer Post <b-icon icon="caret-right-fill"></b-icon></a>
       </span>
     </div>
-    <!-- Shear Article Start -->
-    <!-- Social Shear Start -->
     <div class="widget-social border-top pt-2">
       <a title="Facebook" href="#"><b-icon icon="facebook"></b-icon></a>
       <a title="Twitter" href="#"><b-icon icon="twitter"></b-icon></a>
       <a title="Linkedin" href="#"><b-icon icon="linkedin"></b-icon></a>
       <a title="Youtube" href="#"><b-icon icon="youtube"></b-icon></a>
     </div>
-    <!-- Social Shear Start -->
   </div>
-  <!-- Single Post Details Footer End -->
 </template>
 
 <script>

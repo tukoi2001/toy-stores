@@ -6,26 +6,26 @@
           <div class="col-12">
             <div class="section-title text-center aos-init aos-animate">
               <h2 class="fw-bold">Blogs</h2>
-              <p class="sub-title">Những khách hàng đã sử dụng sản phẩm của chúng tôi nói gì?</p>
+              <p class="sub-title">Trẻ em cần rất nhiều cơ hội để chơi với nhiều loại đồ chơi tốt để sử dụng trí tưởng tượng của trẻ.</p>
             </div>
             <div class="latest-blog-carousel">
               <swiper class="swiper" :options="swiperOption">
-                <swiper-slide class="swiper-slide" v-for="(item, index) in listInfo" :key="index">
+                <swiper-slide class="swiper-slide" v-for="(item, index) in listBlogs" :key="index">
                   <div class="single-blog">
                     <div class="blog-thumb">
-                      <a href="">
-                        <img class="fit-image" :src="item.image" alt="">
+                      <a href="" @click.prevent="getBlogDetails(item)">
+                        <img class="fit-image" :src="item.urlImage" alt="">
                       </a>
                     </div>
                     <div class="blog-content">
                       <div class="blog-meta">
                         <p>
-                          {{item.dateBlogs}}
+                          {{item.createdAt}} | 
                           <span>{{item.author}}</span>
                         </p>
                       </div>
                       <h5 class="blog-title">
-                        <a href="">{{item.blogTitle}}</a>
+                        <a @click.prevent="getBlogDetails(item)" href="">{{item.name}}</a>
                       </h5>
                     </div>
                   </div>
@@ -40,6 +40,8 @@
 </template>
 
 <script>
+import { BlogService } from "../../../services/BlogService";
+import { mapActions } from 'vuex'
 export default {
   data() {
     return {
@@ -51,58 +53,37 @@ export default {
           clickable: true,
         },
       },
-      listInfo: [
-        {
-          image: require("@/assets/images/home/blog/1.jpg"),
-          dateBlogs: "03/11/2021 | ",
-          blogTitle: "Một thực tế đã được thiết lập từ lâu rằng người đọc sẽ bị phân tâm",
-          author: "Admin",
-        },
-        {
-          image: require("@/assets/images/home/blog/2.jpg"),
-          dateBlogs: "03/11/2021 | ",
-          blogTitle: "Một thực tế đã được thiết lập từ lâu rằng người đọc sẽ bị phân tâm",
-          author: "Admin",
-        },
-        {
-          image: require("@/assets/images/home/blog/3.jpg"),
-          dateBlogs: "03/11/2021 | ",
-          blogTitle: "Một thực tế đã được thiết lập từ lâu rằng người đọc sẽ bị phân tâm",
-          author: "Admin",
-        },
-        {
-          image: require("@/assets/images/home/blog/1.jpg"),
-          dateBlogs: "03/11/2021 | ",
-          blogTitle: "Một thực tế đã được thiết lập từ lâu rằng người đọc sẽ bị phân tâm",
-          author: "Admin",
-        },
-        {
-          image: require("@/assets/images/home/blog/2.jpg"),
-          dateBlogs: "03/11/2021 | ",
-          blogTitle: "Một thực tế đã được thiết lập từ lâu rằng người đọc sẽ bị phân tâm",
-          author: "Admin",
-        },
-        
-      ],
+      listBlogs: [],
     };
   },
-  props: {
-    image: {
-      type: String,
-      default: "",
+  methods: {
+    ...mapActions('blogs', ['actionSetBlogDetail']),
+    async getDataBlog() {
+      const response = await BlogService.show();
+      const newRes = response.docs.map((item, index) => {
+        const createdDate = new Date(
+          item.data().createdAt.seconds * 1000 +
+            item.data().createdAt.nanoseconds / 1000000
+        );
+        let myDate = ((createdDate.getUTCDate() + "/" + (createdDate.getMonth() + 1)  + "/" + createdDate.getUTCFullYear()));
+        return {
+          id: item.id,
+          index: index,
+          ...item.data(),
+          createdAt: myDate
+        };
+      });
+      this.listBlogs = newRes;
     },
-    dateBlogs: {
-      type: String,
-      default: "",
-    },
-    tblogTitle: {
-      type: String,
-      default: "",
-    },
-    author: {
-      type: String,
-      default: "",
-    },
+    getBlogDetails(blog) {
+      const id = `${blog.slug} ${blog.id}`;
+      this.actionSetBlogDetail(blog);
+      localStorage.setItem("blogDetail", JSON.stringify(blog));
+      this.$router.push(`/blogs/${id}`);
+    }
+  },
+  mounted() {
+    this.getDataBlog();
   },
 };
 

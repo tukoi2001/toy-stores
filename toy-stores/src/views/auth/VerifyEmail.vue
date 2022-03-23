@@ -4,7 +4,7 @@
           <div class="wrapper">
              <bread-crumbs :title="'Verify Email'"/>
             <h2>
-                Please check your email address <strong>{{ email }}</strong> to verify your account!
+                Please check your email address <span>{{ email }}</span> to verify your account!
             </h2>
           </div>
       </auth-layout>
@@ -32,5 +32,8 @@ export default {
 }
 .breadcrumb-box {
     margin: 0 0 40px 0!important;
+}
+.wrapper h2>span {
+    font-weight: bold;
 }
 </style>

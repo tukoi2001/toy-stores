@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import MainBlogDetails from '../../components/blogs/MainBlogDetails.vue'
 import BreadCrumbs from '../../components/common/BreadCrumbs.vue'
 import UserLayout from '../../components/layout/UserLayout.vue'
@@ -20,8 +20,15 @@ export default {
       title: ''
     }
   },
+  created() {
+    const blog = JSON.parse(localStorage.getItem('blogDetail'));
+    this.actionSetBlogDetail(blog);
+  },
   computed: { 
     ...mapState('blogs', ['blog'])
+  },
+  methods: {
+    ...mapActions('blogs', ['actionSetBlogDetail'])
   },
   mounted() {
     this.title = this.blog.name;
