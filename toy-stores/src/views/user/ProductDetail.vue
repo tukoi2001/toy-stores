@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import BreadCrumbs from '../../components/common/BreadCrumbs.vue';
 import Brands from '../../components/home/brands/Brands.vue';
 import UserLayout from '../../components/layout/UserLayout.vue';
@@ -22,8 +22,17 @@ export default {
           prodName: ''
       }
   },
+  created() {
+    const product = JSON.parse(localStorage.getItem("productDetail"));
+    if (product != '') {
+      this.actionSetProductDetail(product);
+    }
+  },
   computed: {
     ...mapState('products', ['productDetail'])
+  },
+  methods: {
+    ...mapActions('products', ['actionSetProductDetail'])
   },
   mounted() {
       this.prodName = this.productDetail.name;

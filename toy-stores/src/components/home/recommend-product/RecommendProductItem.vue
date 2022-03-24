@@ -105,6 +105,7 @@ export default {
     },
     getProductDetail(product) {
       this.actionSetProductDetail(product);
+      localStorage.setItem("productDetail", JSON.stringify(product));
       const id = product.slug + product.id;
       this.$router.push(`/products/${id}`);
     },
