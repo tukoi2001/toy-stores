@@ -18,7 +18,7 @@ const getters = {
 const mutations = {
   initItems(state) {
     const cartItems = JSON.parse(localStorage.getItem("cartItems"));
-    if (cartItems && cartItems.length) {
+    if (cartItems && cartItems.length && cartItems != '') {
       state.items = cartItems;
     }
   },

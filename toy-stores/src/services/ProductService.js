@@ -32,6 +32,7 @@ const ProductService = {
         createdAt: timestamp,
         updatedAt: timestamp,
         deletedAt: null,
+        comment: [],
         deleted: false,
         isNew: product.isNew,
       });
@@ -102,6 +103,19 @@ const ProductService = {
       return true;
     } catch (err) {
       console.log("Error update category: " + err);
+    } finally {
+      isPending.value = false;
+    }
+  },
+  comment: async (product) => {
+    isPending.value = true;
+    try {
+      await db.collection("products").doc(product[0].id).update({
+       comment: [...product]
+      });
+      return true;
+    } catch (err) {
+      console.log("Error update comment: " + err);
     } finally {
       isPending.value = false;
     }
