@@ -1,5 +1,5 @@
 <template>
-  <div class="quick-view-box container">
+  <div class="quick-view-box container-fluid">
     <div class="full-width" @click.stop="hideQuickView"></div>
     <div class="btn_close" @click="hideQuickView">
       <b-icon icon="x"></b-icon>

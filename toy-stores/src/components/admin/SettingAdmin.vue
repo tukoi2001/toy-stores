@@ -10,6 +10,11 @@
       <li>
         <router-link to="/dashboard/notification"> <b-icon class="icon" icon="gear-fill"></b-icon>Notifications </router-link>
       </li>
+       <li>
+        <router-link to="/" >
+          <b-icon class="icon" icon="house"></b-icon>Back to Home
+        </router-link>
+      </li>
       <li>
         <router-link to="/logout" >
           <b-icon class="icon" icon="box-arrow-right"></b-icon>Logout
