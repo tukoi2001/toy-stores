@@ -892,13 +892,13 @@ p {
     border-left: 1px solid #dadbda;
   }
   
-  .panel .border-top,
+  /* .panel .border-top,
   .panel .border-right,
   .panel .border-bottom,
   .panel .border-left {
     border-color: #e9ecf2;
   }
-  
+   */
   .article {
     padding: 10px 0;
   }
@@ -1581,3 +1581,8 @@ p {
     width: 25px;
     height: 25px;
   }
+.panel {
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}

@@ -14,11 +14,8 @@ const AuthService = {
         user.email,
         user.password
       );
-
       if (!res) throw new Error("Could not create user!");
-      await res.user.sendEmailVerification({
-        url: "http://localhost:8080/login",
-      });
+
       await res.user.updateProfile({
         displayName: user.fullName,
         photoURL: 'https://1.bp.blogspot.com/-A7UYXuVWb_Q/XncdHaYbcOI/AAAAAAAAZhM/hYOevjRkrJEZhcXPnfP42nL3ZMu4PvIhgCLcBGAsYHQ/s1600/Trend-Avatar-Facebook%2B%25281%2529.jpg'
@@ -34,6 +31,11 @@ const AuthService = {
         isActive: true,
         customField: ''
       });
+
+      await res.user.sendEmailVerification({
+        url: "http://localhost:8080/login",
+      });
+      
 
       return true;
     } catch (err) {

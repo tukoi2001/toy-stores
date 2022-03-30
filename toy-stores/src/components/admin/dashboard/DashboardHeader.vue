@@ -44,12 +44,23 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-5">
+          <calendar/>
+        </div>
+        <div class="col-7">
+          <line-chart/>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Calendar from './Calendar.vue';
+import LineChart from './LineChart.vue';
 export default {
+  components: { Calendar, LineChart },
   name: "DashboardHeader",
 };
 </script>
