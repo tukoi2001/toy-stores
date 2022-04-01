@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
 export default {
   name: "Paypal",
   data: function () {
@@ -37,6 +38,7 @@ export default {
     document.body.appendChild(script);
   },
   methods: {
+    ...mapMutations('checkout', ['setStatus']),
     setLoaded: function () {
       this.loaded = true;
       window.paypal
@@ -48,7 +50,7 @@ export default {
                   description: this.product.description,
                   amount: {
                     currency_code: "USD",
-                    value: this.totalPrice / 23000,
+                    value: (this.totalPrice / 23000).toFixed(1),
                   },
                 },
               ],
@@ -57,7 +59,7 @@ export default {
           onApprove: async (data, actions) => {
             const order = await actions.order.capture();
             this.paidFor = true;
-            console.log(order);
+            this.setStatus(order.status)
           },
           onError: (err) => {
             console.log(err);

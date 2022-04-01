@@ -267,6 +267,7 @@
 import { mapState, mapMutations } from "vuex";
 import Paypal from "./Paypal.vue";
 import { CartService, error, isPending } from "../../services/CartService";
+import { NotifyService } from "../../services/NotifyService";
 export default {
   components: { Paypal },
   name: "MainCheckout",
@@ -294,7 +295,7 @@ export default {
     };
   },
   computed: {
-    ...mapState("checkout", ["itemsCheckout"]),
+    ...mapState("checkout", ["itemsCheckout", 'status']),
     ...mapState("users", ["userInformation"]),
   },
   methods: {
@@ -324,7 +325,12 @@ export default {
       if (this.pay_method === "Thanh toán khi nhận hàng (COD)") {
         paymentStatus = "Chưa thanh toán!";
       } else {
-        paymentStatus = "Chờ xác nhận thanh toán!";
+        if(this.status !== '') {
+          paymentStatus = 'Đã Thanh Toán';
+        }
+        else {
+          paymentStatus = "Chờ xác nhận thanh toán!";
+        }
       }
       const response = this.checkCondition();
       if (response) {
@@ -340,7 +346,6 @@ export default {
             urlImage: item.urlImage,
           };
         });
-        console.log(data);
         const res = await CartService.add({
           uid: this.userForm.id,
           fullName: this.userForm.fullName,
@@ -356,6 +361,12 @@ export default {
           status: "Đang xác nhận đơn hàng",
         });
         if (res) {
+          const data = {
+          title: 'Đặt hàng thành công trên hệ thống shop bán đồ chơi Toyqo',
+          urlImageUser: this.userInformation.photoURL,
+          user: this.userInformation.displayName,
+          }
+          await NotifyService.add(data);
           this.removeAllItems();
           this.$router.push("/order-complete");
         }

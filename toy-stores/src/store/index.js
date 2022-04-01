@@ -9,6 +9,7 @@ import cart from "./modules/cart";
 import checkout from "./modules/checkout";
 import wishlist from "./modules/wishlist";
 import blogs from "./modules/blogs";
+import notify from "./modules/notify"
 
 Vue.use(Vuex)
 
@@ -44,6 +45,7 @@ export default new Vuex.Store({
     cart,
     wishlist,
     checkout,
-    blogs
+    blogs,
+    notify
   }
 })

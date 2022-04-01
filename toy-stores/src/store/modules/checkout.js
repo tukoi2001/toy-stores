@@ -1,5 +1,6 @@
 const state = () => ({
-    itemsCheckout: null
+    itemsCheckout: null,
+    status: ''
 })
 
 const getters = {
@@ -9,6 +10,9 @@ const getters = {
 const mutations = {
     initItems(state, data) {
         state.itemsCheckout = data;
+    },
+    setStatus(state, data) {
+        state.status = data;
     }
 }
 

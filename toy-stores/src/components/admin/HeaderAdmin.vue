@@ -10,7 +10,7 @@
             <li class="dropdown">
               <a class="dropdown-toggle count-info" href="" @click.prevent="isShowNotifies = true">
                 <b-icon icon="bell-fill"></b-icon
-                ><span class="label label-info">5</span>              
+                ><span class="label label-info">{{ notifies.length }}</span>              
               </a>
               <transition name="fade">
                   <notify-admin @myNotifies="hideShowNotifies"  v-if="isShowNotifies"/>
@@ -27,7 +27,7 @@
                 <img
                   v-else
                   class="img-admin"
-                  :src="dataCurrentUser.photoURL"
+                  :src="dataCurrentUser.photoURL" 
                   alt="img-admin"
                 />
               </a>
@@ -58,6 +58,7 @@ export default {
   },
    computed: {
     ...mapState("users", ["userInformation"]),
+    ...mapState("notify", ['notifies']),
     dataCurrentUser() {
       return this.userInformation.multiFactor.user;
     },
