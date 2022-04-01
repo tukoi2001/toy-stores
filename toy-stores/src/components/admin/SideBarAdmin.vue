@@ -62,15 +62,9 @@
         >
       </li>
       <li>
-        <a href=""
-          ><b-icon class="icon-icon" icon="chat-square-dots-fill"></b-icon>
-          Comments</a
-        >
-      </li>
-      <li>
-        <a href=""
+        <router-link to="/dashboard/statistics"
           ><b-icon class="icon-icon" icon="bar-chart-line-fill"></b-icon
-          >Statistics</a
+          >Statistics</router-link
         >
       </li>
       <li>

@@ -257,6 +257,8 @@ p {
     top: 55px;
     left: -155px;
     box-shadow: 1px 5px 5px #000;
+    max-height: 386px;
+    overflow-y: scroll;
   }
   .dropdown-menu li .message-body a {
     color: #444;
@@ -1575,7 +1577,6 @@ p {
     left: 0;
     bottom: 0;
     right: 0;
-    z-index: -1;
   }
   .img-circle {
     width: 25px;

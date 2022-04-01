@@ -126,6 +126,7 @@
 <script>
 import { email, required, minLength, sameAs } from "vuelidate/lib/validators";
 import { AuthService, error, isPending } from "../../services/AuthService.js";
+import { NotifyService } from "../../services/NotifyService";
 import { mapActions } from 'vuex';
 import BackToHome from '../../components/common/BackToHome.vue'
 
@@ -174,6 +175,12 @@ export default {
     async register() {
       const response = await AuthService.register(this.userForm);
       if (response == true) {
+        const data = {
+          title: 'Tạo tài khoản thành công trên hệ thống shop bán đồ chơi Toyqo',
+          urlImageUser: 'https://1.bp.blogspot.com/-A7UYXuVWb_Q/XncdHaYbcOI/AAAAAAAAZhM/hYOevjRkrJEZhcXPnfP42nL3ZMu4PvIhgCLcBGAsYHQ/s1600/Trend-Avatar-Facebook%2B%25281%2529.jpg',
+          user: this.userForm.fullName,
+        }
+        await NotifyService.add(data);
         this.actionSetDataEmail(this.userForm.email);
         this.$router.push('/verify-email');
       }

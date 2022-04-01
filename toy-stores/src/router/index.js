@@ -216,6 +216,30 @@ const routes = [
     beforeEnter: RoleMiddleware.admin,
   },
   {
+    path: "/dashboard/my-profile",
+    name: "MyProfile",
+    component: () =>
+      import(
+        /* webpackChunkName: "my-profile" */ "../views/admin/MyProfile.vue"
+      ),
+    meta: {
+      title: "My Profile",
+    },
+    beforeEnter: RoleMiddleware.admin,
+  },
+  {
+    path: "/dashboard/notification",
+    name: "Notifications",
+    component: () =>
+      import(
+        /* webpackChunkName: "notification" */ "../views/admin/Notifications.vue"
+      ),
+    meta: {
+      title: "Notifications",
+    },
+    beforeEnter: RoleMiddleware.admin,
+  },
+  {
     path: "/dashboard/categories",
     name: "Categories",
     component: () =>
@@ -312,6 +336,16 @@ const routes = [
       ),
     meta: {
       title: "Blogs Detail",
+    },
+    beforeEnter: RoleMiddleware.admin,
+  },
+  {
+    path: "/dashboard/statistics",
+    name: "Statistics",
+    component: () =>
+      import(/* webpackChunkName: "blogs" */ "../views/admin/Statistics.vue"),
+    meta: {
+      title: "Statistics",
     },
     beforeEnter: RoleMiddleware.admin,
   },
