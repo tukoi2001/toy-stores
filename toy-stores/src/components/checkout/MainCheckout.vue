@@ -19,113 +19,167 @@
         <div class="col-lg-6 col-12 mb-4 text-start">
           <div class="checkbox-form">
             <h3 class="title">Thông tin đặt hàng</h3>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="checkout-form-list">
-                  <label
-                    >Họ và tên khách hàng:<span class="required"
-                      >(*)</span
-                    ></label
-                  >
-                  <input
-                    placeholder="Họ và tên khách hàng"
-                    type="text"
-                    v-model.trim="userForm.fullName"
-                  />
+            <form action="" @submit.prevent="">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="checkout-form-list">
+                    <label for="fullName"
+                      >Họ và tên khách hàng:<span class="required"
+                        >(*)</span
+                      ></label
+                    >
+                    <input
+                      placeholder="Họ và tên khách hàng"
+                      type="text"
+                      id="fullName"
+                      v-model.trim="userForm.fullName"
+                      required
+                      autocomplete="on"
+                      autofocus
+                      pattern="([A-Za-z]).{1,}"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-md-6">
-                <div class="checkout-form-list">
-                  <label>Số điện thoại:<span class="required">(*)</span></label>
-                  <input
-                    placeholder="Số điện thoại"
-                    type="text"
-                    v-model.trim="userForm.phoneNumber"
-                  />
+                <div class="col-md-6">
+                  <div class="checkout-form-list">
+                    <label for="phoneNumber"
+                      >Số điện thoại:<span class="required">(*)</span></label
+                    >
+                    <input
+                      placeholder="0333333333"
+                      type="text"
+                      pattern="[0-9]{10}"
+                      id="phoneNumber"
+                      v-model.trim="userForm.phoneNumber"
+                      required
+                      autocomplete="on"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-md-6">
-                <div class="checkout-form-list">
-                  <label>Địa chỉ Email:<span class="required">(*)</span></label>
-                  <input
-                    placeholder="Email"
-                    type="email"
-                    v-model.trim="userForm.email"
-                  />
+                <div class="col-md-6">
+                  <div class="checkout-form-list">
+                    <label for="email"
+                      >Địa chỉ Email:<span class="required">(*)</span></label
+                    >
+                    <input
+                      placeholder="Email"
+                      type="email"
+                      id="email"
+                      v-model.trim="userForm.email"
+                      required
+                      autocomplete="on"
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-md-6">
-                <div class="checkout-form-list">
-                  <label
-                    >Tỉnh / Thành Phố<span class="required">(*)</span></label
-                  >
-                  <input
-                    type="text"
-                    placeholder="Tỉnh / Thành Phố"
-                    v-model.trim="userForm.city"
-                  />
+                <div class="col-md-6">
+                  <div class="checkout-form-list">
+                    <label for="city"
+                      >Tỉnh / Thành Phố<span class="required">(*)</span></label
+                    >
+                    <input
+                      type="text"
+                      minLength="3"
+                      maxLength="15"
+                      placeholder="Tỉnh / Thành Phố"
+                      id="city"
+                      v-model.trim="userForm.city"
+                      required
+                      autocomplete="on"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-md-6">
-                <div class="checkout-form-list">
-                  <label>Quận / Huyện <span class="required">(*)</span></label>
-                  <input
-                    type="text"
-                    placeholder="Quận / Huyện "
-                    v-model.trim="userForm.district"
-                  />
+                <div class="col-md-6">
+                  <div class="checkout-form-list">
+                    <label for="district"
+                      >Quận / Huyện <span class="required">(*)</span></label
+                    >
+                    <input
+                      type="text"
+                      maxLength="15"
+                      pattern="([A-Za-z]).{2,}"
+                      placeholder="Quận / Huyện "
+                      id="district"
+                      v-model.trim="userForm.district"
+                      required
+                      autocomplete="on"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-md-6">
-                <div class="checkout-form-list">
-                  <label>Xã / Phường: <span class="required">(*)</span></label>
-                  <input
-                    type="text"
-                    placeholder="Xã / Phường "
-                    v-model.trim="userForm.ward"
-                  />
+                <div class="col-md-6">
+                  <div class="checkout-form-list">
+                    <label for="ward"
+                      >Xã / Phường: <span class="required">(*)</span></label
+                    >
+                    <input
+                      type="text"
+                      pattern="([A-Za-z]).{2,}"
+                      maxLength="20"
+                      placeholder="Xã / Phường "
+                      id="ward"
+                      v-model.trim="userForm.ward"
+                      required
+                      autocomplete="on"
+                    />
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-6">
-                <div class="checkout-form-list">
-                  <label>Đường: <span class="required">(*)</span></label>
-                  <input
-                    type="text"
-                    placeholder="Đường"
-                    v-model.trim="userForm.street"
-                  />
+                <div class="col-md-6">
+                  <div class="checkout-form-list">
+                    <label for="street"
+                      >Đường: <span class="required">(*)</span></label
+                    >
+                    <input
+                      type="text"
+                      pattern=".{2,}"
+                      maxLength="30"
+                      placeholder="Đường"
+                      id="street"
+                      v-model.trim="userForm.street"
+                      required
+                      autocomplete="on"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div class="col-md-12">
-                <div class="checkout-form-list">
-                  <label>Địa chỉ cụ thể:</label>
-                  <input
-                    placeholder="Địa chỉ cụ thể"
-                    type="text"
-                    v-model.trim="userForm.address"
-                  />
+                <div class="col-md-12">
+                  <div class="checkout-form-list">
+                    <label for="specificAddress">Địa chỉ cụ thể:</label>
+                    <input
+                      placeholder="Địa chỉ cụ thể"
+                      type="text"
+                      maxLength="50"
+                      pattern=".{2,}"
+                      id="specificAddress"
+                      title="Vui lòng nhập địa chỉ cụ thể nếu cần!"
+                      v-model.trim="userForm.address"
+                      autocomplete="on"
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div class="order-notes mt-3 mb-n2">
-                <div class="checkout-form-list checkout-form-list-2">
-                  <label>Ghi chú:</label>
-                  <textarea
-                    id="checkout-mess"
-                    cols="30"
-                    rows="10"
-                    placeholder="Ghi chú về đơn đặt hàng của bạn, ví dụ: những lưu ý đặc biệt khi giao hàng."
-                    v-model.trim="userForm.note"
-                  ></textarea>
+                <div class="order-notes mt-3 mb-n2">
+                  <div class="checkout-form-list checkout-form-list-2">
+                    <label for="checkout-mess">Ghi chú:</label>
+                    <textarea
+                      id="checkout-mess"
+                      cols="30"
+                      pattern=".{2,}"
+                      maxLength="150"
+                      rows="10"
+                      title="Vui lòng nhập ghi chú nếu cần!"
+                      placeholder="Ghi chú về đơn đặt hàng của bạn, ví dụ: những lưu ý đặc biệt khi giao hàng."
+                      v-model.trim="userForm.note"
+                      autocomplete="on"
+                    ></textarea>
+                  </div>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
 
@@ -295,7 +349,7 @@ export default {
     };
   },
   computed: {
-    ...mapState("checkout", ["itemsCheckout", 'status']),
+    ...mapState("checkout", ["itemsCheckout", "status"]),
     ...mapState("users", ["userInformation"]),
   },
   methods: {
@@ -321,18 +375,17 @@ export default {
       return formatter.format(value);
     },
     async checkout() {
+      const response = this.checkCondition();
       let paymentStatus = "Chưa thanh toán";
       if (this.pay_method === "Thanh toán khi nhận hàng (COD)") {
         paymentStatus = "Chưa thanh toán!";
       } else {
-        if(this.status !== '') {
-          paymentStatus = 'Đã Thanh Toán';
-        }
-        else {
+        if (this.status !== "") {
+          paymentStatus = "Đã Thanh Toán";
+        } else {
           paymentStatus = "Chờ xác nhận thanh toán!";
         }
       }
-      const response = this.checkCondition();
       if (response) {
         const data = this.items.map((item) => {
           return {
@@ -362,10 +415,10 @@ export default {
         });
         if (res) {
           const data = {
-          title: 'Đặt hàng thành công trên hệ thống shop bán đồ chơi Toyqo',
-          urlImageUser: this.userInformation.photoURL,
-          user: this.userInformation.displayName,
-          }
+            title: "Đặt hàng thành công trên hệ thống shop bán đồ chơi Toyqo",
+            urlImageUser: this.userInformation.photoURL,
+            user: this.userInformation.displayName,
+          };
           await NotifyService.add(data);
           this.removeAllItems();
           this.$router.push("/order-complete");

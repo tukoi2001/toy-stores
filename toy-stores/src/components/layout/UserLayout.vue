@@ -1,10 +1,12 @@
 <template>
   <div>
-    <the-header/>
-    <slot> </slot>
+    <the-header class="header__fixed shadow"/>
+    <div class="main">
+      <slot> </slot>
     <scroll-top-arrow/>
     <the-footer />
     <the-last-footer />
+    </div>
   </div>
 </template>
 
@@ -20,5 +22,16 @@ name: 'UserLayout'
 </script>
 
 <style>
-
+.header__fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: auto;
+  z-index: 900;
+  background-color: #FFF;
+}
+.main {
+  margin-top: 90px!important;
+}
 </style>

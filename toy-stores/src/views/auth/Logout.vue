@@ -42,6 +42,7 @@ export default {
   text-decoration: none;
   color: #FFF!important;
   font-size: 1.3rem!important;
+  display: inline-block;
 }
 .btn-primary:last-child {
   margin-left: 30px;
@@ -51,6 +52,7 @@ export default {
 }
 .btn-primary {
   padding: 15px 30px;
+  display: inline-block;
 }
 .btn-primary, .link {
   background-color: #00c4cc;
