@@ -55,13 +55,13 @@ export default {
       },
       listSlides: [
         {
-          img: require("@/assets/images/home/slider/1.jpg"),
+          img: require("@/assets/images/home/slider/9.png"),
           titleOne: "Sản Phẩm Mới",
           titleTwo: "Cập nhật nhiều sản phẩm mới nhất",
           content: "Bộ sưu tập sản phẩm & đồ chơi trẻ em mới nhất, các sản phẩm luôn luôn cập nhật!",
         },
         {
-          img: require("@/assets/images/home/slider/6.jpg"),
+          img: require("@/assets/images/home/slider/0.png"),
           titleOne: "Săn Sales Sốc!",
           titleTwo: "Các sản phẩm giảm giá đến 30%",
           content: "Bộ sưu tập sản phẩm & đồ chơi trẻ em mới nhất, các sản phẩm luôn luôn cập nhật!",

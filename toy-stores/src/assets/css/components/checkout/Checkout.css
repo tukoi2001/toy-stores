@@ -223,3 +223,10 @@
 .dark {
     background-color: #333;
 }
+
+.checkbox-form .checkout-form-list input[type="text"]:invalid, .checkbox-form .checkout-form-list input[type="email"]:invalid, .order-notes textarea:invalid {
+    border-color: red;
+}
+.checkbox-form .checkout-form-list input[type="text"]:valid, .checkbox-form .checkout-form-list input[type="email"]:valid, .order-notes textarea:valid {
+    border-color: #00c4cc;
+}

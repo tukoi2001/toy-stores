@@ -1,25 +1,22 @@
 <template>
   <div>
-    <the-header />
-    <bread-crumbs :title="'About page'"/>
-    <about-section-start />
-    <testimonials />
-    <our-team-about />
-    <the-footer />
-    <the-last-footer />
+     <user-layout>
+      <bread-crumbs :title="'About Us'" />
+      <about-section-start />
+      <testimonials />
+      <our-team-about />
+    </user-layout>
   </div>
 </template>
 
 <script>
+import BreadCrumbs from "../../components/common/BreadCrumbs.vue";
 import AboutSectionStart from '../../components/about/AboutSectionStart.vue'
 import OurTeamAbout from '../../components/about/OurTeamAbout.vue'
-import BreadCrumbs from '../../components/common/BreadCrumbs.vue'
-import TheFooter from '../../components/common/TheFooter.vue'
-import TheHeader from '../../components/common/TheHeader.vue'
-import TheLastFooter from '../../components/common/TheLastFooter.vue'
 import Testimonials from '../../components/home/testimonials/Testimonials.vue'
+import UserLayout from "../../components/layout/UserLayout.vue";
 export default {
-  components: { TheHeader, BreadCrumbs, TheFooter ,TheLastFooter, AboutSectionStart, Testimonials, OurTeamAbout},
+  components: {  AboutSectionStart, Testimonials, OurTeamAbout, BreadCrumbs, UserLayout },
 
 }
 </script>

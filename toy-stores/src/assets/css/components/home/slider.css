@@ -71,6 +71,7 @@
     color: #ffffff;
     background-color: #00c4cc;
     border: 1px solid transparent;
+    display: inline-block;
 }
 
 .swiper-slide-active .hero-slide-content>*:nth-child(3) {
