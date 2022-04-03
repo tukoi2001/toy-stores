@@ -3,7 +3,11 @@
     padding-top: 80px;
     margin-top: -80px;
 }
-
+.sub-title {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: #000;
+}
 .bg-milky {
     background-color: #f7f7f7 !important;
 }
@@ -18,13 +22,7 @@
     display: block;
     line-height: 1.1;
     margin-bottom: 38px;
-    font-weight: 400;
-}
-
-.about-content p {
-    font-size: 15px;
-    line-height: 1.8;
-    padding-bottom: 12px;
+    font-weight: bold;
 }
 
 .about-content p:last-child {
@@ -32,14 +30,16 @@
     margin-bottom: -5px;
 }
 
-.section-title .title {
+.section-title .title-main {
     font-size: 30px;
-    font-weight: 400;
+    font-weight: 600;
     margin-bottom: 0;
     color: #222222;
-    margin-top: -5px;
+    margin-bottom: 10px;
 }
-
+.single-choose-item {
+    padding: 0 40px;
+}
 .section-margin {
     margin-top: 80px;
     margin-bottom: 80px;
@@ -55,8 +55,8 @@
 
 .single-choose-item .cta-title {
     color: #222222;
-    font-size: 18px;
+    font-size: 24px;
     padding: 15px 0 10px;
     text-transform: capitalize;
-    font-weight: 400;
+    font-weight: 500;
 }

@@ -3,9 +3,13 @@
     margin-bottom: 80px;
     text-align: left;
 }
-.contact-title .title {
+.contact-title .title-main, .title-main {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
+}
+.contact-des {
+    font-size: 1rem;
+    line-height: 1.75;
 }
 .contact-form-wrapper .input-area .input-item, .contact-form-wrapper .input-area .textarea-item {
     padding: 10px 15px;
@@ -27,6 +31,10 @@
     border-radius: 3px;
     border: 1px solid transparent;
     line-height: 1;
+    transition: all 0.3s ease-in-out;
+}
+.btn:focus {
+    box-shadow: none;
 }
 textarea {
     resize: vertical;
@@ -41,9 +49,8 @@ textarea {
     box-shadow: none;
 }
 .btn-secondary:hover {
-    color: #000;
-    background-color: #ffa8d4;
-    border-color: #ffa3d1;
+    background-color: #333;
+    border-color: #333;
 }
 .contact-title h2 {
     font-size: 20px;
@@ -70,6 +77,15 @@ textarea {
     -ms-flex-align: center;
     align-items: center;
 }
+.note {
+    font-size: 13px;
+    color: rgb(212, 37, 37);
+}
+.form-message {
+    font-size: 1rem;
+    font-weight: bold;
+    color: rgb(19, 230, 8);
+}
 .contact-content .contact-block ul li i {
     font-size: 18px;
     font-weight: 500;
@@ -87,4 +103,15 @@ a {
 }
 .map{
     margin-top: -80px;
+}
+.textarea-item:valid, .input-item:valid {
+    border-color: #00c4cc!important;
+}
+.textarea-item:invalid, .input-item:invalid {
+    border-color: #d11313!important;
+}
+.btn-loading {
+    background-color: #333333;
+    border-color: #333;
+    color: #FFF;
 }

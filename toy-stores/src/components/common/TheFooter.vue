@@ -4,16 +4,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <h3 class="footer__title">Về chúng tôi</h3>
-                    <p class="footer__des">
-                        Chúng tôi là một nhóm các nhà thiết kế và nhà phát triển tạo ra wordpress, shopify, Opencart chất lượng cao
-                    </p>
-                    <div class="footer__social">
-                        <a href="https://www.facebook.com/tucute200" target="_blank"><b-icon icon="facebook"></b-icon></a>
-                        <a href="" target="_blank"><b-icon icon="twitter"></b-icon></a>
-                        <a href="" target="_blank"><b-icon icon="linkedin"></b-icon></a>
-                        <a href="" target="_blank"><b-icon icon="youtube"></b-icon></a>
-                        <a href="mailto:team3@gmail.com" target="_blank"><b-icon icon="envelope-fill"></b-icon></a>
+                    <router-link to="/">
+                        <img class="img-footer" src="@/assets/images/logo/logo.png" alt="logo">
+                    </router-link>
+                    <div class="footer__content">
+                        <p class="footer_des">Hãy đến với chúng tôi, chúng tôi chuyên cung cấp các sản phẩm chính hãng! Cam kết 100%.</p>
                     </div>
                 </div>
 
@@ -31,6 +26,12 @@
                         <li class="footer__contact-item">
                             <b-icon class="footer__contact-icon" icon="telephone"></b-icon>
                             <a href="tel:03333666959">03333666959</a>
+                        </li>
+                        <li class="footer__social">
+                            <a href="https://www.facebook.com/tucute200" target="_blank"><b-icon icon="facebook"></b-icon></a>
+                            <a href="" target="_blank"><b-icon icon="twitter"></b-icon></a>
+                            <a href="" target="_blank"><b-icon icon="youtube"></b-icon></a> 
+                            <a href="mailto:xuantu14112001@gmail.com" target="_blank"><b-icon icon="envelope-fill"></b-icon></a>
                         </li>
                     </ul>
                 </div>
@@ -58,14 +59,14 @@
 
                 <div class="col-md-3">
                     <h3 class="footer__title">Đăng ký để nhận thông tin</h3>
-                    <div class="footer__newletter mb-4">
+                    <div class="mb-5">
                         <form submit.prevent="" class="footer__form">
                             <input type="email" class="form-control footer__input" mb-4 placeholder="demo@gmail.com" name="email">
                             <button type="submit" class="footer__btn">Đăng ký</button> 
                         </form>
                     </div>
-                     <p class="footer__des">
-                        Tham gia cùng hơn 1.000 người, những người nhận được nội dung mới và miễn phí được phân phối tự động mỗi khi chúng tôi xuất bản
+                     <p class="footer_des">
+                        Tham gia để nhận được nội dung mới và miễn phí được phân phối tự động mỗi khi chúng tôi xuất bản.
                     </p>
                 </div>
             </div>
