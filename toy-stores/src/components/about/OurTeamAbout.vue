@@ -5,7 +5,7 @@
               <div class="row">
                   <div class="col-12">
                       <div class="section-title text-center">
-                          <h2 class="title">Thành viên của chúng tôi</h2>
+                          <h2 class="title-main">Thành viên của chúng tôi</h2>
                           <p class="sub-title">Vì sự vui chơi và phát triển của trẻ em  </p>
                       </div>
                   </div>

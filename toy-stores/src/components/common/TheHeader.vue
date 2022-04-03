@@ -46,7 +46,7 @@
         </div>
 
         <div class="col-md-3 d-flex align-items-center justify-content-around">
-          <a href="" class="nav__icon" @click.prevent="showSearch = true">
+          <a href="" class="nav__icon shadow" @click.prevent="showSearch = true">
             <b-icon class="icon__header" icon="search"></b-icon>
           </a>
           <transition name="fade">
@@ -55,16 +55,16 @@
           <a
             href=""
             @click.prevent="accountTabs = !accountTabs"
-            class="nav__icon user"
+            class="nav__icon user shadow"
           >
             <b-icon class="icon__header" icon="person-circle"></b-icon>
           </a>
             <account-tab v-if="accountTabs" @myAccount="hideShowAccount" />
-          <a href="" class="nav__icon" @click.prevent="wishlistClick">
+          <a href="" class="nav__icon shadow" @click.prevent="wishlistClick">
             <b-icon class="icon__header" icon="suit-heart"></b-icon>
             <span v-if="itemsWishlist.length">{{ itemsWishlist.length }}</span>
           </a>
-          <a href="" class="nav__icon" @click.prevent="cartClick">
+          <a href="" class="nav__icon shadow" @click.prevent="cartClick">
             <b-icon class="icon__header" icon="cart-check"></b-icon>
             <span v-if="items.length">{{ items.length }}</span>
           </a>

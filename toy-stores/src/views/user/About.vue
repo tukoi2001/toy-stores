@@ -21,7 +21,6 @@ export default {
 }
 </script>
 
-<s,
-    TheLastFootertyle>
+<style>
 
 </style>

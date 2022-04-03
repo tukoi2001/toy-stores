@@ -3,9 +3,10 @@
       <auth-layout>
           <div class="wrapper">
              <bread-crumbs :title="'Verify Email'"/>
-            <h2>
-                Please check your email address <span>{{ email }}</span> to verify your account!
+            <h2 class="verify__tittle">
+                Please check your email address <span class="verify__des">{{ email }}</span> to verify your account!
             </h2>
+            <router-link to="/login" class="verify__btn">Back To Login</router-link>
           </div>
       </auth-layout>
   </div>
@@ -33,7 +34,29 @@ export default {
 .breadcrumb-box {
     margin: 0 0 40px 0!important;
 }
-.wrapper h2>span {
+.verify__tittle {
+    font-size: 28px;
+}
+.verify__des {
     font-weight: bold;
+}
+.verify__btn {
+    text-decoration: none;
+    background-color: #00c4cc;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 5px;
+    display: block;
+    font-size: 1.1rem;
+    width: 180px;
+    margin: 40px auto;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid #00c4cc;
+}
+.verify__btn:hover {
+    background-color: #fff;
+    border-color: #00c4cc;
+    color: #333;
 }
 </style>

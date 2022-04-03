@@ -10,10 +10,12 @@
 .nav__li {
   list-style: none;
 }
+
 .icon__header {
   width: 25px;
   height: 25px;
 }
+
 .nav__link {
   text-decoration: none;
   padding: 10px 25px;
@@ -28,9 +30,11 @@
 
 .nav__icon {
   color: #000;
-  padding: 10px 20px;
+  padding: 10px 12px;
   z-index: 1;
   position: relative;
+  background: #edeaea;
+  border-radius: 50%;
 }
 
 .user {
@@ -42,19 +46,25 @@
 .fade-leave-active {
   transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter,
+.fade-leave-to
+
+/* .fade-leave-active below version 2.1.8 */
+  {
   opacity: 0;
 }
 
 .nav__link:hover,
 .nav__icon:hover {
-  color: #00c4cc!important;
+  color: #00c4cc !important;
   transition: all 0.2s ease;
 }
 
 .router-link-exact-active {
   color: #00c4cc;
 }
+
 .nav__icon span {
   position: absolute;
   background-color: #ff0202;
@@ -65,7 +75,7 @@
   top: 3px;
   bottom: auto;
   left: auto;
-  right: 11px;
+  right: 5px;
   display: flex;
   justify-content: center;
   align-items: center;

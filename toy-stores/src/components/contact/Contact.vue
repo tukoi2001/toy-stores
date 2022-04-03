@@ -8,38 +8,35 @@
               <div class="row mb-n10">
                   <div class="col-12 col-lg-6 mb-10 order-2 order-lg-1">
                       <div class="contact-title pb-3">
-                          <h2 class="title">
-                              Cho chúng tôi biết dự án của bạn
+                          <h2 class="title-main">
+                              Liên hệ với chúng tôi
                           </h2>
-                          <div class="contact-form-wrapper contact-form">
-                              <form id="contact-form">
+                          <div class="contact-form-wrapper contact-form mt-5">
+                              <form id="contact-form" @submit.prevent="handleContact">
                                   <div class="row">
                                       <div class="col-12">
                                           <div class="row">
+                                              <p class="note"> * Bắt buộc</p>
                                               <div class="col-md-6">
                                                   <div class="input-area mb-4">
-                                                      <input type="text" class="input-item" placeholder="Tên Bạn" name="name">
+                                                      <input type="text" class="input-item" placeholder="Tên Bạn (*)" name="name" v-model.trim="dataForm.fullName" required autofocus pattern=".{2,}" maxLength="30">
                                                   </div>
                                               </div>
                                               <div class="col-md-6">
                                                   <div class="input-area mb-4">
-                                                      <input type="text" class="input-item" placeholder="Email" name="email">
-                                                  </div>
-                                              </div>
-                                              <div class="col-12">
-                                                  <div class="input-area mb-4">
-                                                      <input type="text" class="input-item" placeholder="Môn học" name="subject">
+                                                      <input type="text" class="input-item" placeholder="Email (*)" name="email" v-model.trim="dataForm.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
                                                   </div>
                                               </div>
                                               <div class="col-12">
                                                   <div class="input-area mb-8">
-                                                      <textarea name="message" id="" cols="60" rows="5" placeholder="message" class="textarea-item"></textarea>
+                                                      <textarea name="message" id="" cols="60" rows="5" placeholder="Tin nhắn (*)" class="textarea-item" v-model.trim="dataForm.message" required minlength="20" maxLength="150"></textarea>
                                                   </div>
                                               </div>
                                               <div class="col-12">
-                                                  <button type="submit" id="submit" name="submit" class="btn btn-secondary button-hover-primary">Gửi tin nhắn</button>
+                                                  <button v-if="isPending" type="submit" id="submit" name="submit" class="btn btn-loading" disabled>Loading...</button>
+                                                  <button v-else type="submit" id="submit" name="submit" class="btn btn-secondary">Gửi tin nhắn</button>
                                               </div>
-                                              <p class="col-8 form-message mb-0"></p>
+                                              <p class="col-12 form-message mt-10" v-if="isSuccess">Tin nhắn của bạn đã được gửi cho quản lý. Cảm ơn quý khách đã phản hồi!</p>
                                           </div>
                                       </div>
                                   </div>
@@ -49,32 +46,32 @@
                   </div>
                   <div class="col-12 col-lg-6 mb-10 order-1 order-lg-2">
                       <div class="contact-title pb-3 aos-init aos-animate">
-                          <h2 title="title">Liên hệ chúng tôi</h2>
+                          <h2 class="title-main">Liên hệ chúng tôi</h2>
                       </div>
                       <div class="contact-content">
-                          <p>Sự rõ ràng cũng là một quá trình năng động dẫn đến sự thay đổi trong cách sử dụng của người đọc. Thật là tuyệt vời khi ghi nhận cách thức mà bức thư Gothic, mà chúng tôi nghĩ rằng bây giờ thích các hình thức văn học nhân loại ít rõ ràng hơn.</p>
+                          <p class="contact-des">Nếu quý khách hàng có khiếu nại hay cần sự giúp đỡ hãy liên hệ với chúng tôi.</p>
                           <address class="contact-block">
                               <ul>
-                                  <li>
+                                  <li class="contact-des">
                                       <i><b-icon icon="arrow-right-square-fill" aria-hidden="true"></b-icon></i>
                                       66 Võ Văn Tần, Chính Gián, Thanh Khê, Đà Nẵng
                                   </li>
-                                  <li>
+                                  <li class="contact-des">
                                       <i><b-icon icon="telephone-fill" aria-hidden="true"></b-icon></i>
                                       <a href="tel:0922252632">0922252632</a>
                                   </li>
-                                  <li>
+                                  <li class="contact-des">
                                       <i><b-icon icon="mailbox" aria-hidden="true"></b-icon></i>
                                       <a href="mailto:team3@gmail.com">team3@gmail.com</a>
                                   </li>
                               </ul>
                           </address>
                           <div class="working-time aos-init aos-animate">
-                              <h6 class="title"> 
+                              <h6 class="title-main"> 
                                   Giờ làm việc
                               </h6>
-                              <p>
-                                  Monday – Saturday:08AM – 22PM
+                              <p class="contact-des">
+                                  Monday – Saturday: 08AM – 22PM
                               </p>
                           </div>
                       </div>
@@ -86,8 +83,45 @@
 </template>
 
 <script>
+import { ContactService, isPending, error, isSuccess } from "../../services/ContactService";
+import { mapState } from "vuex";
 export default {
-
+    name: 'Contact',
+    setup() {
+        return { error, isPending, isSuccess}
+    },
+    data() {
+        return {
+            dataForm: {
+                email: '',
+                fullName: '',
+                message: '',
+            }
+        }
+    },
+    computed: {
+        ...mapState('users', ['userInformation'])
+    },
+    methods: {
+        async handleContact() {
+            if (this.dataForm.email !== '' && this.dataForm.fullName !== '' && this.dataForm.message !== '') {
+                await ContactService.sendEmail(this.dataForm);
+                this.dataForm.message = '';
+                setTimeout(() => {
+                    this.isSuccess = false;
+                }, 5000);
+            } else {
+                alert('Vui lòng nhập thông tin!');
+            }
+        },
+    },
+    mounted() {
+       setTimeout( () => {
+            this.dataForm.email = this.userInformation.multiFactor.user.email;
+            this.dataForm.fullName = this.userInformation.multiFactor.user.displayName;
+       }, 1500);
+        
+    }
 }
 </script>
 

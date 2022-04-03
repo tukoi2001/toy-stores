@@ -13,8 +13,8 @@
                           <h2 class="about-title">
                               Về Chúng Tôi
                           </h2>
-                          <p>Đối với những người thích trải nghiệm trọn vẹn tại cửa hàng, chúng tôi hoan nghênh công ty của bạn và mong được gặp trực tiếp bạn. Tọa lạc tại quận 47 đường kim cương, được biết đến là viên kim cương lớn nhất.</p>
-                          <p>Có trụ sở tại trung tâm của Quận Kim cương của Đà Nẵng, còn được gọi là khu kim cương của NYC, I. D. Jewelry có một số loại trang sức có giá cạnh tranh nhất trên thị trường. Mục tiêu của chúng tôi là cung cấp cho khách hàng của mình.</p>
+                          <p class="sub-title">Chúng tôi là sinh viên Trường Cao Đẳng Anh Quốc BTEC FPT Đà Nẵng, Chúng tôi đã cùng nhau phát triển nên một hệ thống trang web thương mại điện tử bán các sản phẩm về đồ chơi dành cho em bé. Với tinh thần phát triển cao chúng tôi nỗ lực không ngừng để phát triển hệ thống này một cách thành công tốt đẹp.</p>
+                          <p class="sub-title">Ngôi trường được tọa lạc ở vị trí đắc lợi, trung tâm hành chính của TP Đà Nẵng, nằm trên đường Võ Văn Tần. Chúng tôi được sự trợ giúp của các giảng viên và hoàn thành trang web này thành công! Cảm ơn sự ủng hộ của tất cả mọi người! Chúng tôi xin chân thành cảm ơn!.</p>
                       </div>
                   </div>
               </div>
@@ -25,8 +25,8 @@
               <div class="row">
                   <div class="col-12">
                       <div class="section-title text-center">
-                          <h2 class="title">Tại Sao Chọn Chúng Tôi</h2>
-                          <p class="sub-title mt-2">Các bé sống dưới chân hồ để mọi người thoải mái chăm sóc</p>
+                          <h2 class="title-main">Tại Sao Chọn Chúng Tôi</h2>
+                          <p class="sub-title mb-10">Các em bé sẽ được sống dưới trong muôn vàn trò chơi, giải trí và phát triển bản thân. Cha mẹ thoải mái chăm sóc, chơi cùng các con mỗi ngày!</p>
                       </div>
                   </div>
               </div>
@@ -35,21 +35,21 @@
                       <div class="single-choose-item text-center mb-6">
                           <i><b-icon icon="globe" aria-hidden="true"></b-icon></i>
                           <h4 class="cta-title">Miễn phí vận chuyển</h4>
-                          <p>Chúng tôi là một mẫu thương mại điện tử rất mượt mà và sạch sẽ với khả năng vô tận.</p>
+                          <p class="sub-title">Chúng tôi sẽ miễn phí vận chuyển cho tất cả đơn hàng của quý khách.</p>
                       </div>
                   </div>
                   <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                       <div class="single-choose-item text-center mb-6">
                           <i><b-icon icon="cart-plus" aria-hidden="true"></b-icon></i>
                           <h4 class="cta-title">Chuyển phát nhanh</h4>
-                          <p>Chúng tôi là một mẫu thương mại điện tử rất mượt mà và sạch sẽ với khả năng vô tận.</p>
+                          <p class="sub-title">Chúng tôi có liên kết với một số đơn vị vận chuyển uy tín trên địa bàn Việt Nam.</p>
                       </div>
                   </div>
                   <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                       <div class="single-choose-item text-center mb-6">
                           <i><b-icon icon="phone" aria-hidden="true"></b-icon></i>
                           <h4 class="cta-title">Hỗ trợ nhiệt tình</h4>
-                          <p>Chúng tôi là một mẫu thương mại điện tử rất mượt mà và sạch sẽ với khả năng vô tận.</p>
+                          <p class="sub-title">Chúng tôi hỗ trợ khách hàng miễn phí 24/7 ở bất cứ nơi nào, bất cứ ở đâu.</p>
                       </div>
                   </div>
               </div>
