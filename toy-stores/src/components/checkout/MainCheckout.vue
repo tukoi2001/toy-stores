@@ -302,11 +302,18 @@
                   Loading...
                 </button>
                 <button
-                  v-else
+                  v-else-if="!isPending && status !== 'COMPLETED'"
                   class="btn btn-primary btn-hover-secondary rounded-0 w-100"
                   @click="checkout"
                 >
                   Đặt hàng
+                </button>
+                <button
+                  v-else
+                  class="btn btn-primary btn-hover-secondary rounded-0 w-100"
+                  @click="checkout"
+                >
+                  Hoàn Thành
                 </button>
               </div>
             </div>
@@ -354,6 +361,7 @@ export default {
   },
   methods: {
     ...mapMutations("cart", ["removeAllItems"]),
+    ...mapMutations("checkout", ['setStatus']),
     showPaypalMethod() {
       this.pay_method = "Paypal";
       this.showPaypal = true;
@@ -380,7 +388,7 @@ export default {
       if (this.pay_method === "Thanh toán khi nhận hàng (COD)") {
         paymentStatus = "Chưa thanh toán!";
       } else {
-        if (this.status !== "") {
+        if (this.status === "COMPLETED") {
           paymentStatus = "Đã Thanh Toán";
         } else {
           paymentStatus = "Chờ xác nhận thanh toán!";
@@ -420,6 +428,7 @@ export default {
             user: this.userInformation.displayName,
           };
           await NotifyService.add(data);
+          this.setStatus("");
           this.removeAllItems();
           this.$router.push("/order-complete");
         }

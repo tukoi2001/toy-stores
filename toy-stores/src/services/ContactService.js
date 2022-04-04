@@ -30,6 +30,28 @@ const ContactService = {
       isPending.value = false;
     }
   },
+  sendEmailInFo: async (email) => {
+    isPending.value = true;
+    error.value = null;
+    try {
+      const res = await db.collection("contacts").add({
+        email: email,
+        message: 'Tôi muốn nhận thông tin khi có chương trình khuyến mãi hoặc có sản phẩm mới!',
+        createdAt: timestamp,
+        updatedAt: timestamp,
+        deletedAt: null,
+        deleted: false,
+      });
+
+      if (!res) throw new Error("Not create contact");
+      isSuccess.value = true;
+      return res;
+    } catch (e) {
+      console.error("Erorr sending email contact" + e);
+    } finally {
+      isPending.value = false;
+    }
+  },
   show: async () => {
     try {
       const response = await db.collection.apply("contacts").get();

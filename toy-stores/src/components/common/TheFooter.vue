@@ -60,10 +60,15 @@
                 <div class="col-md-3">
                     <h3 class="footer__title">Đăng ký để nhận thông tin</h3>
                     <div class="mb-5">
-                        <form submit.prevent="" class="footer__form">
-                            <input type="email" class="form-control footer__input" mb-4 placeholder="demo@gmail.com" name="email">
-                            <button type="submit" class="footer__btn">Đăng ký</button> 
+                         <form id="contact-form" @submit.prevent="handleContact" class="footer__form">
+                            <div>
+                                 <input type="email" class="form-control footer__input" mb-4 placeholder="demo@gmail.com" name="email" v-model.trim="email" required>
+                            </div>
+                            <div>
+                                <button type="submit" class="footer__btn">Đăng ký</button> 
+                            </div>
                         </form>
+                        <p class="footer__success"  v-if="isSuccess" >Chúng tôi sẽ sớm gửi thông tin cho bạn!</p>
                     </div>
                      <p class="footer_des">
                         Tham gia để nhận được nội dung mới và miễn phí được phân phối tự động mỗi khi chúng tôi xuất bản.
@@ -76,8 +81,30 @@
 </template>
 
 <script>
+import { ContactService, isPending, error, isSuccess } from "../../services/ContactService";
 export default {
-
+    name: 'TheFooter',
+    setup() {
+        return { error, isPending, isSuccess}
+    },
+    data() {
+        return {
+            email: ''
+        }
+    },
+    methods: {
+        async handleContact() {
+            if (this.email !== '') {
+                await ContactService.sendEmailInFo(this.email);
+                this.email = '';
+                setTimeout(() => {
+                    this.isSuccess = false;
+                }, 5000);
+            } else {
+                alert('Vui lòng nhập thông tin!');
+            }
+        },
+    }
 }
 </script>
 
