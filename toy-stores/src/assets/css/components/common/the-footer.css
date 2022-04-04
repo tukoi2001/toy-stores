@@ -116,3 +116,9 @@
     -o-transition: .3s;
     transition: .3s;
 }
+.footer__success {
+    margin-top: 10px;
+    font-size: 16px;
+    color: rgb(14, 214, 0);
+    font-weight: 600;
+}

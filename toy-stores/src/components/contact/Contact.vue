@@ -46,7 +46,7 @@
                   </div>
                   <div class="col-12 col-lg-6 mb-10 order-1 order-lg-2">
                       <div class="contact-title pb-3 aos-init aos-animate">
-                          <h2 class="title-main">Liên hệ chúng tôi</h2>
+                          <h2 class="title-main">Liên hệ với chúng tôi</h2>
                       </div>
                       <div class="contact-content">
                           <p class="contact-des">Nếu quý khách hàng có khiếu nại hay cần sự giúp đỡ hãy liên hệ với chúng tôi.</p>

@@ -131,7 +131,7 @@
             <td style="display: flex; align-items: center">{{ item.index }}</td>
             <td>{{ item.fullName }}</td>
             <td>{{ item.email }}</td>
-            <td>{{ item.phoneNumber }}</td>
+            <td>{{ item.createdAt }}</td>
             <td>{{ formatPrice(item.totalPrice) }}</td>
             <td>{{ item.paymentStatus }}</td>
             <td>{{ item.status }}</td>
@@ -154,6 +154,7 @@
 <script>
 import { error, isPending, CartService } from "../../../services/CartService";
 import { mapMutations } from "vuex";
+import { DateHourFilter } from "../../../utils/DateFilter";
 export default {
   name: "MainOrders",
   setup() {
@@ -168,7 +169,7 @@ export default {
         { text: "#", align: "start", sortable: false, value: "id" },
         { text: "Full Name", value: "fullName", sortable: false },
         { text: "Email", value: "email" },
-        { text: "Phone Number", value: "phoneNumber" },
+        { text: "Created At", value: "createdAt" },
         { text: "Total Price", value: "totalPrice" },
         { text: "Payment Status", value: "paymentStatus" },
         { text: "Order Status", value: "status" },
@@ -208,8 +209,8 @@ export default {
           id: item.id,
           index,
           ...item.data(),
-          createdAt: createdDate,
-          updatedAt: updatedDate,
+          createdAt: DateHourFilter(createdDate),
+          updatedAt: DateHourFilter(updatedDate),
         };
       });
       this.orders = newRes;
