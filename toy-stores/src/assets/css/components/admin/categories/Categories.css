@@ -140,3 +140,12 @@ h4.cate-detail-title {
   font-size: 1rem!important;
   height: 48px;
 }
+.send_mail {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87)!important;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+.send_mail:hover {
+  color: #62ab00!important;
+}

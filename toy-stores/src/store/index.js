@@ -16,7 +16,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     token: '',
-    role: ""
+    role: "",
+    isLoading: false
   },
   getters: {
     getRole(state){
@@ -30,6 +31,12 @@ export default new Vuex.Store({
     },
     setRole(state, role) {
       state.role = role;
+    },
+    loading(state) {
+      state.isLoading = true;
+      setTimeout(() => {
+        state.isLoading = false;
+      }, 1500)
     }
   },
   actions: {

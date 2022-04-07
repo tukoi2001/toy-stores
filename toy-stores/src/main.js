@@ -57,6 +57,7 @@ let _app;
 auth.onAuthStateChanged(() => {
     if (!_app) {
       new Vue({
+        data: { loading: false },
         router,
         store,
         vuetify,
