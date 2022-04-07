@@ -54,12 +54,25 @@ const ContactService = {
   },
   show: async () => {
     try {
-      const response = await db.collection.apply("contacts").get();
+      const response = await db.collection("contacts").get();
       if (!response) throw new Error("Error get database");
       return response;
     } catch (err) {
       error.value = err.message;
       console.log(err);
+    }
+  },
+  delete: async (id) => {
+    isPending.value = true;
+    error.value = null;
+    try {
+      await db.collection("contacts").doc(id).delete();
+
+      return true;
+    } catch (err) {
+      console.log("Error delete contacts: " + err);
+    } finally {
+      isPending.value = false;
     }
   },
 };

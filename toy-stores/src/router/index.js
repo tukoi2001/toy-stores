@@ -2,9 +2,11 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/user/Home.vue";
 import { RoleMiddleware } from "../middleware/checkRole";
+import store from '@/store';
+
 Vue.use(VueRouter);
 
-const routes = [
+  const routes = [
   {
     path: "/",
     name: "Home",
@@ -350,6 +352,16 @@ const routes = [
     beforeEnter: RoleMiddleware.admin,
   },
   {
+    path: "/dashboard/contact",
+    name: "Contact Admin",
+    component: () =>
+      import(/* webpackChunkName: "contact" */ "../views/admin/Contact.vue"),
+    meta: {
+      title: "Contact Management",
+    },
+    beforeEnter: RoleMiddleware.admin,
+  },
+  {
     path: "/:404(.*)",
     name: "404",
     component: () => import(/* webpackChunkName: '404' */ "../views/user/404.vue"),
@@ -382,11 +394,14 @@ router.beforeEach((to, from, next) => {
     const auth = JSON.parse(localStorage.getItem("token"));
     if (auth == "") {
       alert("Bạn cần đăng nhập để sử dụng chức năng này!");
+      store.commit('loading');
       next({ path: "/login" });
     } else {
+      store.commit('loading');
       next();
     }
   } else {
+    store.commit('loading');
     next();
   }
 });

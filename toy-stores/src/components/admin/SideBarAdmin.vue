@@ -61,6 +61,12 @@
           Blogs</router-link
         >
       </li>
+      <li v-if="role == 'admin' || role == 'super admin'">
+        <router-link to="/dashboard/contact"
+          ><b-icon class="icon-icon" icon="telephone-plus"></b-icon>
+          Contacts</router-link
+        >
+      </li>
       <li>
         <router-link to="/dashboard/statistics"
           ><b-icon class="icon-icon" icon="bar-chart-line-fill"></b-icon
