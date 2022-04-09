@@ -1,7 +1,9 @@
 import { MeService } from "../../services/MeService";
+
 const state = () => ({
   userInformation: null,
   dataUserLogin: null,
+  userDetail: {}
 });
 
 const mutations = {
@@ -13,8 +15,12 @@ const mutations = {
       email: doc.data().email,
       name: doc.data().name,
       role: doc.data().role,
+      address: doc.data().address
     };
     state.dataUserLogin = user;
+  },
+  getUserDetails(state, payload) {
+    state.userDetail = payload;
   },
 };
 

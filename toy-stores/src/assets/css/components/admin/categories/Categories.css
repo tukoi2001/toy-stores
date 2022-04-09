@@ -149,3 +149,7 @@ h4.cate-detail-title {
 .send_mail:hover {
   color: #62ab00!important;
 }
+
+.active-user {
+  background-color: #ccc;
+}
