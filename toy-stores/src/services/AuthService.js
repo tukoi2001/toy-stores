@@ -32,6 +32,13 @@ const AuthService = {
         created_at: timestamp,
         updated_at: timestamp,
         isActive: true,
+        address: {
+          city: '',
+          district: '',
+          ward: '',
+          street: ''
+        },
+        phoneNumber: '',
         customField: ''
       });
 
@@ -103,7 +110,7 @@ const AuthService = {
         error: err.message
       }
     }
-  }
+  },
 };
 
 export { AuthService, error, isPending, message }

@@ -1,6 +1,6 @@
 import "../configs/installCompositionApi";
 import { ref } from "@vue/composition-api";
-import { db, auth, timestamp } from "../configs/firebase";
+import { db } from "../configs/firebase";
 
 const error = ref(null);
 const isPending = ref(false);
@@ -29,7 +29,7 @@ const MeService = {
       return res;
     } catch (err) {
       error.value = err.message;
-      console.log("Error show category: " + error);
+      console.log("Error show user: " + error);
     }
     finally {
       isPending.value = false;
@@ -42,8 +42,7 @@ const MeService = {
     try {
       await db.collection("users").doc(user.id).update({
         role: user.role,
-        isActive: user.isActive,
-        customField: user.customField,
+        customField: user.customField
       });
       return true;
     } catch (err) {
@@ -52,58 +51,52 @@ const MeService = {
       isPending.value = false;
     }
   },
-  
-  register: async (user) => {
+
+  updateActive: async (data) => {
     isPending.value = true;
     error.value = null;
-    console.log(user)
+
     try {
-      const res = await auth.createUserWithEmailAndPassword(
-        user.email,
-        user.password
-      );
-
-      if (!res) throw new Error("Could not create user!");
-  
-      await res.user.updateProfile({
-        displayName: user.fullName,
+      await db.collection("users").doc(data.id).update({
+        isActive: data.isActive,
       });
-
-      const dataBase = db.collection("users").doc(res.user.uid);
-      await dataBase.set({
-        name: user.fullName,
-        email: user.email,
-        role: user.role,
-        created_at: timestamp,
-        updated_at: timestamp,
-        isActive: true,
-        customField: ''
-      });
-
       return true;
     } catch (err) {
-      console.log("Error register:" + err);
-      error.value = "Error register. Please try again!!!";
+      console.log("Error update user: " + err);
     } finally {
       isPending.value = false;
     }
   },
 
-  // delete: async (id) => {
-  //   isPending.value = true;
-  //   error.value = null;
-  //   try {
+  updateAddress: async (data) => {
+    isPending.value = true;
+    error.value = null;
+    try {
+      await db.collection("users").doc(data.id).update({
+        address: data.address
+      });
+      return true;
+    } catch (err) {
+      console.log("Error update user: " + err);
+    } finally {
+      isPending.value = false;
+    }
+  },
 
-  //     await db.collection("users").doc(id).delete();
-  //     return true;
-  //   } catch (err) {
-  //     console.log("Error delete user: " + err);
-  //   }
-  //   finally {
-  //     isPending.value = false;
-  //   }
-  // }
-
+  updatePhoneNumber: async (data) => {
+    isPending.value = true;
+    error.value = null;
+    try {
+      await db.collection("users").doc(data.id).update({
+        phoneNumber: data.phoneNumber
+      });
+      return true;
+    } catch (err) {
+      console.log("Error update user: " + err);
+    } finally {
+      isPending.value = false;
+    }
+  },
 };
 
 export { MeService, error, isPending};

@@ -126,20 +126,22 @@ table {
 .myaccount-content form {
     margin-top: -20px;
 }
-
-.myaccount-content form .single-input-item {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 100%;
+.single-input-item {
+    position: relative;
 }
-
+.edit_field {
+    position: absolute;
+    top: 25px;
+    bottom: auto;
+    left: auto;
+    right: -33px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.edit_field:hover {
+    color: #00c4cc;
+}
 .myaccount-content form .single-input-item .required, .required {
     font-weight: 500;
 }

@@ -55,6 +55,7 @@ import AccountDetails from "../../components/Tabs/AccountDetails.vue";
 import ChangePassword from "../../components/Tabs/ChangePassword.vue";
 import Dashboard from "../../components/Tabs/Dashboard.vue";
 import Orders from "../../components/Tabs/Orders.vue";
+import Address from "../../components/Tabs/Address.vue";
 export default {
   components: {
     UserLayout,
@@ -63,6 +64,7 @@ export default {
     Dashboard,
     Orders,
     BreadCrumbs,
+    Address
   },
   name: "Me",
   data() {
@@ -83,6 +85,11 @@ export default {
           icon: "person-fill",
           title: "Account Details",
           tab: "AccountDetails",
+        },
+        {
+          icon: "geo-alt-fill",
+          title: "Address",
+          tab: "Address",
         },
         {
           icon: "key-fill",

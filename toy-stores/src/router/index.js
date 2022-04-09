@@ -320,6 +320,18 @@ Vue.use(VueRouter);
     beforeEnter: RoleMiddleware.admin,
   },
   {
+    path: "/dashboard/users/:slug",
+    name: "UsersDetail",
+    component: () =>
+      import(
+        /* webpackChunkName: "user-detail" */ "../views/admin/UsersDetail.vue"
+      ),
+    meta: {
+      title: "User Detail",
+    },
+    beforeEnter: RoleMiddleware.admin,
+  },
+  {
     path: "/dashboard/blogs",
     name: "BlogsManagement",
     component: () =>
@@ -401,7 +413,6 @@ router.beforeEach((to, from, next) => {
       next();
     }
   } else {
-    store.commit('loading');
     next();
   }
 });

@@ -25,66 +25,18 @@
 
           <!-- dialog update -->
           <v-dialog v-model="dialog" max-width="500px">
-            <template v-slot:activator="{ on, attrs }" v-if=" getRole === 'super admin'">
-              <v-btn dark class="mb-2 btn__add" v-bind="attrs" v-on="on">
-                <v-icon> mdi-plus </v-icon>
-                Add New User
-              </v-btn>
-            </template>
-
             <v-card class="card-toglle" :loading="isPending">
               <v-card-title class="card-title">
                 <span class="text-h5 font-weight-medium">{{ formTitle }}</span>
               </v-card-title>
               <v-card-text class="card-content">
                 <v-row>
-                  <v-col cols="12" sm="12" md="12" v-if="editedIndex == -1">
-                    <v-text-field
-                      label="Full Name:"
-                      placeholder="Full Name"
-                      v-model="dataEditItem.fullName"
-                      clearable
-                    ></v-text-field>
-                  </v-col>
-
-                  <v-col cols="12" sm="12" md="12" v-if="editedIndex == -1">
-                    <v-text-field
-                      v-model="dataEditItem.email"
-                      :rules="[rules.required, rules.email]"
-                      label="E-mail"
-                      placeholder="Email"
-                    ></v-text-field>
-                  </v-col>
-
-                  <v-col cols="12" sm="12" md="12" v-if="editedIndex == -1">
-                    <v-text-field
-                      :append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
-                      :type="show ? 'text' : 'password'"
-                      name="input-10-2"
-                      label="Password"
-                      :rules="[rules.required, rules.min]"
-                      hint="At least 8 characters"
-                      v-model="dataEditItem.password"
-                      class="input-group--focused"
-                      @click:append="show = !show"
-                    ></v-text-field>
-                  </v-col>
-
                   <v-col cols="12" sm="12" md="12">
                     <template>
                       <v-select
                         :items="['super admin', 'admin', 'supplier', 'user']"
                         label="Role"
                         v-model="dataEditItem.role"
-                      ></v-select>
-                    </template>
-                  </v-col>
-                  <v-col cols="12" sm="12" md="12">
-                    <template>
-                      <v-select
-                        :items="['true', 'false']"
-                        label="Is Active"
-                        v-model="dataEditItem.isActive"
                       ></v-select>
                     </template>
                   </v-col>
@@ -121,12 +73,12 @@
           </v-dialog>
           <!-- dialog update -->
 
-          <!-- dialog delete -->
-          <v-dialog v-model="dialogDelete" max-width="500px">
+          <!-- dialog lock -->
+          <v-dialog v-model="dialogDelete" max-width="520px">
             <v-card class="r" :loading="isPending">
               <v-card-title
                 class="text-h5 justify-content-center text-danger fw-bold"
-                >Không thể xóa danh sách người dùng!</v-card-title
+                >Bạn có muốn khóa người dùng này không?</v-card-title
               >
               <v-card-actions>
                 <v-spacer></v-spacer>
@@ -141,14 +93,43 @@
                   color="while darken-1"
                   class="save__btn mb-3"
                   text
-                  @click="deleteItemConfirm"
+                  @click="handleActive"
                   >OK</v-btn
                 >
                 <v-spacer></v-spacer>
               </v-card-actions>
             </v-card>
           </v-dialog>
-          <!-- dialog delete -->
+          <!-- dialog lock -->
+
+          <!-- dialog unlock -->
+          <v-dialog v-model="dialogUnlock" max-width="500px">
+            <v-card class="r" :loading="isPending">
+              <v-card-title
+                class="text-h5 justify-content-center text-danger fw-bold"
+                >Mở khóa cho người dùng này?</v-card-title
+              >
+              <v-card-actions>
+                <v-spacer></v-spacer>
+                <v-btn
+                  color="dark darken-1"
+                  class="cancel__btn mb-3"
+                  text
+                  @click="closeUnLock"
+                  >Cancel</v-btn
+                >
+                <v-btn
+                  color="while darken-1"
+                  class="save__btn mb-3"
+                  text
+                  @click="handleUnlock"
+                  >OK</v-btn
+                >
+                <v-spacer></v-spacer>
+              </v-card-actions>
+            </v-card>
+          </v-dialog>
+          <!-- dialog unlock -->
         </v-toolbar>
       </template>
 
@@ -169,7 +150,13 @@
         :search="search"
       >
         <template v-slot:item="{ item }">
-          <tr class="tr-body-table text-start orders" style="font-size: 1rem">
+          <tr
+            class="tr-body-table text-start orders"
+            style="font-size: 1rem"
+            :class="{
+              'active-user': item.isActive == 'false' || item.isActive == false,
+            }"
+          >
             <td style="display: flex; align-items: center">{{ item.index }}</td>
             <td>{{ item.name }}</td>
             <td>{{ item.email }}</td>
@@ -181,7 +168,22 @@
               <v-icon small class="mr-2" @click="editItem(item)">
                 mdi-pencil
               </v-icon>
-              <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+              <template v-if="getRole === 'super admin'" d-inline-block>
+                <v-icon
+                  small
+                  class="mr-2"
+                  @click="deleteItem(item)"
+                  v-if="item.isActive == true || item.isActive == 'true'"
+                >
+                  mdi-lock
+                </v-icon>
+                <v-icon small class="mr-2" @click="unLock(item)" v-else>
+                  mdi-key
+                </v-icon>
+              </template>
+              <v-icon small @click="getUserDetail(item)">
+                mdi-account-details
+              </v-icon>
             </td>
           </tr>
         </template>
@@ -193,6 +195,7 @@
 <script>
 import { MeService, error, isPending } from "../../../services/MeService";
 import { DateHourFilter } from "../../../utils/DateFilter";
+import { mapMutations } from "vuex";
 export default {
   name: "MainUsers",
   setup() {
@@ -203,6 +206,7 @@ export default {
       search: "",
       dialog: false,
       dialogDelete: false,
+      dialogUnlock: false,
       headers: [
         { text: "#", align: "start", sortable: false, value: "id" },
         { text: "Full Name", value: "fullName", sortable: false },
@@ -216,6 +220,7 @@ export default {
       users: [],
       editedIndex: -1,
       dataEditItem: {
+        id: "",
         fullName: "",
         email: "",
         password: "",
@@ -229,16 +234,6 @@ export default {
         customField: "",
       },
       show: false,
-      rules: {
-        required: (value) => !!value || "Required.",
-        counter: (value) => value.length <= 20 || "Max 20 characters",
-        email: (value) => {
-          const pattern =
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-          return pattern.test(value) || "Invalid e-mail.";
-        },
-        min: v => v.length >= 8 || 'Min 8 characters',
-      },
     };
   },
   mounted() {
@@ -253,6 +248,7 @@ export default {
     },
   },
   methods: {
+    ...mapMutations('users', ['getUserDetails']),
     async innitData() {
       const response = await MeService.display();
       const newRes = response.docs.map((item, index) => {
@@ -280,12 +276,36 @@ export default {
       this.dialog = true;
     },
     deleteItem(item) {
+      this.dialogDelete = true;
       this.editedIndex = this.users.indexOf(item);
       this.dataEditItem = Object.assign({}, item);
-      this.dialogDelete = true;
     },
-    async deleteItemConfirm() {
-      this.closeDelete();
+    unLock(item) {
+      this.dialogUnlock = true;
+      this.editedIndex = this.users.indexOf(item);
+      this.dataEditItem = Object.assign({}, item);
+    },
+    async handleActive() {
+      const data = {
+        id: this.dataEditItem.id,
+        isActive: false,
+      };
+      const response = await MeService.updateActive(data);
+      if (response) {
+        this.innitData();
+        this.closeDelete();
+      }
+    },
+    async handleUnlock() {
+      const data = {
+        id: this.dataEditItem.id,
+        isActive: true,
+      };
+      const response = await MeService.updateActive(data);
+      if (response) {
+        this.innitData();
+        this.closeUnLock();
+      }
     },
     close() {
       this.dialog = false;
@@ -301,21 +321,27 @@ export default {
         this.editedIndex = -1;
       });
     },
+    closeUnLock() {
+      this.dialogUnlock = false;
+      this.$nextTick(() => {
+        this.dataEditItem = Object.assign({}, this.dataItem);
+        this.editedIndex = -1;
+      });
+    },
     async save() {
       if (this.editedIndex > -1) {
         const res = await MeService.update(this.dataEditItem);
         if (res) {
           this.innitData();
         }
-      } else {
-        const res = await MeService.register(this.dataEditItem);
-        if (res) {
-          this.innitData();
-          this.$router.push('/dashboard/users');
-        }
       }
       this.close();
     },
+    getUserDetail(user) {
+      const id = user.id;
+      this.getUserDetails(user);
+      this.$router.push(`/dashboard/users/${id}`);
+    }
   },
   watch: {
     dialog(val) {

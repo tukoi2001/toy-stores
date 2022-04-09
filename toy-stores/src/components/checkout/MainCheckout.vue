@@ -329,6 +329,8 @@ import { mapState, mapMutations } from "vuex";
 import Paypal from "./Paypal.vue";
 import { CartService, error, isPending } from "../../services/CartService";
 import { NotifyService } from "../../services/NotifyService";
+import { MeService } from "../../services/MeService";
+
 export default {
   components: { Paypal },
   name: "MainCheckout",
@@ -431,6 +433,8 @@ export default {
           this.setStatus("");
           this.removeAllItems();
           this.$router.push("/order-complete");
+          this.updateAddress();
+          this.updatePhoneNumber();
         }
       }
     },
@@ -453,6 +457,36 @@ export default {
         alert("Vui lòng nhập đầy đủ thông tin!");
       }
     },
+    async updatePhoneNumber() {
+      const data = {
+          id: this.userForm.id,
+          phoneNumber: this.userForm.phoneNumber
+        };
+        await MeService.updatePhoneNumber(data); 
+    },
+    async updateAddress() {
+      const data = {
+          id: this.userForm.id,
+          address: {
+            city: this.userForm.city,
+            district: this.userForm.district,
+            ward: this.userForm.ward,
+            street: this.userForm.street
+          }
+        };
+        await MeService.updateAddress(data); 
+    },
+    async getInformation() {
+      const response = await MeService.me(this.userForm.id);
+      if (response) {
+        const data = response.data();
+        this.userForm.phoneNumber = data.phoneNumber;
+        this.userForm.city = data.address.city;
+        this.userForm.district = data.address.district;
+        this.userForm.ward = data.address.ward;
+        this.userForm.street = data.address.street;
+      }
+    }
   },
   mounted() {
     this.items = this.itemsCheckout.items[0];
@@ -460,6 +494,7 @@ export default {
     this.userForm.email = this.userInformation.multiFactor.user.email;
     this.userForm.id = this.userInformation.multiFactor.user.uid;
     this.userForm.note = this.itemsCheckout.note;
+    this.getInformation();
   },
 };
 </script>
