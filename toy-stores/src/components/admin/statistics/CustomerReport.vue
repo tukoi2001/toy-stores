@@ -10,11 +10,11 @@
           <div class="report-total">
             <h3 class="report-total-title">Total sales of Toyqo Toy Store</h3>
             <ul class="report-total-list">
-              <li class="report-total-item">Number of Products Sold:</li>
-              <li class="report-total-item">{{ numOfCustomers }} Products</li>
+              <li class="report-total-item">Number of Best Customers:</li>
+              <li class="report-total-item">{{ numOfCustomers }} Customers</li>
             </ul>
           </div>
-          <p class="report-content-title">List Orders of System</p>
+          <p class="report-content-title">List Best Customers of System</p>
           <table class="table table-striped report-table">
             <thead>
               <tr>
@@ -22,6 +22,7 @@
                 <th>Customer Name</th>
                 <th>Customer Email</th>
                 <th>Customer Phone</th>
+                <th>Quantities</th>
               </tr>
             </thead>
             <tbody>
@@ -30,6 +31,7 @@
                 <td>{{ item.fullName }}</td>
                 <td>{{ item.email }}</td>
                 <td>{{ item.phoneNumber }}</td>
+                <td>{{ item.quantity }}</td>
               </tr>
             </tbody>
           </table>
@@ -77,6 +79,7 @@ export default {
             fullName: item.fullName,
             email: item.email,
             phoneNumber: item.phoneNumber,
+            quantity: 1
           };
         });
         let arr = [];
@@ -89,6 +92,8 @@ export default {
             );
             if (findIndex == -1) {
               arr.push(data[i]);
+            } else {
+                 arr[findIndex].quantity += data[i].quantity;
             }
           }
         }
