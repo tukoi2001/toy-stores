@@ -6,7 +6,7 @@ p {
     position: fixed;
     width: 100%;
     height: auto;
-    z-index: 2;
+    z-index: 999;
   }
   a,
   a:hover,

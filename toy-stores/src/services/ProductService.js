@@ -59,6 +59,16 @@ const ProductService = {
     }
   },
 
+  showNumOfProducts: async () => {
+    try {
+      const res = await db.collection("products").get();
+      if (!res) throw new Error("Error get database");
+      return res.docs.length;
+    } catch (err) {
+      console.log("Error show products: " + err);
+    }
+  },
+
   update: async (product) => {
     try {
       let dataNewUp = null;

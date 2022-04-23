@@ -25,6 +25,7 @@
                   Created At: <span class="list-item-des">{{userDetail.created_at}}</span>
               </li>
           </ul>
+          <button type="button" class="btn btn-primary ms-10" @click="backTo">Back</button>
       </div>
        <div class="col-md-6">
           <ul class="list">
@@ -60,6 +61,11 @@ export default {
     name: 'MainUserDetail',
     computed: {
         ...mapState('users', ['userDetail'])
+    },
+    methods: {
+        backTo() {
+            this.$router.push('/dashboard/users');
+        }
     }
 }
 </script>

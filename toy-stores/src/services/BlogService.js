@@ -47,6 +47,17 @@ const BlogService = {
       console.log("Error show blogs: " + err);
     }
   },
+
+  showNumOfBlogs: async () => {
+    try {
+      const res = await db.collection("blogs").get();
+      if (!res) throw new Error("Error get database");
+      return res.docs.length;
+    } catch (err) {
+      console.log("Error show blogs: " + err);
+    }
+  },
+
   update: async (data) => {
     isPending.value = true;
     error.value = null;

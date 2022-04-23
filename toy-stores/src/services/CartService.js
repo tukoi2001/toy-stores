@@ -50,6 +50,16 @@ const CartService = {
       }
     },
 
+    showNumOfOrders: async () => {
+      try {
+        const res = await db.collection("orders").get();
+        if (!res) throw new Error("Error get database");
+        return res.docs.length;
+      } catch (err) {
+        console.log("Error show orders: " + err);
+      }
+    },
+
     update: async (cart) => {
       isPending.value = true;
       error.value = null;

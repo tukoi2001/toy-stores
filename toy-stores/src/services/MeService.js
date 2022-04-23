@@ -35,6 +35,18 @@ const MeService = {
       isPending.value = false;
     }
   },
+
+  showNumOfUsers: async () => {
+    try {
+      const res = await db.collection("users").get();
+      if (!res) throw new Error("Error get database");
+      return res.docs.length;
+    } catch (err) {
+      error.value = err.message;
+      console.log("Error show user: " + error);
+    }
+  },
+
   update: async (user) => {
     isPending.value = true;
     error.value = null;
