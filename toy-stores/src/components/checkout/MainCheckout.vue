@@ -1,6 +1,17 @@
 <template>
   <div class="container">
-    <div class="row mb-n4">
+    <div
+      class="not-active"
+      v-if="
+        dataUserLogin.isActive == false || dataUserLogin.isActive == 'false'
+      "
+    >
+      <h3 class="cart__title fw-bold" style="font-size: 2rem;">
+        Tài khoản của bạn đã bị vô hiệu hóa! Vui lòng liên hệ admin để mở khóa.
+        Xin cảm ơn!!!
+      </h3>
+    </div>
+    <div class="row mb-n4" v-else>
       <div class="text-start">
         <h3 class="checkout__title">Kiểm tra trước khi thanh toán</h3>
         <p class="checkout__des">
@@ -359,11 +370,11 @@ export default {
   },
   computed: {
     ...mapState("checkout", ["itemsCheckout", "status"]),
-    ...mapState("users", ["userInformation"]),
+    ...mapState("users", ["userInformation", "dataUserLogin"]),
   },
   methods: {
     ...mapMutations("cart", ["removeAllItems"]),
-    ...mapMutations("checkout", ['setStatus']),
+    ...mapMutations("checkout", ["setStatus"]),
     showPaypalMethod() {
       this.pay_method = "Paypal";
       this.showPaypal = true;
@@ -459,22 +470,22 @@ export default {
     },
     async updatePhoneNumber() {
       const data = {
-          id: this.userForm.id,
-          phoneNumber: this.userForm.phoneNumber
-        };
-        await MeService.updatePhoneNumber(data); 
+        id: this.userForm.id,
+        phoneNumber: this.userForm.phoneNumber,
+      };
+      await MeService.updatePhoneNumber(data);
     },
     async updateAddress() {
       const data = {
-          id: this.userForm.id,
-          address: {
-            city: this.userForm.city,
-            district: this.userForm.district,
-            ward: this.userForm.ward,
-            street: this.userForm.street
-          }
-        };
-        await MeService.updateAddress(data); 
+        id: this.userForm.id,
+        address: {
+          city: this.userForm.city,
+          district: this.userForm.district,
+          ward: this.userForm.ward,
+          street: this.userForm.street,
+        },
+      };
+      await MeService.updateAddress(data);
     },
     async getInformation() {
       const response = await MeService.me(this.userForm.id);
@@ -486,7 +497,7 @@ export default {
         this.userForm.ward = data.address.ward;
         this.userForm.street = data.address.street;
       }
-    }
+    },
   },
   mounted() {
     this.items = this.itemsCheckout.items[0];

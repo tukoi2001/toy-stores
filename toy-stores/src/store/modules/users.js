@@ -15,7 +15,8 @@ const mutations = {
       email: doc.data().email,
       name: doc.data().name,
       role: doc.data().role,
-      address: doc.data().address
+      address: doc.data().address,
+      isActive: doc.data().isActive,
     };
     state.dataUserLogin = user;
   },

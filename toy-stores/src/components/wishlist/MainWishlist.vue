@@ -1,7 +1,18 @@
 <template>
   <div>
     <div class="container">
-      <div class="row">
+      <div
+      class="not-active"
+      v-if="
+        dataUserLogin.isActive == false || dataUserLogin.isActive == 'false'
+      "
+    >
+      <h3 class="cart__title fw-bold" style="font-size: 2rem;">
+        Tài khoản của bạn đã bị vô hiệu hóa! Vui lòng liên hệ admin để mở khóa.
+        Xin cảm ơn!!!
+      </h3>
+    </div>
+      <div class="row" v-else>
         <div class="col-12 text-start mb-5">
           <h3 class="wishlist-title">Các sản phẩm yêu thích</h3>
           <p class="wishlist-des">Tất cả sản phẩm yêu thích của bạn!</p>
@@ -85,6 +96,7 @@ export default {
   name: "MainWishlist",
   computed: {
     ...mapState("wishlist", ["itemsWishlist"]),
+    ...mapState('users', ['dataUserLogin'])
   },
   methods: {
     ...mapMutations("wishlist", ["removeAllItemsWishlist"]),

@@ -78,7 +78,7 @@ export default {
 }
 button.btn.btn-primary {
     display: block;
-    width: 150px;
+    width: 160px;
     height: 50px;
     margin: 10px auto;
     font-weight: 600;

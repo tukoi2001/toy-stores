@@ -199,7 +199,7 @@
               <img :src="item.urlImage" alt="" class="rounded" width="50px" />
             </td>
             <td class="test1">{{ item.name }}</td>
-            <td>{{ item.price }}</td>
+            <td>{{ formatPrice(item.price) }}</td>
             <td>{{ item.category }}</td>
             <td>{{ item.quantity }}</td>
             <td>{{ item.sale_off }}</td>
@@ -359,6 +359,14 @@ export default {
       }
       this.actionSetDataProduct();
       this.close();
+    },
+    formatPrice(value) {
+      const formatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "VND",
+        minimumFractionDigits: 0,
+      });
+      return formatter.format(value);
     },
     setProduct(data) {
       const slug = data.id;

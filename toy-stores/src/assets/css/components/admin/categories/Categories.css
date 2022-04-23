@@ -153,3 +153,6 @@ h4.cate-detail-title {
 .active-user {
   background-color: #ccc;
 }
+.v-dialog:not(.v-dialog--fullscreen) {
+  max-height: 80%;
+}

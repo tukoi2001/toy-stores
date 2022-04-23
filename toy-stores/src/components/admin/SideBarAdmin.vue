@@ -67,7 +67,7 @@
           Contacts</router-link
         >
       </li>
-      <li>
+      <li v-if="role == 'admin' || role == 'super admin'">
         <router-link to="/dashboard/statistics"
           ><b-icon class="icon-icon" icon="bar-chart-line-fill"></b-icon
           >Statistics</router-link
@@ -95,9 +95,6 @@ export default {
       return this.userInformation.multiFactor.user;
     },
   },
-  mounted() {
-
-  }
 }
 </script>
 
