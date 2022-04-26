@@ -98,6 +98,7 @@ export default {
           }
         }
         this.customers = arr;
+        this.customers.sort((a, b) => a.quantity - b.quantity).reverse();
         this.numOfCustomers = arr.length;
         this.isSpending = false;
         this.isShow = true;

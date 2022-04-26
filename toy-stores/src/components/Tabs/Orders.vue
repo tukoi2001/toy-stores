@@ -1,7 +1,9 @@
 <template>
   <div>
     <h3 class="title">Đơn hàng</h3>
-    <p style="font-size: 1rem; color: #000; font-weight: 600">Các đơn hàng đã mua:</p>
+    <p style="font-size: 1rem; color: #000; font-weight: 600">
+      Các đơn hàng đã mua:
+    </p>
     <div class="myaccount-table table-responsive text-center">
       <table class="table table-bordered">
         <thead class="thead-light">
@@ -22,7 +24,7 @@
             <td>{{ item.pay_method }}</td>
             <td>{{ item.status }}</td>
             <td>{{ formatPrice(item.totalPrice) }}</td>
-             <td>{{ item.notifications }}</td>
+            <td>{{ item.notifications }}</td>
             <td>
               <a
                 @click.prevent="detailOrders(item)"
@@ -40,25 +42,26 @@
         </tbody>
       </table>
     </div>
-    <order-user-detail v-if="showDetails" @myEvent="hideDetails"/>
+    <order-user-detail v-if="showDetails" @myEvent="hideDetails" />
   </div>
 </template>
 
 <script>
 import { CartService } from "../../services/CartService";
-import { mapState, mapMutations } from 'vuex'
-import OrderUserDetail from './OrderUserDetail.vue';
+import { mapState, mapMutations } from "vuex";
+import OrderUserDetail from "./OrderUserDetail.vue";
+import { DateHourFilter } from "../../utils/DateFilter";
 export default {
   components: { OrderUserDetail },
   name: "Orders",
   data() {
     return {
       orders: [],
-      showDetails: false
+      showDetails: false,
     };
   },
   computed: {
-    ...mapState('users', ['userInformation'])
+    ...mapState("users", ["userInformation"]),
   },
   methods: {
     ...mapMutations("cart", ["setOrder"]),
@@ -77,12 +80,16 @@ export default {
           id: item.id,
           index,
           ...item.data(),
-          createdAt: createdDate,
-          updatedAt: updatedDate,
+          createdAt: DateHourFilter(createdDate),
+          updatedAt: DateHourFilter(updatedDate),
         };
       });
       const userID = this.userInformation.multiFactor.user.uid;
-      this.orders = newRes.filter(item => item.uid === userID);
+      this.orders = newRes.filter((item) => item.uid === userID);
+      this.orders.sort((a, b) => {
+        return a.createdAt > b.createdAt ? 1 : a.createdAt < b.createdAt ? -1 : 0;
+      });
+      this.orders.reverse();
     },
     detailOrders(data) {
       this.setOrder(data);
@@ -98,7 +105,7 @@ export default {
     },
     hideDetails() {
       this.showDetails = false;
-    }
+    },
   },
   mounted() {
     this.innitData();
