@@ -2,7 +2,7 @@
   <div class="container">
       <div class="row">
           <div class="col-12 text-start">
-              <h2 class="mt-10 mb-4 fw-bold recommend_title">Các sản phẩm được đề xuất</h2>
+              <h2 class="mt-10 mb-4 fw-bold recommend_title">Các sản phẩm của chúng tôi</h2>
               <p class="recommend_des">Các sản phẩm được cập nhật liên tục giúp khách hàng dễ dàng lựa chọn!</p>
           </div>
       </div>

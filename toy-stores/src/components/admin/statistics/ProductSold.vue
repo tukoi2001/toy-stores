@@ -115,7 +115,9 @@ export default {
         }
       }
       this.productsFill = arr;
+      this.productsFill.sort((a, b) => a.quantity - b.quantity).reverse();
       this.numOfProducts = arr.length;
+     
     },
     formatPrice(value) {
       const formatter = new Intl.NumberFormat("en-US", {

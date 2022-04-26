@@ -1,7 +1,7 @@
 <template>
   <div class="container notify">
       <div class="row m--40">
-          <div class="col-12" v-for="(item, index) in notifies" :key="index">
+          <div class="col-12" v-for="(item, index) in listNotifications" :key="index">
               <div class="box-notify">
                   <div class="img-user">
                       <img :src="item.urlImageUser" alt="">
@@ -26,6 +26,11 @@ import { mapActions, mapState } from "vuex";
 import { NotifyService } from "../../../services/NotifyService"
 export default {
     name: 'MainNotifies',
+    data() {
+        return {
+            listNotifications: []
+        }
+    },
     computed: {
         ...mapState('notify', ['notifies'])
     },
@@ -42,7 +47,9 @@ export default {
     mounted() {
          setInterval(() => {
             this.actionSetNotifications();
-        }, 3000)
+            this.listNotifications = this.notifies;
+            this.listNotifications.sort(function(a,b){return a.created_At > b.created_At ? 1 : a.created_At < b.created_At ? -1 : 0 });
+        }, 0)
     }
 }
 </script>

@@ -99,6 +99,16 @@ export default {
   color: #fff;
   font-size: 2rem;
   font-weight: bold;
+  background-color: #62ab00;
+  transition: all 0.3s;
+  border: 1px solid #62ab00;
+}
+.btn-primary:hover {
+  background-color: #333;
+  border-color: #333;
+}
+.btn-primary:active {
+  box-shadow: none;
 }
 .order__detail {
   margin: 50px 150px;

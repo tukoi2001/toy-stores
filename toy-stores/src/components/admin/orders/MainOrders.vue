@@ -38,15 +38,6 @@
                     </template>
                   </v-col>
                   <v-col cols="12" sm="12" md="12">
-                    <template>
-                      <v-select
-                        :items="['Chưa thanh toán', 'Đã thanh toán']"
-                        label="Payment Status"
-                        v-model="dataEditItem.paymentStatus"
-                      ></v-select>
-                    </template>
-                  </v-col>
-                  <v-col cols="12" sm="12" md="12">
                     <v-text-field
                       label="Notifications:"
                       placeholder="Notifications"

@@ -83,6 +83,7 @@ export default {
           };
         });
         this.orders = data;
+        this.orders.sort((a, b) => a.totalPrice - b.totalPrice).reverse();
         data.forEach((item) => {
           this.total += item.totalPrice;
         });

@@ -39,6 +39,7 @@ export default {
 }
 .verify__des {
     font-weight: bold;
+    font-size: 28px!important;
 }
 .verify__btn {
     text-decoration: none;

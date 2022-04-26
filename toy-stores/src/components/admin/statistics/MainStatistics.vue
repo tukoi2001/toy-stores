@@ -10,14 +10,23 @@
           <ul class="statistics_list" v-if="isClicks">
             <li
               class="statistics_item"
+              :class="{ active: currentTab == 'profit-component' }"
               @click="currentTab = 'profit-component'"
             >
               Profit
             </li>
-            <li class="statistics_item" @click="currentTab = 'product-sold'">
+            <li
+              class="statistics_item"
+              @click="currentTab = 'product-sold'"
+              :class="{ active: currentTab == 'product-sold' }"
+            >
               Products sold
             </li>
-            <li class="statistics_item" @click="currentTab = 'customer-report'">
+            <li
+              class="statistics_item"
+              @click="currentTab = 'customer-report'"
+              :class="{ active: currentTab == 'customer-report' }"
+            >
               Customers
             </li>
             <li
@@ -71,6 +80,11 @@ export default {
   margin-top: 20px;
   height: calc(100vh - 323px);
   border-radius: 10px;
+}
+.active {
+  background-color: #62ab00;
+  color: #fff;
+  border-color: #62ab00;
 }
 .statistics_title {
   margin: 0;
