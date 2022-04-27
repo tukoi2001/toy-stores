@@ -1,108 +1,108 @@
 .myaccount-content .title {
-    font-size: 24px;
-    font-family: "Roboto", sans-serif;
-    color: #222222;
-    border-bottom: 1px dashed #efefef;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-    font-weight: 500;
-    text-align: left;
+  font-size: 24px;
+  font-family: "Roboto", sans-serif;
+  color: #222222;
+  border-bottom: 1px dashed #efefef;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  font-weight: 500;
+  text-align: left;
 }
 
 /* Dashboard */
 
 .myaccount-content .welcome strong {
-    font-weight: 600;
-    color: #00c4cc;
+  font-weight: 600;
+  color: #00c4cc;
 }
 
 p:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .myaccount-content .welcome a {
-    color: #222222;
-    text-decoration: none;
+  color: #222222;
+  text-decoration: none;
 }
 .welcome p {
-    font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 .tab-content {
-    text-align: left;
+  text-align: left;
 }
 
 .myaccount-content .welcome a:hover {
-    color: #00c4cc;
-    cursor: pointer;
+  color: #00c4cc;
+  cursor: pointer;
 }
 
 /* Orders */
 
 .myaccount-table {
-    white-space: nowrap;
-    font-size: 14px;
+  white-space: nowrap;
+  font-size: 14px;
 }
 
-.table-bordered> :not(caption)>* {
-    border-width: 1px 0;
+.table-bordered > :not(caption) > * {
+  border-width: 1px 0;
 }
 
-.table> :not(:last-child)> :last-child>* {
-    border-bottom-color: currentColor;
+.table > :not(:last-child) > :last-child > * {
+  border-bottom-color: currentColor;
 }
 
 .myaccount-table table th,
 .myaccount-table .table th {
-    color: #222222;
-    padding: 10px;
-    font-weight: 500;
-    background-color: #f8f8f8;
-    border-color: #efefef;
-    border-bottom: 0;
+  color: #222222;
+  padding: 10px;
+  font-weight: 500;
+  background-color: #f8f8f8;
+  border-color: #efefef;
+  border-bottom: 0;
 }
 
-.table-bordered> :not(caption)>*>* {
-    border-width: 0 1px;
+.table-bordered > :not(caption) > * > * {
+  border-width: 0 1px;
 }
 
-.table>tbody {
-    vertical-align: inherit;
+.table > tbody {
+  vertical-align: inherit;
 }
 
-.table-bordered> :not(caption)>* {
-    border-width: 1px 0;
+.table-bordered > :not(caption) > * {
+  border-width: 1px 0;
 }
 
 .myaccount-table table td,
 .myaccount-table .table td {
-    padding: 10px;
-    vertical-align: middle;
-    border-color: #efefef;
+  padding: 10px;
+  vertical-align: middle;
+  border-color: #efefef;
 }
 
 .btn-dark {
-    border-color: #222222;
-    background-color: #222222;
-    color: #ffffff;
+  border-color: #222222;
+  background-color: #222222;
+  color: #ffffff;
 }
 
 .btn {
-    font-size: 15px;
-    padding: 14px 30px;
-    border-radius: 3px;
-    border: 1px solid transparent;
-    line-height: 1;
-    box-shadow: none;
+  font-size: 15px;
+  padding: 14px 30px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  line-height: 1;
+  box-shadow: none;
 }
 
 .btn-hover-primary:hover {
-    border-color: #00c4cc;
-    background-color: #00c4cc;
-    color: #ffffff;
+  border-color: #00c4cc;
+  background-color: #00c4cc;
+  color: #ffffff;
 }
 
-.table-bordered> :not(caption)>*>* {
-    border-width: 0px 1px;
+.table-bordered > :not(caption) > * > * {
+  border-width: 0px 1px;
 }
 
 thead,
@@ -111,130 +111,176 @@ tfoot,
 tr,
 td,
 th {
-    border-color: inherit;
-    border-style: solid;
-    border-width: 0;
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0;
 }
 
 table {
-    caption-side: bottom;
-    border-collapse: collapse;
+  caption-side: bottom;
+  border-collapse: collapse;
 }
 
 /* Account Details, Change Password */
 
 .myaccount-content form {
-    margin-top: -20px;
+  margin-top: -20px;
 }
 .single-input-item {
-    position: relative;
+  position: relative;
 }
 .edit_field {
-    position: absolute;
-    top: 25px;
-    bottom: auto;
-    left: auto;
-    right: -33px;
-    padding: 10px;
-    cursor: pointer;
-    transition: all 0.3s;
+  position: absolute;
+  top: 25px;
+  bottom: auto;
+  left: auto;
+  right: -33px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 .edit_field:hover {
-    color: #00c4cc;
+  color: #00c4cc;
 }
-.myaccount-content form .single-input-item .required, .required {
-    font-weight: 500;
-}
-
-.myaccount-content form .single-input-item input, .single-input-item input {
-    width: 100%;
-    padding: 12px 10px;
-    border: 1px solid #efefef;
-    font-size: 14px;
+.myaccount-content form .single-input-item .required,
+.required {
+  font-weight: 500;
 }
 
-.myaccount-content form .single-input-item input:focus, .single-input-item input:focus {
-    border: 1px solid #00c4cc;
+.myaccount-content form .single-input-item input,
+.single-input-item input {
+  width: 100%;
+  padding: 12px 10px;
+  border: 1px solid #efefef;
+  font-size: 14px;
+}
+
+.myaccount-content form .single-input-item input:focus,
+.single-input-item input:focus {
+  border: 1px solid #00c4cc;
 }
 
 .myaccount-content form .single-item-button {
-    width: 25%;
+  width: 25%;
 }
 
 /* --Fieldset */
 
 .myaccount-content fieldset {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .myaccount-content fieldset legend {
-    color: #222222;
-    font-size: 20px;
-    margin-top: 20px;
-    font-weight: 500;
-    border-bottom: 1px dashed #efefef;
+  color: #222222;
+  font-size: 20px;
+  margin-top: 20px;
+  font-weight: 500;
+  border-bottom: 1px dashed #efefef;
 }
 .img_user {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
-    position: relative;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 1px solid #f5f5f5;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #f5f5f5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .img_user img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 1px solid #f5f5f5;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid #f5f5f5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: block;
 }
 .change-avatar {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    bottom: auto;
-    right: auto;
-    transform: translate(-50%, -50%);
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  right: auto;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
 }
 .change-avatar input {
-    display: none;
+  display: none;
 }
 .icon_upload {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 .change-avatar label {
-    padding: 54px;
-    cursor: pointer;
+  padding: 54px;
+  cursor: pointer;
 }
 .img_user:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 .img_user:hover .change-avatar {
-    visibility: visible;
-    opacity: 1;
+  visibility: visible;
+  opacity: 1;
 }
 .btn-primary {
-    margin: 0 auto;
-    display: block;
+  margin: 0 auto;
+  display: block;
 }
 
 .errors {
-    font-size: 14px;
-    margin: 5px 0 0 10px; 
-    color: rgb(240, 13, 13);
-    text-align: left;
-    font-weight: bold;
+  font-size: 14px;
+  margin: 5px 0 0 10px;
+  color: rgb(240, 13, 13);
+  text-align: left;
+  font-weight: bold;
 }
 .form-group--error {
-    border-color: #c80000!important;
+  border-color: #c80000 !important;
+}
+.button_save {
+  color: #fff;
+  font-weight: 600;
+  background: #00c4cc;
+  border-color: #00c4cc;
+  transition: all 0.3s;
+}
+.button_save:hover {
+  background: #333;
+  border-color: #333;
+}
+.button_close {
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+  background: #6c757d;
+  border-color: #6c757d;
+  transition: all 0.3s;
+}
+.button_close:hover {
+  opacity: 0.8;
+}
+.text__error {
+  width: 50rem;
+  margin-top: 20px;
+  display: block;
+  font-weight: bold;
+  color: red;
+  font-size: 16px;
+}
+.btn-save {
+    color: #FFF;
+    font-weight: 600;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #00c4cc;
+    transition: all 0.3s;
+    border: 1px solid #00c4cc;
+}
+.btn-save:hover {
+    background-color: #333;
+    border-color: #333;
 }

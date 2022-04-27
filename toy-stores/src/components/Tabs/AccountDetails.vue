@@ -1,5 +1,6 @@
 <template>
   <div class="row">
+    <loading-user v-if="isLoading"/>
     <h3 class="title mb-5 text-left">Account Details</h3>
     <div class="col-md-6">
       <div class="img_user">
@@ -13,11 +14,11 @@
             ><b-icon class="icon_upload" icon="image"></b-icon
           ></label>
           <input type="file" id="fileUpLoad" @change="fileUpLoad" />
-          <button type="submit" class="btn btn-primary" @click="uploadImg">
-            Save
-          </button>
         </div>
       </div>
+      <button type="submit" class="btn btn-primary btn-save" @click="uploadImg" v-if="imgUpLoad !== null">
+        Save
+      </button>
       <h3 class="text-center fw-bold mt-4">
         {{ dataCurrentUser.displayName }}
       </h3>
@@ -97,16 +98,21 @@
                       id="display-name"
                       placeholder="Display Name"
                       v-model.trim="dataModified.displayName"
+                      @input="activeBtn"
                     />
                   </div>
                 </form>
-                <b-button class="mt-3" block @click="updateUserProfile"
+                <b-button
+                  class="mt-3 button_save"
+                  block
+                  @click="updateUserProfile"
+                  :disabled="isActive"
                   >Save Changes</b-button
                 >
                 <b-button
-                  class="mt-3 ms-5"
+                  class="mt-3 ms-5 button_close"
                   block
-                  @click="$bvModal.hide('bv-modal-example')"
+                  @click="$bvModal.hide('bv-modal-example'), (isActive = true)"
                   >Close Me</b-button
                 >
               </b-modal>
@@ -123,21 +129,23 @@
                       id="mobile"
                       placeholder="Mobile Phone"
                       v-model.trim="phoneNumber"
-                      pattern="[0-9]{10}"
+                      pattern="/((^(\+84|84|0|0084){1})(3|5|7|8|9))+([0-9]{8})$/"
+                      @input="activeBtn"
                     />
                   </div>
                 </form>
                 <b-button
                   type="submit"
-                  class="mt-3"
+                  class="mt-3 button_save"
                   block
                   @click="updatePhoneNumber"
+                  :disabled="isActive"
                   >Save Changes</b-button
                 >
                 <b-button
-                  class="mt-3 ms-5"
+                  class="mt-3 ms-5 button_close"
                   block
-                  @click="$bvModal.hide('bv-modal-phone')"
+                  @click="$bvModal.hide('bv-modal-phone'), (isActive = true)"
                   >Close Me</b-button
                 >
               </b-modal>
@@ -153,8 +161,10 @@
 import { mapState } from "vuex";
 import { auth, storage } from "../../configs/firebase";
 import { MeService } from "../../services/MeService";
+import LoadingUser from './LoadingUser.vue';
 
 export default {
+  components: { LoadingUser },
   data() {
     return {
       dataModified: {
@@ -166,6 +176,8 @@ export default {
       uploadValue: 0,
       id: "",
       phoneNumber: "",
+      isActive: true,
+      isLoading: false,
     };
   },
   computed: {
@@ -234,9 +246,9 @@ export default {
     },
     fileUpLoad(event) {
       this.imgUpLoad = event.target.files[0];
-      console.log(this.imgUpLoad);
     },
     uploadImg() {
+      this.isLoading = true;
       const storageRef = storage.ref(`/imageUser/${this.imgUpLoad.name}`);
       const task = storageRef.put(this.imgUpLoad);
       task.on(
@@ -252,10 +264,15 @@ export default {
         () => {
           task.snapshot.ref.getDownloadURL().then((url) => {
             this.imgUser = url;
+            this.imgUpLoad = null;
+            this.isLoading = false;
             this.updateImg(url);
           });
         }
       );
+    },
+    activeBtn() {
+      this.isActive = false;
     },
   },
   mounted() {

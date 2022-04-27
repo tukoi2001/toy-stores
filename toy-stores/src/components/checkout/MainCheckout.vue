@@ -6,7 +6,7 @@
         dataUserLogin.isActive == false || dataUserLogin.isActive == 'false'
       "
     >
-      <h3 class="cart__title fw-bold" style="font-size: 2rem;">
+      <h3 class="cart__title fw-bold" style="font-size: 2rem">
         Tài khoản của bạn đã bị vô hiệu hóa! Vui lòng liên hệ admin để mở khóa.
         Xin cảm ơn!!!
       </h3>
@@ -460,7 +460,14 @@ export default {
         this.userForm.street !== ""
       ) {
         if (this.pay_method !== "") {
-          return true;
+          if (this.pay_method == "Thanh toán khi nhận hàng (COD)") {
+            return true;
+          } else if (this.pay_method == "Paypal" && this.status === "COMPLETED") {
+            return true;
+          }
+          else {
+            alert("Bạn chưa thanh toán mà!");
+          }
         } else {
           alert("Vui lòng lựa chọn phương thức thanh toán!");
         }

@@ -171,6 +171,9 @@ export default {
       }
     },
   },
+  beforeDestroy() {
+    this.error = '';
+  }
 };
 </script>
 
