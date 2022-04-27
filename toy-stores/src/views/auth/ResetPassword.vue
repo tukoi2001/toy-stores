@@ -26,16 +26,16 @@
                     <b-icon icon="envelope"></b-icon>
                   </span>
                   <div class="text-left">
-                    <div class="error" v-if="!$v.email.required">
+                    <div class="error_register" v-if="!$v.email.required">
                       Email is required
                     </div>
-                    <div class="error" v-if="!$v.email.email">
+                    <div class="error_register" v-if="!$v.email.email">
                       Email must be valid
                     </div>
                   </div>
                 </div>
                 <div class="box_error">
-                  <p v-if="error != null" class="error">{{ error }}</p>
+                  <p v-if="error != null" class="error_register">{{ error }}</p>
                 </div>
                 <div class="box_message">
                   <p v-if="message != null" class="text_message">
@@ -97,6 +97,9 @@ export default {
       console.log(response);
     },
   },
+  beforeDestroy() {
+    this.error = '';
+  }
 };
 </script>
 

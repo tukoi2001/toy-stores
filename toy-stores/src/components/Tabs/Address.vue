@@ -102,11 +102,11 @@
                     />
                   </div>
                 </form>
-                <b-button class="mt-3" block @click="updateAddress" :disabled="isActive"
+                <b-button class="mt-3 button_save" block @click="updateAddress" :disabled="isActive"
                   >Save Changes</b-button
                 >
                 <b-button
-                  class="mt-3 ms-5"
+                  class="mt-3 ms-5 button_close" 
                   block
                   @click="$bvModal.hide('bv-modal-address'), isActive = true"
                   >Cancel</b-button

@@ -94,14 +94,15 @@ export default {
   right: 10px;
   bottom: auto;
   display: block;
-  width: 63px;
-  height: 60px;
   color: #fff;
   font-size: 2rem;
   font-weight: bold;
   background-color: #62ab00;
   transition: all 0.3s;
   border: 1px solid #62ab00;
+  width: 50px;
+  height: auto;
+  padding: 0!important;
 }
 .btn-primary:hover {
   background-color: #333;

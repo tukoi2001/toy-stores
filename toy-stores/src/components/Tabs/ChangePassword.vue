@@ -77,7 +77,7 @@
           >
             Save Changes
           </button>
-
+          <p v-if="showError" class="text__error">{{ error }}</p>
         </div>
       </form>
     </div>
@@ -96,6 +96,8 @@ export default {
       newPassword: "",
       confirmNewPassword: "",
       isPending: false,
+      error: '',
+      showError: false
     };
   },
   validations: {
@@ -118,8 +120,8 @@ export default {
         this.newPassword !== "" &&
         this.confirmNewPassword !== ""
       ) {
-        this.isPending= true;
         if (this.newPassword === this.confirmNewPassword) {
+          this.isPending= true;
           const user = auth.currentUser;
           if (user && user !== null && user.email !== null) {
             const credential = EmailAuthProvider.credential(user.email, this.currentPassword);
@@ -137,6 +139,8 @@ export default {
             })
             .catch((error) => {
               console.log(error);
+              this.error = "The current password is invalid! Please check your password and try again!";
+              this.showError = true;
               this.isPending = false;
             });
           } else {
@@ -150,6 +154,11 @@ export default {
       }
     },
   },
+  watch: {
+    currentPassword() {
+      this.showError = false;
+    }
+  }
 };
 </script>
 

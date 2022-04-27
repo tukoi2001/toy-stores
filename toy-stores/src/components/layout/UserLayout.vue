@@ -27,6 +27,7 @@ name: 'UserLayout'
   top: 0;
   left: 0;
   right: 0;
+  height: 90px;
   bottom: auto;
   z-index: 900;
   background-color: #FFF;
