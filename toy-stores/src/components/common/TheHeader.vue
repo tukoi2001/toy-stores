@@ -2,12 +2,12 @@
   <div class="header">
     <div class="container">
       <div class="row">
-        <div class="col-md-2">
+        <div class="col-md-2 p-0">
           <router-link to="/">
             <img class="nav__img" src="@/assets/images/logo/logo.png" alt="" />
           </router-link>
         </div>
-        <div class="col-md-7 d-flex align-items-center justify-content-center">
+        <div class="col-md-7 d-flex align-items-center justify-content-center p-0">
           <div>
             <b-navbar toggleable="lg" type="dark" variant="info">
               <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -45,7 +45,7 @@
           </div>
         </div>
 
-        <div class="col-md-3 d-flex align-items-center justify-content-around">
+        <div class="col-md-3 d-flex align-items-center justify-content-around p-0">
           <a href="" class="nav__icon shadow" @click.prevent="showSearch = true">
             <b-icon class="icon__header" icon="search"></b-icon>
           </a>

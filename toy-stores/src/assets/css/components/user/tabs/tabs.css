@@ -284,3 +284,6 @@ table {
     background-color: #333;
     border-color: #333;
 }
+.title__user {
+  font-size: 2rem;
+}

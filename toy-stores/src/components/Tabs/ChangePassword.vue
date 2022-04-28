@@ -1,6 +1,7 @@
 <template>
   <div>
     <h3 class="title">Change Password</h3>
+    <loading-user v-if="isLoading"/>
     <div class="change-password-form">
       <form action="" @submit.prevent="submitChangePassword">
         <fieldset>
@@ -88,7 +89,9 @@
 import { required, minLength, sameAs } from "vuelidate/lib/validators";
 import { auth } from "../../configs/firebase";
 import { EmailAuthProvider, reauthenticateWithCredential  } from 'firebase/auth';
+import LoadingUser from './LoadingUser.vue';
 export default {
+  components: { LoadingUser },
   name: "ChangePassword",
   data() {
     return {
@@ -97,7 +100,8 @@ export default {
       confirmNewPassword: "",
       isPending: false,
       error: '',
-      showError: false
+      showError: false,
+      isLoading: false,
     };
   },
   validations: {
@@ -122,6 +126,7 @@ export default {
       ) {
         if (this.newPassword === this.confirmNewPassword) {
           this.isPending= true;
+          this.isLoading = true;
           const user = auth.currentUser;
           if (user && user !== null && user.email !== null) {
             const credential = EmailAuthProvider.credential(user.email, this.currentPassword);
@@ -132,9 +137,11 @@ export default {
               this.newPassword = '';
               this.confirmNewPassword = '';
               this.isPending = false;
+              this.isLoading = false;
             }).catch((error) => {
               console.log(error);
               this.isPending = false;
+              this.isLoading = false;
             });
             })
             .catch((error) => {
@@ -142,6 +149,7 @@ export default {
               this.error = "The current password is invalid! Please check your password and try again!";
               this.showError = true;
               this.isPending = false;
+              this.isLoading = false;
             });
           } else {
             this.$router.push("/login");

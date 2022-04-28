@@ -173,6 +173,14 @@ export default {
   },
   beforeDestroy() {
     this.error = '';
+  },
+  watch: {
+    userForm: { 
+      handler() {
+        this.error = "";
+      },
+      deep: true,
+    }
   }
 };
 </script>
