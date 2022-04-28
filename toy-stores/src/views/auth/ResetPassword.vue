@@ -99,6 +99,7 @@ export default {
   },
   beforeDestroy() {
     this.error = '';
+    this.message = "";
   }
 };
 </script>

@@ -19,7 +19,7 @@
       <button type="submit" class="btn btn-primary btn-save" @click="uploadImg" v-if="imgUpLoad !== null">
         Save
       </button>
-      <h3 class="text-center fw-bold mt-4">
+      <h3 class="text-center title__user fw-bold mt-4">
         {{ dataCurrentUser.displayName }}
       </h3>
     </div>
